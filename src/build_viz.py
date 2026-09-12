@@ -4,14 +4,36 @@ ROOT = Path(__file__).resolve().parent.parent
 d = json.loads((ROOT/"data"/"targets.json").read_text())
 tpl = (ROOT/"src"/"viz_template.html").read_text()
 
-# genres and country ride on films only; targets join via film_id — keeps the payload small
-slim_f = [{"id": f["id"], "year": f["year"], "gaze": f["gaze"],
-           "g": f.get("genres") or [], "c": f.get("country"), "r": f.get("region")}
+# This page has to open fast on a phone over a cold cache, so the payload is trimmed to
+# what cannot be recomputed. Everything that is a property OF THE FILM lives on the film
+# once; targets carry only what varies per target and are rehydrated on load.
+#
+#   film_id   -> an index into films (an int, not an 18-char string)
+#   delta     -> year_mid - film.year, so it is not stored
+#   direction -> a function of delta and PRESENT_TOL, so it is not stored
+#   weight    -> omitted when 1.0, which is every single-timeline film
+#   e/s       -> year_end / year_start, omitted when equal to year_mid, which is most films
+#   prominence-> one letter
+PRESENT_TOL = 2
+PROM = {"primary": "p", "secondary": "s", "minor": "m"}
+
+slim_f = [{"id": f["id"], "t": f["title"], "year": f["year"], "gaze": f["gaze"],
+           "g": f.get("genres") or [], "c": f.get("country"), "r": f.get("region"),
+           "cf": f.get("confidence"), "b": f.get("basis"), "v": f.get("votes") or 0,
+           **({"ot": f["original_title"]} if f.get("original_title") else {})}
           for f in d["films"]]
-slim_t = [{k: t[k] for k in ("film_id","title","release_year","year_start","year_end","year_mid",
-                             "prominence","weight","delta","direction","confidence","basis")}
-          for t in d["targets"]]
-payload = {"films":slim_f, "targets":slim_t}
+fidx = {f["id"]: k for k, f in enumerate(slim_f)}
+
+slim_t = []
+for t in d["targets"]:
+    o = {"f": fidx[t["film_id"]], "y": t["year_mid"]}
+    if t["year_start"] != t["year_mid"]: o["s"] = t["year_start"]
+    if t["year_end"]   != t["year_mid"]: o["e"] = t["year_end"]
+    if abs(t["weight"] - 1.0) > 1e-9:    o["w"] = t["weight"]
+    if t["prominence"] != "primary":     o["p"] = PROM[t["prominence"]]
+    slim_t.append(o)
+
+payload = {"tol": PRESENT_TOL, "films": slim_f, "targets": slim_t}
 ys = [f["year"] for f in d["films"]]
 kn = sum(1 for f in d["films"] if f["basis"]=="knowledge")
 
@@ -75,17 +97,58 @@ html = (tpl.replace("__DATA__", json.dumps(payload, separators=(",",":")))
            .replace("__SOURCE_NOTE__", source_note)
            .replace("__DATA_CREDIT__", data_credit)
            .replace("__TMDB_LOGO__", logo))
-# two outputs: the artifact body (no doctype - the Artifact tool supplies the skeleton)
-# and a full standalone document you can open straight from disk.
-out = ROOT/"out"/"timeline.html"
-out.write_text(html)
+# Three outputs: the artifact body (no doctype — the Artifact tool supplies the
+# skeleton), a standalone document to open straight from disk, and the published
+# copy under docs/, which is what GitHub Pages serves.
+# ---- full documents -----------------------------------------------------------
+# SITE is where the published copy lives. Open Graph needs absolute URLs — a
+# relative og:image is simply dropped by every scraper, which is how a shared
+# link ends up looking bare.
+SITE = "https://eguiwow.github.io/CinemaTimeGaze/"
+DESC = ("Every film is made in one year and set in another. This measures the gap across "
+        "a century of cinema: how far back films look, how much further ahead they reach "
+        "when they do, and how that has moved decade by decade.")
 
 i = html.index('<div class="root">')
-doc = ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
-       '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
-       '<style>html,body{margin:0;padding:0}</style>\n'
-       + html[:i] + '</head>\n<body>\n' + html[i:] + '\n</body>\n</html>\n')
+
+def document(head_extra=""):
+    return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
+            + head_extra +
+            '<style>html,body{margin:0;padding:0}</style>\n'
+            + html[:i] + '</head>\n<body>\n' + html[i:] + '\n</body>\n</html>\n')
+
+out = ROOT/"out"/"timeline.html"
+out.write_text(html)
 alone = ROOT/"out"/"standalone.html"
-alone.write_text(doc)
+alone.write_text(document())
+
+social = f'''<meta name="description" content="{DESC}">
+<meta name="author" content="Ander Eguiluz">
+<meta name="theme-color" content="#fcfcfb" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1a19" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="{SITE}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Cinema&#39;s Temporal Gaze">
+<meta property="og:title" content="Cinema&#39;s Temporal Gaze">
+<meta property="og:description" content="{DESC}">
+<meta property="og:url" content="{SITE}">
+<meta property="og:image" content="{SITE}preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="An arc chart fanning left into the past and right into the future from a single release decade.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cinema&#39;s Temporal Gaze">
+<meta name="twitter:description" content="{DESC}">
+<meta name="twitter:image" content="{SITE}preview.png">
+'''
+docs = ROOT/"docs"
+docs.mkdir(exist_ok=True)
+(docs/"index.html").write_text(document(social))
+(docs/".nojekyll").write_text("")          # stop Pages running Jekyll over it
+
 print("wrote", out, f"{len(html)/1024:.0f} KB")
-print("wrote", alone, f"{len(doc)/1024:.0f} KB  (open this one directly)")
+print("wrote", alone, f"{len(document())/1024:.0f} KB  (open this one directly)")
+print("wrote", docs/"index.html", f"{len(document(social))/1024:.0f} KB  (what GitHub Pages serves)")
+if not (docs/"preview.png").exists():
+    print("note: docs/preview.png missing — the social card will be blank until it is generated.")

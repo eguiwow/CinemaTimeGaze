@@ -219,6 +219,40 @@ comparison is thin until it catches up.
 
 See `brief.md` §7–§9 for the divergences, the findings and what unblocks the next step.
 
+## Publishing
+
+`make viz` writes three copies of the page. `out/standalone.html` is the one to open
+locally; `docs/index.html` is the published copy, with the description, canonical URL and
+Open Graph tags that stop a shared link looking bare, plus `docs/preview.png` as the social
+card. `docs/.nojekyll` keeps GitHub Pages from running Jekyll over it.
+
+To put it online:
+
+```bash
+make viz                                  # rebuilds docs/index.html from the current data
+git add -A && git commit -m "rebuild page"
+git push
+# then once, on github.com:
+#   Settings -> Pages -> Source: Deploy from a branch -> main -> /docs -> Save
+```
+
+It lands at `https://eguiwow.github.io/CinemaTimeGaze/`. That URL is baked into the
+`SITE` constant at the bottom of `src/build_viz.py` — change it there, not in the HTML,
+if the page ever moves or gets a custom domain.
+
+### Linkable state
+
+The page writes its state into the URL hash, so a specific finding can be linked rather
+than described:
+
+```
+#y=1950&genre=Western&place=c:JP&film=tmdb-346&look=noir&q=samurai
+```
+
+`y` release year or decade · `mode=year` for single years · `genre` (suffix `!` to exclude
+it instead) · `place` as `c:<ISO>` or `r:<region>` · `film` pins one film on the arc chart ·
+`look` the era theme · `q` the search box. Everything is optional.
+
 ## Licence
 
 Code is MIT (`LICENSE`). This project's own results — `data/labels*.jsonl` and

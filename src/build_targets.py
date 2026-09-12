@@ -41,9 +41,11 @@ PRESENT_TOL = 2          # |delta| <= 2 years counts as contemporary
 films, targets = [], []
 for lab in labels:
     f = sample[lab["id"]]
-    films.append({"id":f["id"], "title":f["title"], "year":f["year"],
+    films.append({"id":f["id"], "title":f["title"],
+                  "original_title":f.get("original_title"), "year":f["year"],
                   "genres":f["genres"], "country":f.get("country"),
                   "countries":f.get("countries"), "region":f.get("region"),
+                  "votes":f.get("vote_count") or 0,
                   "gaze":lab["gaze"],
                   "earthbound":lab["earthbound"], "confidence":lab["confidence"],
                   "basis":lab["basis"], "n_targets":len(lab["targets"])})

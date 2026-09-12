@@ -57,6 +57,10 @@ def main():
             "id": m["id"],
             "tmdb_id": m["tmdb_id"],
             "title": m["title"],
+            # kept so the page can find "Sen to Chihiro" as well as "Spirited Away".
+            # Only stored when it actually differs, which is most of world cinema.
+            "original_title": (m.get("original_title")
+                               if (m.get("original_title") or "") != m["title"] else None),
             "year": m["year"],
             "genres": m["genres"],
             "extract": ov,
