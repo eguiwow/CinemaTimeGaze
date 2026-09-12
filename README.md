@@ -226,14 +226,34 @@ locally; `docs/index.html` is the published copy, with the description, canonica
 Open Graph tags that stop a shared link looking bare, plus `docs/preview.png` as the social
 card. `docs/.nojekyll` keeps GitHub Pages from running Jekyll over it.
 
-To put it online:
+First time — create the remote and push. Do this from a normal Terminal; the sandboxed
+shell can reach github.com but carries no credentials.
+
+```bash
+gh auth status                                   # confirm which account is signed in
+gh repo create eguiwow/CinemaTimeGaze --public --source=. --remote=origin --push
+gh repo view --web                               # sanity-check what actually landed
+
+# Settings -> Pages -> Source: Deploy from a branch -> main -> /docs -> Save
+# (or: gh api -X POST repos/eguiwow/CinemaTimeGaze/pages \
+#        -f 'source[branch]=main' -f 'source[path]=/docs')
+```
+
+Before that first push, check the history is clean — the repo was initialised with the
+key already in `src/.env`, so it should never have been committed, but verify rather
+than assume:
+
+```bash
+git log --all --full-history -- src/.env .env    # must print nothing
+git grep -I -n -e 'eyJ' -e 'Bearer ' $(git rev-list --all) -- 2>/dev/null | head
+```
+
+Afterwards, each rebuild is:
 
 ```bash
 make viz                                  # rebuilds docs/index.html from the current data
 git add -A && git commit -m "rebuild page"
 git push
-# then once, on github.com:
-#   Settings -> Pages -> Source: Deploy from a branch -> main -> /docs -> Save
 ```
 
 It lands at `https://eguiwow.github.io/CinemaTimeGaze/`. That URL is baked into the
