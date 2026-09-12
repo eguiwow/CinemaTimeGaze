@@ -1,0 +1,28 @@
+# --- secrets: never commit ---
+src/.env
+.env
+*.env
+
+# --- TMDB's own content: fetched, never redistributed ---
+# The raw corpus carries TMDB plot summaries. Their terms cover use, not bulk
+# redistribution, so the fetch output stays local and only this project's own
+# derived results (data/targets.json, data/labels_*.jsonl) are committed.
+data/tmdb_raw/
+data/tmdb_films.jsonl
+data/sample.json
+data/movies.json
+data/sample_wikipedia.json
+data/_batch.txt
+
+# --- generated build output ---
+# out/ is the local build; docs/ is the published one and IS committed.
+out/
+logs/
+_to_delete/
+
+# --- junk ---
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+venv/

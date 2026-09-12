@@ -1,0 +1,458 @@
+{
+ "AE": {
+  "checked_to": 2001,
+  "films_seen": 61,
+  "oldest_year": 2001,
+  "stopped_before": 2001
+ },
+ "AR": {
+  "checked_to": 1900,
+  "films_seen": 960,
+  "oldest_year": 1900,
+  "stopped_before": null
+ },
+ "AT": {
+  "checked_to": 1900,
+  "films_seen": 824,
+  "oldest_year": 1906,
+  "stopped_before": null
+ },
+ "AU": {
+  "checked_to": 1900,
+  "films_seen": 980,
+  "oldest_year": 1906,
+  "stopped_before": null
+ },
+ "BD": {
+  "checked_to": 1959,
+  "films_seen": 99,
+  "oldest_year": 1959,
+  "stopped_before": 1959
+ },
+ "BE": {
+  "checked_to": 1955,
+  "films_seen": 555,
+  "oldest_year": 1955,
+  "stopped_before": 1955
+ },
+ "BG": {
+  "checked_to": 1952,
+  "films_seen": 181,
+  "oldest_year": 1952,
+  "stopped_before": 1952
+ },
+ "BR": {
+  "checked_to": 1913,
+  "films_seen": 1142,
+  "oldest_year": 1913,
+  "stopped_before": 1913
+ },
+ "CA": {
+  "checked_to": 1914,
+  "films_seen": 1292,
+  "oldest_year": 1914,
+  "stopped_before": 1914
+ },
+ "CH": {
+  "checked_to": 1925,
+  "films_seen": 799,
+  "oldest_year": 1925,
+  "stopped_before": 1925
+ },
+ "CL": {
+  "checked_to": 1925,
+  "films_seen": 231,
+  "oldest_year": 1925,
+  "stopped_before": 1925
+ },
+ "CN": {
+  "checked_to": 1922,
+  "films_seen": 778,
+  "oldest_year": 1922,
+  "stopped_before": 1922
+ },
+ "CO": {
+  "checked_to": 1971,
+  "films_seen": 234,
+  "oldest_year": 1971,
+  "stopped_before": 1971
+ },
+ "CU": {
+  "checked_to": 1954,
+  "films_seen": 91,
+  "oldest_year": 1954,
+  "stopped_before": 1954
+ },
+ "CZ": {
+  "checked_to": 1993,
+  "films_seen": 540,
+  "oldest_year": 1993,
+  "stopped_before": 1993
+ },
+ "DE": {
+  "checked_to": 1900,
+  "films_seen": 1990,
+  "oldest_year": 1902,
+  "stopped_before": null
+ },
+ "DK": {
+  "checked_to": 1900,
+  "films_seen": 1115,
+  "oldest_year": 1902,
+  "stopped_before": null
+ },
+ "DZ": {
+  "checked_to": 1963,
+  "films_seen": 55,
+  "oldest_year": 1963,
+  "stopped_before": 1963
+ },
+ "EE": {
+  "checked_to": 1979,
+  "films_seen": 131,
+  "oldest_year": 1979,
+  "stopped_before": 1979
+ },
+ "EG": {
+  "checked_to": 1934,
+  "films_seen": 690,
+  "oldest_year": 1934,
+  "stopped_before": 1934
+ },
+ "ES": {
+  "checked_to": 1900,
+  "films_seen": 1661,
+  "oldest_year": 1902,
+  "stopped_before": null
+ },
+ "ET": {
+  "checked_to": 2008,
+  "films_seen": 5,
+  "oldest_year": 2008,
+  "stopped_before": 2008
+ },
+ "FI": {
+  "checked_to": 1920,
+  "films_seen": 879,
+  "oldest_year": 1920,
+  "stopped_before": 1920
+ },
+ "FR": {
+  "checked_to": 1900,
+  "films_seen": 2288,
+  "oldest_year": 1900,
+  "stopped_before": null
+ },
+ "GB": {
+  "checked_to": 1900,
+  "films_seen": 2039,
+  "oldest_year": 1900,
+  "stopped_before": null
+ },
+ "GE": {
+  "checked_to": 1992,
+  "films_seen": 65,
+  "oldest_year": 1992,
+  "stopped_before": 1992
+ },
+ "GH": {
+  "checked_to": 2008,
+  "films_seen": 11,
+  "oldest_year": 2008,
+  "stopped_before": 2008
+ },
+ "GR": {
+  "checked_to": 1927,
+  "films_seen": 999,
+  "oldest_year": 1927,
+  "stopped_before": 1927
+ },
+ "HK": {
+  "checked_to": 1950,
+  "films_seen": 1197,
+  "oldest_year": 1950,
+  "stopped_before": 1950
+ },
+ "HR": {
+  "checked_to": 1978,
+  "films_seen": 165,
+  "oldest_year": 1978,
+  "stopped_before": 1978
+ },
+ "HU": {
+  "checked_to": 1915,
+  "films_seen": 572,
+  "oldest_year": 1915,
+  "stopped_before": 1915
+ },
+ "ID": {
+  "checked_to": 1971,
+  "films_seen": 344,
+  "oldest_year": 1971,
+  "stopped_before": 1971
+ },
+ "IE": {
+  "checked_to": 1952,
+  "films_seen": 578,
+  "oldest_year": 1952,
+  "stopped_before": 1952
+ },
+ "IL": {
+  "checked_to": 1955,
+  "films_seen": 458,
+  "oldest_year": 1955,
+  "stopped_before": 1955
+ },
+ "IN": {
+  "checked_to": 1913,
+  "films_seen": 1252,
+  "oldest_year": 1913,
+  "stopped_before": 1913
+ },
+ "IR": {
+  "checked_to": 1957,
+  "films_seen": 505,
+  "oldest_year": 1957,
+  "stopped_before": 1957
+ },
+ "IS": {
+  "checked_to": 1977,
+  "films_seen": 190,
+  "oldest_year": 1977,
+  "stopped_before": 1977
+ },
+ "IT": {
+  "checked_to": 1900,
+  "films_seen": 1739,
+  "oldest_year": 1905,
+  "stopped_before": null
+ },
+ "JP": {
+  "checked_to": 1900,
+  "films_seen": 1704,
+  "oldest_year": 1907,
+  "stopped_before": null
+ },
+ "KE": {
+  "checked_to": 1981,
+  "films_seen": 16,
+  "oldest_year": 1981,
+  "stopped_before": 1981
+ },
+ "KR": {
+  "checked_to": 1934,
+  "films_seen": 779,
+  "oldest_year": 1934,
+  "stopped_before": 1934
+ },
+ "LB": {
+  "checked_to": 1957,
+  "films_seen": 66,
+  "oldest_year": 1957,
+  "stopped_before": 1957
+ },
+ "LK": {
+  "checked_to": 1956,
+  "films_seen": 30,
+  "oldest_year": 1956,
+  "stopped_before": 1956
+ },
+ "LT": {
+  "checked_to": 1990,
+  "films_seen": 114,
+  "oldest_year": 1990,
+  "stopped_before": 1990
+ },
+ "LV": {
+  "checked_to": 1992,
+  "films_seen": 79,
+  "oldest_year": 1992,
+  "stopped_before": 1992
+ },
+ "MA": {
+  "checked_to": 1951,
+  "films_seen": 64,
+  "oldest_year": 1951,
+  "stopped_before": 1951
+ },
+ "MX": {
+  "checked_to": 1917,
+  "films_seen": 1771,
+  "oldest_year": 1917,
+  "stopped_before": 1917
+ },
+ "MY": {
+  "checked_to": 2001,
+  "films_seen": 129,
+  "oldest_year": 2001,
+  "stopped_before": 2001
+ },
+ "NG": {
+  "checked_to": 1999,
+  "films_seen": 67,
+  "oldest_year": 1999,
+  "stopped_before": 1999
+ },
+ "NL": {
+  "checked_to": 1928,
+  "films_seen": 807,
+  "oldest_year": 1928,
+  "stopped_before": 1928
+ },
+ "NO": {
+  "checked_to": 1900,
+  "films_seen": 666,
+  "oldest_year": 1911,
+  "stopped_before": null
+ },
+ "NP": {
+  "checked_to": 1996,
+  "films_seen": 17,
+  "oldest_year": 1996,
+  "stopped_before": 1996
+ },
+ "NZ": {
+  "checked_to": 1978,
+  "films_seen": 350,
+  "oldest_year": 1978,
+  "stopped_before": 1978
+ },
+ "PE": {
+  "checked_to": 1951,
+  "films_seen": 149,
+  "oldest_year": 1951,
+  "stopped_before": 1951
+ },
+ "PH": {
+  "checked_to": 1950,
+  "films_seen": 599,
+  "oldest_year": 1950,
+  "stopped_before": 1950
+ },
+ "PK": {
+  "checked_to": 1959,
+  "films_seen": 38,
+  "oldest_year": 1959,
+  "stopped_before": 1959
+ },
+ "PL": {
+  "checked_to": 1900,
+  "films_seen": 1115,
+  "oldest_year": 1908,
+  "stopped_before": null
+ },
+ "PT": {
+  "checked_to": 1922,
+  "films_seen": 590,
+  "oldest_year": 1922,
+  "stopped_before": 1922
+ },
+ "RO": {
+  "checked_to": 1943,
+  "films_seen": 687,
+  "oldest_year": 1943,
+  "stopped_before": 1943
+ },
+ "RS": {
+  "checked_to": 1993,
+  "films_seen": 167,
+  "oldest_year": 1993,
+  "stopped_before": 1993
+ },
+ "RU": {
+  "checked_to": 1970,
+  "films_seen": 674,
+  "oldest_year": 1970,
+  "stopped_before": 1970
+ },
+ "SA": {
+  "checked_to": 1974,
+  "films_seen": 130,
+  "oldest_year": 1974,
+  "stopped_before": 1974
+ },
+ "SE": {
+  "checked_to": 1912,
+  "films_seen": 1172,
+  "oldest_year": 1912,
+  "stopped_before": 1912
+ },
+ "SG": {
+  "checked_to": 1959,
+  "films_seen": 148,
+  "oldest_year": 1959,
+  "stopped_before": 1959
+ },
+ "SK": {
+  "checked_to": 1993,
+  "films_seen": 106,
+  "oldest_year": 1993,
+  "stopped_before": 1993
+ },
+ "SN": {
+  "checked_to": 1955,
+  "films_seen": 36,
+  "oldest_year": 1955,
+  "stopped_before": 1955
+ },
+ "TH": {
+  "checked_to": 1957,
+  "films_seen": 504,
+  "oldest_year": 1957,
+  "stopped_before": 1957
+ },
+ "TN": {
+  "checked_to": 1959,
+  "films_seen": 47,
+  "oldest_year": 1959,
+  "stopped_before": 1959
+ },
+ "TR": {
+  "checked_to": 1949,
+  "films_seen": 959,
+  "oldest_year": 1949,
+  "stopped_before": 1949
+ },
+ "TW": {
+  "checked_to": 1961,
+  "films_seen": 670,
+  "oldest_year": 1961,
+  "stopped_before": 1961
+ },
+ "UA": {
+  "checked_to": 1985,
+  "films_seen": 270,
+  "oldest_year": 1985,
+  "stopped_before": 1985
+ },
+ "US": {
+  "checked_to": 1900,
+  "films_seen": 2500,
+  "oldest_year": 1900,
+  "stopped_before": null
+ },
+ "UY": {
+  "checked_to": 1987,
+  "films_seen": 69,
+  "oldest_year": 1987,
+  "stopped_before": 1987
+ },
+ "VE": {
+  "checked_to": 1948,
+  "films_seen": 125,
+  "oldest_year": 1948,
+  "stopped_before": 1948
+ },
+ "VN": {
+  "checked_to": 1974,
+  "films_seen": 116,
+  "oldest_year": 1974,
+  "stopped_before": 1974
+ },
+ "ZA": {
+  "checked_to": 1959,
+  "films_seen": 232,
+  "oldest_year": 1959,
+  "stopped_before": 1959
+ }
+}

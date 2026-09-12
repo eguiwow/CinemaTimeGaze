@@ -1,0 +1,825 @@
+<title>Cinema's Temporal Gaze</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%8E%A5%3C%2Ftext%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  .root {
+    color-scheme: light;
+    --surface: #fcfcfb; --panel: #f4f3f0; --line: #e2e0da;
+    --ink: #0b0b0b; --ink-2: #52514e; --ink-3: #83817a;
+    --past: #2a78d6; --future: #e34948; --now: #8a8a85;
+    --focus: #0b0b0b;
+    --b-near: #9ec5f4; --b-mid: #2a78d6; --b-far: #104281;
+    --f-near: #f3a6a5; --f-mid: #e34948; --f-far: #8f2120;
+    --display: "Instrument Serif", Georgia, "Times New Roman", serif;
+    --body: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .root {
+      color-scheme: dark;
+      --surface: #1a1a19; --panel: #232322; --line: #383835;
+      --ink: #ffffff; --ink-2: #c3c2b7; --ink-3: #8e8d85;
+      --past: #3987e5; --future: #e66767; --now: #8e8d85;
+      --focus: #ffffff;
+      --b-near: #cde2fb; --b-mid: #3987e5; --b-far: #1c5cab;
+      --f-near: #f7c9c8; --f-mid: #e66767; --f-far: #b8433f;
+    }
+  }
+  :root[data-theme="dark"] .root {
+    color-scheme: dark;
+    --surface: #1a1a19; --panel: #232322; --line: #383835;
+    --ink: #ffffff; --ink-2: #c3c2b7; --ink-3: #8e8d85;
+    --past: #3987e5; --future: #e66767; --now: #8e8d85;
+    --focus: #ffffff;
+    --b-near: #cde2fb; --b-mid: #3987e5; --b-far: #1c5cab;
+    --f-near: #f7c9c8; --f-mid: #e66767; --f-far: #b8433f;
+  }
+  body { background: var(--surface); }
+  [hidden] { display: none !important; }
+  .root {
+    background: var(--surface); color: var(--ink);
+    font: 14px/1.6 var(--body);
+    max-width: 1080px; margin: 0 auto; padding: 32px 20px 64px;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1 { font-family: var(--display); font-size: 42px; line-height: 1.05; margin: 0 0 10px;
+       letter-spacing: -0.01em; font-weight: 400; text-wrap: balance; }
+  .sub { color: var(--ink-2); margin: 0 0 26px; max-width: 62ch; }
+  .sub b { color: var(--ink); font-weight: 600; }
+
+  .controls { display: flex; flex-wrap: wrap; gap: 14px 20px; align-items: center;
+              padding: 12px 14px; background: var(--panel); border-radius: 10px; margin-bottom: 6px; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 7px; overflow: hidden; background: var(--surface); }
+  .seg button { font: inherit; font-size: 13px; padding: 5px 13px; border: 0; background: transparent;
+                color: var(--ink-2); cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+  .ctl { display: flex; align-items: center; gap: 9px; }
+  .ctl label { font-family: var(--mono); font-size: 10.5px; color: var(--ink-2); text-transform: uppercase; letter-spacing: .1em; }
+  input[type=range] { width: 260px; accent-color: var(--ink); }
+  .yearbox { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 18px; font-weight: 500; min-width: 5.6ch; }
+  .btn { font: inherit; font-size: 13px; padding: 5px 13px; border: 1px solid var(--line);
+         border-radius: 7px; background: var(--surface); color: var(--ink); cursor: pointer; }
+  .btn:hover { border-color: var(--ink-3); }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1px;
+           background: var(--line); border: 1px solid var(--line); border-radius: 10px;
+           overflow: hidden; margin: 18px 0 6px; }
+  .stat { background: var(--surface); padding: 12px 14px; }
+  .stat .k { font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); }
+  .stat .v { font-family: var(--mono); font-size: 25px; font-weight: 500; font-variant-numeric: tabular-nums;
+             letter-spacing: -0.03em; margin-top: 3px; }
+  .stat .n { font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .stat.past .v { color: var(--past); }
+  .stat.future .v { color: var(--future); }
+
+  .figwrap { position: relative; margin-top: 10px; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .axis-line { stroke: var(--ink-3); stroke-width: 1; }
+  .tick text { fill: var(--ink-3); font-size: 10px; font-variant-numeric: tabular-nums; }
+  .tick line { stroke: var(--line); stroke-width: 1; }
+  .brk { stroke: var(--ink-3); stroke-width: 1; stroke-dasharray: 2 3; opacity: .8; }
+  .arc { fill: none; stroke-linecap: round; }
+  .arc.past { stroke: var(--past); }
+  .arc.future { stroke: var(--future); }
+  .arc:hover { stroke-width: 4 !important; }
+  .nowbar { fill: var(--now); }
+  .nowline { stroke: var(--focus); stroke-width: 1.5; }
+  .zonelab { fill: var(--ink-3); font-size: 9.5px; letter-spacing: .12em; text-transform: uppercase;
+             font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .hit { fill: none; stroke: transparent; stroke-width: 12; cursor: pointer; }
+
+  .legend { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; margin: 14px 0 0; font-size: 12.5px; color: var(--ink-2); }
+  .legend i { display: inline-block; width: 22px; height: 3px; border-radius: 2px; vertical-align: middle; margin-right: 7px; }
+
+  .tip { position: absolute; pointer-events: none; opacity: 0; transition: opacity .1s;
+         background: var(--ink); color: var(--surface); padding: 8px 10px; border-radius: 7px;
+         font-size: 12.5px; line-height: 1.45; max-width: 280px; z-index: 5; }
+  .tip b { font-weight: 600; }
+  .tip .m { opacity: .72; }
+
+  h2 { font-family: var(--display); font-size: 24px; margin: 42px 0 4px; font-weight: 400; letter-spacing: -0.005em; }
+  .note { color: var(--ink-2); font-size: 13px; margin: 0 0 12px; max-width: 68ch; }
+  details { margin-top: 34px; border-top: 1px solid var(--line); padding-top: 18px; }
+  summary { cursor: pointer; font-size: 13.5px; font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; margin-top: 12px; font-size: 12.5px; }
+  th, td { text-align: left; padding: 5px 9px; border-bottom: 1px solid var(--line); }
+  th { font-family: var(--mono); color: var(--ink-3); font-weight: 500; text-transform: uppercase; font-size: 10px; letter-spacing: .1em; }
+  td.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .scrollx { overflow-x: auto; }
+  .caveat { color: var(--ink-2); font-size: 12.5px; line-height: 1.6; }
+  .attrib { margin: 34px 0 8px; padding-top: 18px; border-top: 1px solid var(--line);
+            display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+            color: var(--ink-3); font-size: 12px; line-height: 1.6; }
+  .attrib a { color: var(--ink-2); }
+  .attrib .mark { flex: 0 0 auto; display: inline-flex; align-items: center; }
+  /* TMDB asks that the logo not be recoloured, so it keeps its own colours in both themes. */
+  .attrib .mark svg, .attrib .mark img { display: block; height: 20px; width: auto; }
+  .attrib .wordmark { font-family: var(--mono); font-weight: 700; letter-spacing: .04em;
+                      font-size: 13px; color: var(--ink-2); text-decoration: none; }
+  .attrib p { margin: 0; max-width: 62ch; }
+  .caveat li { margin-bottom: 6px; }
+  .warn { border-left: 3px solid var(--future); padding-left: 12px; }
+  .band-far  { fill: var(--b-far);  }
+  .band-mid  { fill: var(--b-mid);  }
+  .band-near { fill: var(--b-near); }
+  .band-now  { fill: var(--now); }
+  .band-fnear{ fill: var(--f-near); }
+  .band-fmid { fill: var(--f-mid);  }
+  .band-ffar { fill: var(--f-far);  }
+  .band-row rect { stroke: var(--surface); stroke-width: 2; cursor: pointer; }
+  .band-row:hover rect { opacity: .82; }
+  .band-sel { fill: var(--ink); opacity: .05; }
+  .swatch { display: inline-flex; align-items: center; gap: 6px; }
+  .swatch i { width: 13px; height: 13px; border-radius: 3px; display: inline-block; margin: 0; }
+  .filters { margin-top: 8px; }
+  select { font: inherit; font-size: 13px; padding: 4px 8px; border: 1px solid var(--line);
+           border-radius: 7px; background: var(--surface); color: var(--ink); max-width: 190px; }
+  .ctl label.chk { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px;
+         color: var(--ink-2); text-transform: none; letter-spacing: 0; font-family: var(--body); }
+  .chk input { accent-color: var(--ink); }
+  .fnote { font-size: 12.5px; color: var(--ink-2); }
+  .fnote.thin { color: var(--future); }
+
+  .facts { margin-top: 40px; padding: 20px 22px; background: var(--panel); border-radius: 12px;
+           display: grid; grid-template-columns: 1fr auto; gap: 8px 18px; align-items: center; }
+  .fact-eyebrow { grid-column: 1 / -1; font-family: var(--mono); font-size: 10px;
+                  text-transform: uppercase; letter-spacing: .12em; color: var(--ink-3); }
+  .fact { margin: 0; font-family: var(--display); font-size: 21px; line-height: 1.3;
+          text-wrap: balance; }
+  .fact em { font-style: normal; border-bottom: 2px solid var(--past); padding-bottom: 1px; }
+  .fact em.f { border-color: var(--future); }
+  .fact-n { grid-column: 1; font-size: 11.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .fact-nav { grid-column: 2; grid-row: 2 / 4; display: flex; align-items: center; gap: 4px; }
+  .fact-nav button { font: inherit; font-size: 15px; line-height: 1; width: 28px; height: 28px;
+                     border: 1px solid var(--line); border-radius: 7px; background: var(--surface);
+                     color: var(--ink); cursor: pointer; }
+  .fact-nav span { font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+                   min-width: 3.5ch; text-align: center; }
+
+  :is(button, summary, input, a, select):focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 620px) { h1 { font-size: 32px; } input[type=range] { width: 180px; } }
+</style>
+
+<div class="root">
+  <h1>Cinema's Temporal Gaze</h1>
+  <p class="sub">Every film is made in one year and <b>set</b> in some year. Pick a year below and watch where its films look — <b>back</b> below the line, <b>forward</b> above it. Films set in their own present collapse into the grey bar at the centre.</p>
+
+  <div class="controls">
+    <div class="seg" role="group" aria-label="Selection width">
+      <button id="mYear" aria-pressed="false">Year</button>
+      <button id="mDec" aria-pressed="true">Decade</button>
+    </div>
+    <div class="ctl">
+      <label for="yr">Released</label>
+      <input type="range" id="yr" min="0" max="1" step="1" value="0">
+      <span class="yearbox" id="yrLabel">—</span>
+    </div>
+    <button class="btn" id="play">▶ Play</button>
+  </div>
+
+  <div class="controls filters" id="filters">
+    <div class="ctl">
+      <label for="fGenre">Genre</label>
+      <select id="fGenre"></select>
+      <label class="chk"><input type="checkbox" id="fGenreEx"> exclude it instead</label>
+    </div>
+    <div class="ctl" id="countryWrap" hidden>
+      <label for="fCountry">Origin</label>
+      <select id="fCountry"></select>
+    </div>
+    <button class="btn" id="fReset">Reset</button>
+    <span class="fnote" id="fNote"></span>
+  </div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="figwrap">
+    <svg id="fan" viewBox="0 0 1000 400" role="img" aria-labelledby="fanTitle">
+      <title id="fanTitle">Arcs from the selected release year to the years its films depict</title>
+    </svg>
+    <div class="tip" id="tip"></div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--past)"></i>Looks back (set before release)</span>
+    <span><i style="background:var(--future)"></i>Looks ahead (set after release)</span>
+    <span><i style="background:var(--now);height:9px;width:9px;border-radius:2px"></i>Set in its own present</span>
+    <span style="color:var(--ink-3)">Line thickness = weight within its film</span>
+  </div>
+
+  <h2>How each decade splits</h2>
+  <p class="note">The distribution behind the medians. Each bar is one release decade, showing only
+  the films that <em>travel</em> — set in their own present is set aside and reported on the right,
+  because at 60–80% of every decade it would otherwise crush the pattern. Blue looks back, red looks
+  ahead, and the darker the shade the further it goes. Decades under 10 targets are omitted.</p>
+  <div class="figwrap">
+    <svg id="bands" viewBox="0 0 1000 30" role="img" aria-labelledby="bTitle">
+      <title id="bTitle">Share of each release decade's films by how far back or forward they are set</title>
+    </svg>
+    <div class="tip" id="tip3"></div>
+  </div>
+  <div class="legend" id="bandLegend"></div>
+
+  <h2>The whole corpus</h2>
+  <p class="note">Release year against depicted year, one dot per target. The diagonal is “set now”. Everything under it is nostalgia; everything over it is speculation. The selected year is highlighted.</p>
+  <div class="figwrap">
+    <svg id="scatter" viewBox="0 0 1000 380" role="img" aria-labelledby="scTitle">
+      <title id="scTitle">Scatter of release year against depicted year for every classified target</title>
+    </svg>
+    <div class="tip" id="tip2"></div>
+  </div>
+
+  <div class="facts" id="facts">
+    <div class="fact-eyebrow">What falls out of the data</div>
+    <p class="fact" id="factText">—</p>
+    <div class="fact-nav">
+      <button id="factPrev" aria-label="Previous fact">&lsaquo;</button>
+      <span id="factIdx"></span>
+      <button id="factNext" aria-label="Next fact">&rsaquo;</button>
+    </div>
+    <div class="fact-n" id="factN"></div>
+  </div>
+
+  <details>
+    <summary>Data table for the current selection</summary>
+    <div class="scrollx"><table id="tbl"><thead><tr>
+      <th>Film</th><th class="num">Released</th><th class="num">Set in</th><th class="num">Δ years</th>
+      <th>Direction</th><th>Weight</th><th>Basis</th></tr></thead><tbody></tbody></table></div>
+  </details>
+
+  <details>
+    <summary>How this was built, and what is wrong with it</summary>
+    <ul class="caveat">
+      <li><b>Corpus.</b> __SOURCE_NOTE__</li>
+      <li><b>Labels are model judgments, not extractions.</b> __KPCT__% of films were classified from world knowledge rather than from a stated year in the source text, because the source text is a ~90-word Wikipedia lead that usually does not name the setting. Those labels have not been checked against an independent ground truth. Treat the shape as a hypothesis, not a measurement.</li>
+      <li><b>Present is the default and the default is sticky.</b> A film whose setting is never stated and that the model does not recognise lands on "present". That biases the whole picture <i>toward</i> the diagonal, so real nostalgia is probably understated.</li>
+      <li><b>Medians, never means.</b> One film set in the year 802,701 outweighs a thousand set last Tuesday. Every figure here is a median; the means are meaningless and are not shown.</li>
+      <li><b>The year axis is piecewise.</b> The dense 1850–2050 band gets most of the width; deep past and far future are compressed, with dashed breaks marking the joins. Distances across a break are not comparable.</li>
+      <li><b>Re-releases contaminate.</b> A 2013 3-D re-release of a 1993 film reads as a 20-year lookback. Rare, but present.</li>
+    </ul>
+  </details>
+
+  <footer class="attrib">
+    <span class="mark">__TMDB_LOGO__</span>
+    <p>__DATA_CREDIT__ It does not vet, endorse or certify anything on this page; the
+    classifications, the aggregation and every claim made from them are this project's own.<br>
+    <b>This product uses the TMDB API but is not endorsed or certified by TMDB.</b></p>
+  </footer>
+</div>
+
+<script>
+const DATA = __DATA__;
+(function(){
+  const films = new Map(DATA.films.map(f => [f.id, f]));
+  const T = DATA.targets;
+  const HAS_COUNTRY = DATA.films.some(f => f.c);
+  const HAS_REGION  = DATA.films.some(f => f.r);
+  /* ISO codes are what the fetch stores; nobody reads a corpus in ISO. */
+  const CNAME = {US:'United States',GB:'United Kingdom',FR:'France',DE:'Germany',IT:'Italy',
+    ES:'Spain',NL:'Netherlands',SE:'Sweden',DK:'Denmark',BE:'Belgium',AT:'Austria',
+    CH:'Switzerland',IE:'Ireland',PT:'Portugal',NO:'Norway',FI:'Finland',IS:'Iceland',
+    GR:'Greece',CA:'Canada',MX:'Mexico',RU:'Russia',PL:'Poland',CZ:'Czechia',HU:'Hungary',
+    RO:'Romania',UA:'Ukraine',RS:'Serbia',BG:'Bulgaria',HR:'Croatia',SK:'Slovakia',
+    EE:'Estonia',LT:'Lithuania',LV:'Latvia',GE:'Georgia',JP:'Japan',KR:'South Korea',
+    CN:'China',HK:'Hong Kong',TW:'Taiwan',IN:'India',PK:'Pakistan',BD:'Bangladesh',
+    LK:'Sri Lanka',NP:'Nepal',TH:'Thailand',PH:'Philippines',ID:'Indonesia',VN:'Vietnam',
+    MY:'Malaysia',SG:'Singapore',BR:'Brazil',AR:'Argentina',CL:'Chile',CO:'Colombia',
+    PE:'Peru',VE:'Venezuela',UY:'Uruguay',CU:'Cuba',TR:'Turkey',IR:'Iran',IL:'Israel',
+    EG:'Egypt',LB:'Lebanon',AE:'United Arab Emirates',SA:'Saudi Arabia',ZA:'South Africa',
+    NG:'Nigeria',MA:'Morocco',DZ:'Algeria',TN:'Tunisia',SN:'Senegal',KE:'Kenya',
+    GH:'Ghana',ET:'Ethiopia',AU:'Australia',NZ:'New Zealand'};
+  const RNAME = {north_america:'North America',west_europe:'Western Europe',
+    east_europe:'Eastern Europe & Caucasus',east_asia:'East Asia',south_asia:'South Asia',
+    southeast_asia:'Southeast Asia',latin_america:'Latin America',
+    middle_east:'Middle East & North Africa',africa:'Africa',oceania:'Oceania',other:'Other'};
+  const cName = c => CNAME[c] || c;
+  const rName = r => RNAME[r] || r;
+  const MIN_TARGETS = 25;              // below this the charts are drawing noise
+  let FT = T, FF = DATA.films;         // the filtered view every render reads
+  const years = [...new Set(DATA.films.map(f => f.year))].sort((a,b)=>a-b);
+  const Y0 = years[0], Y1 = years[years.length-1];
+
+  /* ---- piecewise year scale: dense core, compressed tails ---- */
+  const ANCH = [[-40000,0],[-2000,.035],[0,.055],[1000,.075],[1500,.10],[1700,.14],
+                [1800,.18],[1850,.22],[1900,.32],[1950,.50],[2000,.68],[2023,.76],
+                [2050,.80],[2100,.85],[2300,.90],[3000,.94],[10000,.97],[900000,1]];
+  const BREAKS = [1850, 2050];
+  const TICKS  = [-2000,0,1000,1500,1700,1800,1850,1900,1950,2000,2050,2100,2300,3000,10000];
+  const L=52, R=52, W=1000;
+  function frac(y){
+    if (y <= ANCH[0][0]) return 0;
+    if (y >= ANCH[ANCH.length-1][0]) return 1;
+    for (let i=0;i<ANCH.length-1;i++){
+      const [a,fa]=ANCH[i], [b,fb]=ANCH[i+1];
+      if (y>=a && y<=b) return fa + (fb-fa)*((y-a)/(b-a));
+    }
+    return 1;
+  }
+  const X = y => L + frac(y)*(W-L-R);
+
+  /* ---- state ---- */
+  let mode='decade', idx=0, timer=null;
+  const decades = [...new Set(DATA.films.map(f=>Math.floor(f.year/10)*10))].sort((a,b)=>a-b);
+  const el = id => document.getElementById(id);
+  const slider=el('yr'), yrLabel=el('yrLabel');
+
+  function selection(){
+    if (mode==='year'){ const y=years[idx]; return {lo:y, hi:y, label:String(y)}; }
+    const d=decades[idx]; return {lo:d, hi:d+9, label:d+'s'};
+  }
+  function syncSlider(){
+    slider.max = (mode==='year'?years.length:decades.length)-1;
+    if (idx>slider.max) idx=slider.max;
+    slider.value = idx;
+  }
+
+  const fmtY = y => y<0 ? Math.abs(y).toLocaleString()+' BC'
+                  : y>9999 ? y.toLocaleString() : String(y);
+  const median = a => { if(!a.length) return null; const s=[...a].sort((x,y)=>x-y), m=s.length>>1;
+                        return s.length%2 ? s[m] : Math.round((s[m-1]+s[m])/2); };
+
+  /* ---- render: stats ---- */
+  function renderStats(sel, rows, fl){
+    const back = rows.filter(r=>r.direction==='back'), fwd = rows.filter(r=>r.direction==='forward');
+    const wSum = rows.reduce((s,r)=>s+r.weight,0) || 1;
+    const wBack = back.reduce((s,r)=>s+r.weight,0), wFwd = fwd.reduce((s,r)=>s+r.weight,0);
+    const mb = median(back.map(r=>-r.delta)), mf = median(fwd.map(r=>r.delta));
+    el('stats').innerHTML = `
+      <div class="stat"><div class="k">Films</div><div class="v">${fl.length}</div>
+        <div class="n">${rows.length} target${rows.length===1?'':'s'} · ${fl.filter(f=>f.gaze==='atemporal').length} timeless</div></div>
+      <div class="stat past"><div class="k">Looking back</div><div class="v">${Math.round(100*wBack/wSum)}%</div>
+        <div class="n">${back.length} of ${rows.length} targets</div></div>
+      <div class="stat past"><div class="k">Median lookback</div><div class="v">${mb===null?'—':mb+'y'}</div>
+        <div class="n">${mb===null?'no past-set films':'typical distance back'}</div></div>
+      <div class="stat future"><div class="k">Looking ahead</div><div class="v">${Math.round(100*wFwd/wSum)}%</div>
+        <div class="n">${fwd.length} of ${rows.length} targets</div></div>
+      <div class="stat future"><div class="k">Median lookahead</div><div class="v">${mf===null?'—':mf+'y'}</div>
+        <div class="n">${mf===null?'no future-set films':'typical distance forward'}</div></div>`;
+  }
+
+  /* ---- render: fan ---- */
+  const NS='http://www.w3.org/2000/svg';
+  function mk(t,a){ const e=document.createElementNS(NS,t); for(const k in a) e.setAttribute(k,a[k]); return e; }
+  const tip=el('tip');
+  function showTip(host, ev, html){
+    const b = host.getBoundingClientRect();
+    tip.innerHTML=html; tip.style.opacity=1;
+    let x = ev.clientX-b.left+14, y = ev.clientY-b.top+14;
+    if (x > b.width-300) x -= 300;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  }
+  const hideTip = () => tip.style.opacity=0;
+
+  function renderFan(sel, rows){
+    const svg=el('fan'); svg.innerHTML='<title id="fanTitle">Arcs from the selected release year to the years its films depict</title>';
+    const AX=250, H=400;
+    const g=mk('g',{});
+
+    let prevRight=-1e9;
+    for (const t of TICKS){
+      const x=X(t);
+      g.appendChild(mk('line',{class:'tick',x1:x,x2:x,y1:AX-4,y2:AX+4,stroke:'currentColor',opacity:.35}));
+      const half = fmtY(t).length*2.9;
+      if (x - half < prevRight + 7) continue;     // skip labels that would collide
+      prevRight = x + half;
+      const tx=mk('text',{class:'tick',x:x,y:AX+18,'text-anchor':'middle'});
+      tx.setAttribute('fill','currentColor'); tx.setAttribute('opacity','.55');
+      tx.setAttribute('font-size','10'); tx.textContent=fmtY(t);
+      g.appendChild(tx);
+    }
+    for (const b of BREAKS) g.appendChild(mk('line',{class:'brk',x1:X(b),x2:X(b),y1:24,y2:H-40}));
+    g.appendChild(mk('line',{class:'axis-line',x1:L-8,x2:W-R+8,y1:AX,y2:AX}));
+
+    const lab1=mk('text',{class:'zonelab',x:L-8,y:16}); lab1.textContent='↑ looks ahead'; g.appendChild(lab1);
+    const lab2=mk('text',{class:'zonelab',x:L-8,y:H-14}); lab2.textContent='↓ looks back'; g.appendChild(lab2);
+
+    const cx = X((sel.lo+sel.hi)/2);
+    g.appendChild(mk('line',{class:'nowline',x1:cx,x2:cx,y1:AX-14,y2:AX+14}));
+    const nl=mk('text',{x:cx,y:AX-22,'text-anchor':'middle','font-size':'11','font-weight':'600'});
+    nl.setAttribute('fill','currentColor'); nl.textContent=sel.label; g.appendChild(nl);
+
+    const present = rows.filter(r=>r.direction==='present');
+    const wAll = rows.reduce((s,r)=>s+r.weight,0)||1;
+    if (present.length){
+      const h = Math.max(6, 120*present.reduce((s,r)=>s+r.weight,0)/wAll);
+      g.appendChild(mk('rect',{class:'nowbar',x:cx-4,y:AX-h/2,width:8,height:h,rx:3,opacity:.55}));
+    }
+
+    const travellers = rows.filter(r=>r.direction!=='present')
+                           .sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta));
+    for (const r of travellers){
+      const x2=X(r.year_mid), up=r.direction==='forward';
+      const reach=Math.abs(x2-cx);
+      const h=Math.min(up?200:130, 26+reach*0.60);
+      const my=up?AX-h:AX+h;
+      const d=`M ${cx} ${AX} Q ${(cx+x2)/2} ${my} ${x2} ${AX}`;
+      const sw=1.2+2.6*r.weight;
+      const path=mk('path',{class:'arc '+(up?'future':'past'),d:d,'stroke-width':sw,
+                            opacity: (0.30+0.5*r.confidence).toFixed(2)});
+      g.appendChild(path);
+      const hit=mk('path',{class:'hit',d:d});
+      const span = r.year_start===r.year_end ? fmtY(r.year_start) : fmtY(r.year_start)+'–'+fmtY(r.year_end);
+      const html=`<b>${r.title}</b> (${r.release_year})<br>set in ${span}<br>
+        <span class="m">${Math.abs(r.delta).toLocaleString()} years ${up?'ahead':'back'} · ${r.prominence} thread
+        · basis: ${r.basis}</span>`;
+      hit.addEventListener('mousemove',e=>showTip(el('fan').parentNode,e,html));
+      hit.addEventListener('mouseleave',hideTip);
+      g.appendChild(hit);
+      g.appendChild(mk('circle',{cx:x2,cy:AX,r:Math.max(2.5,sw*.9),
+        fill:up?'var(--future)':'var(--past)',opacity:.85,stroke:'var(--surface)','stroke-width':1.5}));
+    }
+    svg.appendChild(g);
+  }
+
+  /* ---- render: scatter ---- */
+  function renderScatter(sel){
+    const svg=el('scatter'); svg.innerHTML='<title id="scTitle">Scatter of release year against depicted year</title>';
+    const H=380, T0=30, B=42, LL=52, RR=20;
+    const g=mk('g',{});
+    const xs = y => LL + (y-Y0)/(Y1-Y0)*(W-LL-RR);
+    const ys = y => H-B - frac(y)*(H-B-T0);
+
+    let lastY=-1e9;
+    for (const t of [10000,3000,2100,2000,1950,1900,1800,1500,1000,0,-2000]){
+      const y=ys(t);
+      g.appendChild(mk('line',{x1:LL,x2:W-RR,y1:y,y2:y,stroke:'var(--line)','stroke-width':1}));
+      if (y - lastY < 13) continue;               // skip labels that would collide
+      lastY = y;
+      const tx=mk('text',{x:LL-7,y:y+3,'text-anchor':'end','font-size':'10'});
+      tx.setAttribute('fill','currentColor'); tx.setAttribute('opacity','.5'); tx.textContent=fmtY(t);
+      g.appendChild(tx);
+    }
+    for (let y=Math.ceil(Y0/20)*20; y<=Y1; y+=20){
+      const x=xs(y);
+      const tx=mk('text',{x:x,y:H-B+16,'text-anchor':'middle','font-size':'10'});
+      tx.setAttribute('fill','currentColor'); tx.setAttribute('opacity','.5'); tx.textContent=y;
+      g.appendChild(tx);
+    }
+    const dg=mk('path',{d:`M ${xs(Y0)} ${ys(Y0)} L ${xs(Y1)} ${ys(Y1)}`,stroke:'currentColor',
+                        'stroke-width':1.5,'stroke-dasharray':'4 4',opacity:.45,fill:'none'});
+    g.appendChild(dg);
+    const dl=mk('text',{x:xs(Y1)-4,y:ys(Y1)-8,'text-anchor':'end','font-size':'10.5','font-style':'italic'});
+    dl.setAttribute('fill','currentColor'); dl.setAttribute('opacity','.6'); dl.textContent='set in its own present';
+    g.appendChild(dl);
+
+    for (const r of FT){
+      const inSel = r.release_year>=sel.lo && r.release_year<=sel.hi;
+      const c = r.direction==='present' ? 'var(--now)' : (r.direction==='forward'?'var(--future)':'var(--past)');
+      const dot=mk('circle',{cx:xs(r.release_year),cy:ys(r.year_mid),r:inSel?4.6:2.6,fill:c,
+                             opacity:inSel?1:.34,stroke:inSel?'var(--surface)':'none','stroke-width':1.5});
+      const span = r.year_start===r.year_end ? fmtY(r.year_start) : fmtY(r.year_start)+'–'+fmtY(r.year_end);
+      const html=`<b>${r.title}</b> (${r.release_year})<br>set in ${span}`;
+      dot.addEventListener('mousemove',e=>{const b=el('scatter').parentNode.getBoundingClientRect();
+        const t2=el('tip2'); t2.innerHTML=html; t2.style.opacity=1;
+        let x=e.clientX-b.left+14; if(x>b.width-260) x-=260;
+        t2.style.left=x+'px'; t2.style.top=(e.clientY-b.top+14)+'px';});
+      dot.addEventListener('mouseleave',()=>el('tip2').style.opacity=0);
+      g.appendChild(dot);
+    }
+    svg.appendChild(g);
+  }
+
+  /* ---- render: decade bands ---- */
+  const BANDS = [
+    {k:'b-far',  cls:'band-far',  lab:'100y+ back',   test:d=>d<=-100},
+    {k:'b-mid',  cls:'band-mid',  lab:'20-100y back', test:d=>d<-20 && d>-100},
+    {k:'b-near', cls:'band-near', lab:'3-20y back',   test:d=>d<=-3 && d>=-20},
+    {k:'now',    cls:'band-now',  lab:'own present',  test:d=>Math.abs(d)<3},
+    {k:'f-near', cls:'band-fnear',lab:'3-20y ahead',  test:d=>d>=3 && d<=20},
+    {k:'f-mid',  cls:'band-fmid', lab:'20-100y ahead',test:d=>d>20 && d<100},
+    {k:'f-far',  cls:'band-ffar', lab:'100y+ ahead',  test:d=>d>=100},
+  ];
+  const MIN_ROW = 10;
+
+  function decadeBands(){
+    const acc = new Map();
+    for (const t of FT){
+      const dec = Math.floor(t.release_year/10)*10;
+      if (!acc.has(dec)) acc.set(dec, {dec, tot:0, n:0, b:Object.fromEntries(BANDS.map(b=>[b.k,0]))});
+      const a = acc.get(dec);
+      const band = BANDS.find(b=>b.test(t.delta)) || BANDS[3];
+      a.b[band.k] += t.weight; a.tot += t.weight; a.n++;
+    }
+    for (const a of acc.values()) a.trav = a.tot - a.b['now'];
+    return [...acc.values()].filter(a=>a.n>=MIN_ROW && a.trav>0.5).sort((x,y)=>x.dec-y.dec);
+  }
+
+  function renderBands(sel){
+    const svg=el('bands'); const rows=decadeBands();
+    const ROW=30, TOP=40, H=TOP+rows.length*ROW+30, LL=62, RR=132, WW=1000-LL-RR;
+    svg.setAttribute('viewBox',`0 0 1000 ${H}`);
+    svg.innerHTML='<title id="bTitle">Share of each release decade\u2019s travelling films by how far back or forward they are set</title>';
+    const g=mk('g',{});
+
+    for (const p of [0,25,50,75,100]){
+      const x=LL+WW*p/100;
+      g.appendChild(mk('line',{x1:x,x2:x,y1:TOP-10,y2:H-26,stroke:'var(--line)','stroke-width':1}));
+      const tx=mk('text',{x:x,y:H-12,'text-anchor':'middle','font-size':'10'});
+      tx.setAttribute('fill','currentColor'); tx.setAttribute('opacity','.5');
+      tx.textContent=p+'%'; g.appendChild(tx);
+    }
+    const cl=mk('text',{x:LL,y:TOP-20,'font-size':'9.5'});
+    cl.setAttribute('fill','currentColor'); cl.setAttribute('opacity','.55');
+    cl.setAttribute('letter-spacing','.12em');
+    cl.textContent='SHARE OF THE FILMS THAT TRAVEL \u2014 FURTHEST BACK ON THE LEFT';
+    g.appendChild(cl);
+
+    rows.forEach((r,i)=>{
+      const y=TOP+i*ROW, isSel = r.dec>=sel.lo && r.dec<=sel.hi;
+      if (isSel) g.appendChild(mk('rect',{class:'band-sel',x:4,y:y-5,width:992,height:ROW-2,rx:5}));
+      let x=LL, boundary=LL;
+      for (const b of BANDS){
+        if (b.k==='now') { boundary=x; continue; }
+        const w = WW*(r.b[b.k]/r.trav);
+        if (w>0.4){ g.appendChild(rowRect(b,r,x,y,w)); x+=w; }
+        if (b.k==='b-near') boundary=x;
+      }
+      g.appendChild(mk('line',{x1:boundary,x2:boundary,y1:y-4,y2:y+22,
+                               stroke:'var(--ink)','stroke-width':1.5,opacity:.55}));
+      const lab=mk('text',{x:4,y:y+13,'font-size':'11.5','font-weight':isSel?'600':'400'});
+      lab.setAttribute('fill','currentColor'); lab.textContent=r.dec+'s'; g.appendChild(lab);
+      const nn=mk('text',{x:996,y:y+13,'text-anchor':'end','font-size':'10'});
+      nn.setAttribute('fill','currentColor'); nn.setAttribute('opacity','.55');
+      nn.textContent=`${Math.round(100*r.b['now']/r.tot)}% set now \u00b7 n=${r.n}`;
+      g.appendChild(nn);
+    });
+    svg.appendChild(g);
+
+    el('bandLegend').innerHTML = BANDS.filter(b=>b.k!=='now').map(b=>
+      `<span class="swatch"><i style="background:var(--${b.k})"></i>${b.lab}</span>`).join('')
+      + '<span style="color:var(--ink-3)">bars exclude films set in their own present \u2014 that share is on the right</span>';
+  }
+
+  function rowRect(b,r,x,y,w){
+    const grp=mk('g',{class:'band-row'});
+    const rect=mk('rect',{class:b.cls,x:x,y:y,width:w,height:18,rx:2});
+    const share=(100*r.b[b.k]/r.trav).toFixed(0);
+    const all=(100*r.b[b.k]/r.tot).toFixed(0);
+    const html=`<b>${r.dec}s</b> \u00b7 ${b.lab}<br>${share}% of the films that travel`
+             + `<br><span class="m">${all}% of the whole decade</span>`;
+    rect.addEventListener('mousemove',e=>{const bb=el('bands').parentNode.getBoundingClientRect();
+      const t3=el('tip3'); t3.innerHTML=html; t3.style.opacity=1;
+      let xx=e.clientX-bb.left+14; if(xx>bb.width-240) xx-=240;
+      t3.style.left=xx+'px'; t3.style.top=(e.clientY-bb.top+14)+'px';});
+    rect.addEventListener('mouseleave',()=>el('tip3').style.opacity=0);
+    grp.appendChild(rect); return grp;
+  }
+
+  function renderTable(rows){
+    const tb=el('tbl').querySelector('tbody');
+    tb.innerHTML = rows.length ? rows.slice().sort((a,b)=>a.delta-b.delta).map(r=>{
+      const span = r.year_start===r.year_end ? fmtY(r.year_start) : fmtY(r.year_start)+'–'+fmtY(r.year_end);
+      return `<tr><td>${r.title}</td><td class="num">${r.release_year}</td><td class="num">${span}</td>
+        <td class="num">${r.delta>0?'+':''}${r.delta.toLocaleString()}</td><td>${r.direction}</td>
+        <td class="num">${r.weight.toFixed(2)}</td><td>${r.basis}</td></tr>`;
+    }).join('') : '<tr><td colspan="7">No films in this selection.</td></tr>';
+  }
+
+  function draw(){
+    const sel=selection();
+    yrLabel.textContent=sel.label;
+    const fl=FF.filter(f=>f.year>=sel.lo && f.year<=sel.hi);
+    const rows=FT.filter(r=>r.release_year>=sel.lo && r.release_year<=sel.hi);
+    renderStats(sel,rows,fl); renderFan(sel,rows); renderBands(sel);
+    renderScatter(sel); renderTable(rows); renderFacts();
+  }
+
+  /* ---- filters ---- */
+  const filt = {genre:'', genreEx:false, place:''};   // '' | 'c:JP' | 'r:east_asia'
+
+  const regionOf = new Map(DATA.films.filter(f=>f.c).map(f=>[f.c, f.r||'other']));
+
+  function buildFilterOptions(){
+    const gc = new Map(), cc = new Map();
+    for (const t of T){
+      const f = films.get(t.film_id); if (!f) continue;
+      for (const g of (f.g||[])) gc.set(g, (gc.get(g)||0)+1);
+      if (f.c) cc.set(f.c, (cc.get(f.c)||0)+1);
+    }
+    const gs = [...gc.entries()].filter(([,n])=>n>=8).sort((a,b)=>b[1]-a[1]);
+    el('fGenre').innerHTML = '<option value="">All genres</option>' +
+      gs.map(([g,n])=>`<option value="${g}">${g} (${n})</option>`).join('');
+    if (HAS_COUNTRY){
+      el('countryWrap').hidden = false;
+      // Grouped by region, because a global corpus is 70-odd countries and a flat list that
+      // long is a worse control than no control. Each group leads with the whole region, so
+      // a thin national cinema is still readable as part of something big enough to trust.
+      const groups = new Map();
+      for (const [c,n] of cc){
+        const r = (regionOf.get(c)) || 'other';
+        if (!groups.has(r)) groups.set(r, {n:0, cs:[]});
+        const g = groups.get(r); g.n += n; g.cs.push([c,n]);
+      }
+      const ordered = [...groups.entries()].sort((a,b)=>b[1].n-a[1].n);
+      let html = '<option value="">Everywhere</option>';
+      for (const [r,g] of ordered){
+        const cs = g.cs.sort((a,b)=>b[1]-a[1]);
+        if (HAS_REGION && cs.length>1){
+          html += `<optgroup label="${rName(r)}">`;
+          html += `<option value="r:${r}">All of ${rName(r)} (${g.n})</option>`;
+        } else {
+          html += `<optgroup label="${HAS_REGION?rName(r):'Countries'}">`;
+        }
+        html += cs.map(([c,n])=>`<option value="c:${c}">${cName(c)} (${n})</option>`).join('');
+        html += '</optgroup>';
+      }
+      el('fCountry').innerHTML = html;
+    }
+  }
+
+  function applyFilters(){
+    const keep = f => {
+      if (filt.place){
+        const [kind, val] = [filt.place.slice(0,1), filt.place.slice(2)];
+        if (kind === 'c' ? f.c !== val : (f.r||'other') !== val) return false;
+      }
+      if (filt.genre){
+        const has = (f.g||[]).includes(filt.genre);
+        if (filt.genreEx ? has : !has) return false;
+      }
+      return true;
+    };
+    FF = DATA.films.filter(keep);
+    const ok = new Set(FF.map(f=>f.id));
+    FT = T.filter(t=>ok.has(t.film_id));
+
+    const bits = [];
+    if (filt.genre) bits.push((filt.genreEx?'everything except ':'')+filt.genre);
+    if (filt.place) bits.push(filt.place.startsWith('r:')
+      ? rName(filt.place.slice(2)) : cName(filt.place.slice(2)));
+    const note = el('fNote');
+    if (!bits.length){ note.textContent=''; note.className='fnote'; }
+    else if (FT.length < MIN_TARGETS){
+      note.textContent = `${bits.join(' · ')} — only ${FT.length} targets left, too few to read anything into`;
+      note.className = 'fnote thin';
+    } else {
+      note.textContent = `${bits.join(' · ')} — ${FF.length} films, ${FT.length} targets`;
+      note.className = 'fnote';
+    }
+  }
+
+  /* ---- facts: derived, never hand-written, each with its own sample floor ---- */
+  const med = a => { if(!a.length) return null; const s=[...a].sort((x,y)=>x-y), m=s.length>>1;
+                     return s.length%2 ? s[m] : Math.round((s[m-1]+s[m])/2); };
+
+  function byDecade(){
+    const m = new Map();
+    for (const t of FT){
+      const d = Math.floor(t.release_year/10)*10;
+      if (!m.has(d)) m.set(d, {d, n:0, w:0, back:0, fwd:0, backs:[], fwds:[]});
+      const a = m.get(d); a.n++; a.w += t.weight;
+      if (t.direction==='back'){ a.back += t.weight; a.backs.push(-t.delta); }
+      if (t.direction==='forward'){ a.fwd += t.weight; a.fwds.push(t.delta); }
+    }
+    return [...m.values()].sort((x,y)=>x.d-y.d);
+  }
+
+  function byKey(keyFn){
+    const m = new Map();
+    for (const t of FT){
+      const f = films.get(t.film_id); if (!f) continue;
+      for (const k of keyFn(f)){
+        if (!m.has(k)) m.set(k, {k, n:0, w:0, back:0, fwd:0, backs:[], fwds:[]});
+        const a = m.get(k); a.n++; a.w += t.weight;
+        if (t.direction==='back'){ a.back += t.weight; a.backs.push(-t.delta); }
+        if (t.direction==='forward'){ a.fwd += t.weight; a.fwds.push(t.delta); }
+      }
+    }
+    return [...m.values()];
+  }
+
+  const B = s => `<em>${s}</em>`, F = s => `<em class="f">${s}</em>`;
+
+  function buildFacts(){
+    const out = [], decs = byDecade().filter(d=>d.n>=20);
+
+    if (decs.length>=3){
+      const most = decs.reduce((a,b)=> b.fwd/b.w > a.fwd/a.w ? b : a);
+      if (most.fwd>0) out.push({t:`The ${F(most.d+'s')} were the most future-facing decade in this corpus — ${Math.round(100*most.fwd/most.w)}% of its films are set after the year they came out.`, n:`${most.n} targets in the ${most.d}s`});
+      const back = decs.reduce((a,b)=> b.back/b.w > a.back/a.w ? b : a);
+      out.push({t:`The ${B(back.d+'s')} looked back hardest — ${Math.round(100*back.back/back.w)}% of its films are set in the past.`, n:`${back.n} targets in the ${back.d}s`});
+      const first = decs.find(d=> d.fwd/d.w >= 0.05);
+      if (first && first.d > decs[0].d)
+        out.push({t:`Cinema barely imagined the future until the ${F(first.d+'s')} — before then, fewer than one film in twenty was set ahead of its own release.`, n:`${decs.filter(d=>d.d<first.d).reduce((s,d)=>s+d.n,0)} targets before the ${first.d}s`});
+      const early = decs.slice(0, Math.ceil(decs.length/2)), late = decs.slice(Math.ceil(decs.length/2));
+      const eb = med(early.flatMap(d=>d.backs)), lb = med(late.flatMap(d=>d.backs));
+      if (eb!=null && lb!=null && Math.abs(eb-lb)>=5)
+        out.push({t:`The reach backwards has ${lb>eb?'lengthened':'shortened'} — from a median of ${B(eb+' years')} in the earlier half of the century to ${B(lb+' years')} in the later half.`, n:`${early.flatMap(d=>d.backs).length} vs ${late.flatMap(d=>d.backs).length} past-set targets`});
+    }
+
+    const backs = FT.filter(t=>t.direction==='back').map(t=>-t.delta);
+    const fwds  = FT.filter(t=>t.direction==='forward').map(t=>t.delta);
+    if (backs.length>=40){
+      const m = med(backs);
+      out.push({t:`The typical period film reaches back ${B(m+' years')} — ${m>34?'well beyond':'about'} the thirty-year generational cycle nostalgia is usually credited to.`, n:`${backs.length} past-set targets`});
+    }
+    if (backs.length>=40 && fwds.length>=15){
+      const mb=med(backs), mf=med(fwds), ratio=mf/mb;
+      out.push({t:`Cinema looks back far more often than it looks forward — ${B(backs.length+' targets')} against ${F(fwds.length)}.`, n:`out of ${FT.length} targets in this slice`});
+      if (ratio>=1.5)
+        out.push({t:`When cinema does look forward it travels further — a median of ${F(mf+' years')} ahead against ${B(mb+' years')} back.`, n:`${fwds.length} future-set vs ${backs.length} past-set targets`});
+      else if (ratio<=0.67)
+        out.push({t:`The future is imagined closer than the past is remembered — a median of ${F(mf+' years')} ahead against ${B(mb+' years')} back.`, n:`${fwds.length} future-set vs ${backs.length} past-set targets`});
+    }
+
+    const gs = byKey(f=>f.g||[]).filter(g=>g.n>=25);
+    if (gs.length>=2){
+      const deep = gs.filter(g=>g.backs.length>=10)
+                     .reduce((a,b)=> (med(b.backs)>med(a.backs)?b:a), gs.find(g=>g.backs.length>=10)||gs[0]);
+      if (deep && deep.backs.length>=10)
+        out.push({t:`${B(deep.k)} reaches furthest into the past of any genre here — a median of ${deep.backs.length?med(deep.backs):0} years back.`, n:`${deep.backs.length} past-set ${deep.k} targets`});
+      const fut = gs.reduce((a,b)=> b.fwd/b.w > a.fwd/a.w ? b : a);
+      if (fut.fwd>0)
+        out.push({t:`${F(fut.k)} is the most forward-looking genre in the corpus — ${Math.round(100*fut.fwd/fut.w)}% of it is set after its own release.`, n:`${fut.n} ${fut.k} targets`});
+    }
+
+    // Country and region facts are the same two shapes at two grains. The region grain is
+    // the one that survives a global corpus: most national cinemas never clear the floor on
+    // their own, but the region they sit in does, and a fact nobody can trust is worse than
+    // no fact. "typically" and not "on average" throughout — every figure here is a median.
+    const placeFacts = (groups, label, floor, name) => {
+      const cs = groups.filter(c => c.backs.length >= floor);
+      if (cs.length < 2) return;
+      const sorted = cs.slice().sort((a,b)=>med(b.backs)-med(a.backs));
+      const hi = sorted[0], lo = sorted[sorted.length-1], gap = med(hi.backs)-med(lo.backs);
+      if (gap >= 5)
+        out.push({t:`${B(name(hi.k))} films typically look ${B(gap+' years')} further into the past than ${B(name(lo.k))} ones.`,
+                  n:`${hi.backs.length} vs ${lo.backs.length} past-set targets`});
+      const cf = cs.filter(c=>c.n>=floor*2).reduce((a,b)=> (!a || b.fwd/b.w > a.fwd/a.w) ? b : a, null);
+      if (cf && cf.fwd > 0)
+        out.push({t:`${F(name(cf.k))} is the most speculative ${label} here — ${Math.round(100*cf.fwd/cf.w)}% of its films are set in the future.`,
+                  n:`${cf.n} ${name(cf.k)} targets`});
+    };
+    if (HAS_COUNTRY) placeFacts(byKey(f=>f.c?[f.c]:[]), 'national cinema', 25, cName);
+    if (HAS_REGION)  placeFacts(byKey(f=>f.r?[f.r]:[]), 'region', 40, rName);
+
+    const far = FT.filter(t=>t.direction==='forward').sort((a,b)=>b.delta-a.delta)[0];
+    if (far && far.delta>=100)
+      out.push({t:`The longest throw forward is ${F(far.title)}, released ${far.release_year} and set ${F(far.delta.toLocaleString()+' years')} later.`, n:`1 film`});
+    const deepest = FT.filter(t=>t.direction==='back').sort((a,b)=>a.delta-b.delta)[0];
+    if (deepest && deepest.delta<=-200)
+      out.push({t:`The longest reach back is ${B(deepest.title)}, released ${deepest.release_year} and set ${B(Math.abs(deepest.delta).toLocaleString()+' years')} earlier.`, n:`1 film`});
+
+    return out;
+  }
+
+  let FACTS=[], factI=0, factTimer=null;
+  function renderFacts(){
+    FACTS = buildFacts(); factI = Math.min(factI, Math.max(0,FACTS.length-1));
+    const box=el('facts');
+    if (!FACTS.length){
+      box.hidden=false;
+      el('factText').textContent='Not enough films behind this slice to claim anything.';
+      el('factN').textContent=`${FT.length} targets — every fact here needs a minimum sample and none clears it`;
+      el('factIdx').textContent=''; return;
+    }
+    box.hidden=false;
+    el('factText').innerHTML=FACTS[factI].t;
+    el('factN').textContent=FACTS[factI].n;
+    el('factIdx').textContent=`${factI+1}/${FACTS.length}`;
+  }
+  function stepFact(d){ if(!FACTS.length) return;
+    factI=(factI+d+FACTS.length)%FACTS.length; renderFacts(); }
+  el('factNext').addEventListener('click',()=>{stopFactTimer(); stepFact(1);});
+  el('factPrev').addEventListener('click',()=>{stopFactTimer(); stepFact(-1);});
+  function stopFactTimer(){ if(factTimer){ clearInterval(factTimer); factTimer=null; } }
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches)
+    factTimer=setInterval(()=>stepFact(1), 9000);
+
+  el('fGenre').addEventListener('change',e=>{ filt.genre=e.target.value; applyFilters(); draw(); });
+  el('fGenreEx').addEventListener('change',e=>{ filt.genreEx=e.target.checked; applyFilters(); draw(); });
+  el('fCountry').addEventListener('change',e=>{ filt.place=e.target.value; applyFilters(); draw(); });
+  el('fReset').addEventListener('click',()=>{
+    filt.genre=''; filt.genreEx=false; filt.place='';
+    el('fGenre').value=''; el('fGenreEx').checked=false; if(HAS_COUNTRY) el('fCountry').value='';
+    applyFilters(); draw();
+  });
+
+  slider.addEventListener('input',()=>{ idx=+slider.value; draw(); });
+  el('mYear').addEventListener('click',()=>setMode('year'));
+  el('mDec').addEventListener('click',()=>setMode('decade'));
+  function setMode(m){
+    if (m===mode) return;
+    const cur = mode==='year'?years[idx]:decades[idx];
+    mode=m;
+    idx = m==='year' ? Math.max(0,years.findIndex(y=>y>=cur))
+                     : Math.max(0,decades.indexOf(Math.floor(cur/10)*10));
+    el('mYear').setAttribute('aria-pressed',m==='year');
+    el('mDec').setAttribute('aria-pressed',m==='decade');
+    syncSlider(); draw();
+  }
+  el('play').addEventListener('click',()=>{
+    if (timer){ clearInterval(timer); timer=null; el('play').textContent='▶ Play'; return; }
+    el('play').textContent='❚❚ Pause';
+    timer=setInterval(()=>{
+      idx++; if (idx> +slider.max) idx=0;
+      slider.value=idx; draw();
+    }, mode==='year'?420:900);
+  });
+
+  buildFilterOptions(); applyFilters();
+  idx = Math.max(0, decades.indexOf(1980));
+  syncSlider(); draw();
+})();
+</script>
