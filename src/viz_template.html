@@ -1360,10 +1360,11 @@ const DATA = __DATA__;
     if (qEl.value.trim()) p.set('q', qEl.value.trim());
     const look = document.documentElement.getAttribute('data-look');
     if (look && look !== 'modern') p.set('look', look);
-    history.replaceState(null, '', '#' + p.toString());
+    try { history.replaceState(null, '', '#' + p.toString()); } catch(_){}
   }
   function readURL(){
-    const p = new URLSearchParams(location.hash.replace(/^#/, ''));
+    let p;
+    try { p = new URLSearchParams(location.hash.replace(/^#/, '')); } catch(_){ return false; }
     if (!p.toString()) return false;
     urlLock = true;
     if (p.get('look')) setLook(p.get('look'), false);

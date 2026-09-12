@@ -4248,3 +4248,1133 @@
 {"id": "tmdb-39102", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
 {"id": "tmdb-12088", "gaze": "future", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2050, "year_end": 2100, "prominence": "primary"}]}
 {"id": "tmdb-11655", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1500, "year_end": 1600, "prominence": "secondary"}, {"year_start": 1993, "year_end": 1993, "prominence": "primary"}]}
+{"id": "tmdb-265195", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2014, "year_end": 2014, "prominence": "primary"}]}
+{"id": "tmdb-325348", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2050, "year_end": 2050, "prominence": "primary"}]}
+{"id": "tmdb-369885", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-452507", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1922, "year_end": 1922, "prominence": "primary"}]}
+{"id": "tmdb-503314", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-417384", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1968, "year_end": 1968, "prominence": "primary"}]}
+{"id": "tmdb-581392", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2030, "year_end": 2030, "prominence": "primary"}]}
+{"id": "tmdb-578701", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2021, "year_end": 2021, "prominence": "primary"}]}
+{"id": "tmdb-916224", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2022, "year_end": 2022, "prominence": "primary"}]}
+{"id": "tmdb-1151534", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2023, "year_end": 2023, "prominence": "primary"}]}
+{"id": "tmdb-1096197", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2024, "year_end": 2024, "prominence": "primary"}]}
+{"id": "tmdb-1218925", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2025, "year_end": 2025, "prominence": "primary"}]}
+{"id": "tmdb-1110034", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2026, "year_end": 2026, "prominence": "primary"}]}
+{"id": "tmdb-183609", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-375089", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1903, "year_end": 1903, "prominence": "primary"}]}
+{"id": "tmdb-196352", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1906, "year_end": 1906, "prominence": "primary"}]}
+{"id": "tmdb-196483", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1907, "year_end": 1907, "prominence": "primary"}]}
+{"id": "tmdb-226891", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1908, "year_end": 1908, "prominence": "primary"}]}
+{"id": "tmdb-232952", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-386715", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-14442", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-8814", "gaze": "future", "earthbound": false, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2050, "year_end": 2150, "prominence": "primary"}]}
+{"id": "tmdb-4977", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2006, "year_end": 2008, "prominence": "primary"}]}
+{"id": "tmdb-1646", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1994, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-13310", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1982, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-38810", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2009, "year_end": 2009, "prominence": "primary"}]}
+{"id": "tmdb-49797", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2010, "year_end": 2010, "prominence": "primary"}]}
+{"id": "tmdb-71859", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2010, "year_end": 2011, "prominence": "primary"}, {"year_start": 1991, "year_end": 2008, "prominence": "secondary"}]}
+{"id": "tmdb-77866", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-149870", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-193929", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 54, "year_end": 59, "prominence": "primary"}]}
+{"id": "tmdb-130061", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-322651", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1913, "year_end": 1913, "prominence": "primary"}]}
+{"id": "tmdb-495734", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1843, "year_end": 1843, "prominence": "primary"}]}
+{"id": "tmdb-282458", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1915, "year_end": 1915, "prominence": "primary"}]}
+{"id": "tmdb-174579", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-340516", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1917, "year_end": 1917, "prominence": "primary"}]}
+{"id": "tmdb-2962", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1918, "year_end": 1918, "prominence": "primary"}]}
+{"id": "tmdb-115012", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1915, "year_end": 1915, "prominence": "primary"}]}
+{"id": "tmdb-175216", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-4540", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1931, "year_end": 1931, "prominence": "primary"}]}
+{"id": "tmdb-92413", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1932, "year_end": 1932, "prominence": "primary"}]}
+{"id": "tmdb-248099", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-114626", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1910, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-26921", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1935, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-30640", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1936, "year_end": 1936, "prominence": "primary"}]}
+{"id": "tmdb-90523", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1914, "year_end": 1918, "prominence": "primary"}]}
+{"id": "tmdb-43852", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1900, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-60481", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1939, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-79684", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1940, "prominence": "primary"}]}
+{"id": "tmdb-175361", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1900, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-66145", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1922, "year_end": 1922, "prominence": "primary"}]}
+{"id": "tmdb-151572", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1860, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-143534", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1924, "year_end": 1924, "prominence": "primary"}]}
+{"id": "tmdb-184438", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1200, "year_end": 1400, "prominence": "primary"}]}
+{"id": "tmdb-189567", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1700, "year_end": 1799, "prominence": "primary"}]}
+{"id": "tmdb-42508", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1927, "year_end": 1927, "prominence": "primary"}]}
+{"id": "tmdb-144650", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1919, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-149952", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-403838", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1900, "year_end": 1925, "prominence": "primary"}]}
+{"id": "tmdb-142977", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1941, "prominence": "primary"}]}
+{"id": "tmdb-278122", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "both", "targets": [{"year_start": 1860, "year_end": 1870, "prominence": "primary"}]}
+{"id": "tmdb-154629", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-110573", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1944, "year_end": 1944, "prominence": "primary"}]}
+{"id": "tmdb-182756", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-39142", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1944, "prominence": "primary"}]}
+{"id": "tmdb-44532", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1947, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-126219", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1946, "prominence": "primary"}]}
+{"id": "tmdb-49930", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-58513", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1700, "year_end": 1700, "prominence": "primary"}]}
+{"id": "tmdb-70106", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1951, "year_end": 1951, "prominence": "primary"}]}
+{"id": "tmdb-55197", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "both", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-43349", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1159, "year_end": 1159, "prominence": "primary"}]}
+{"id": "tmdb-66540", "gaze": "atemporal", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": []}
+{"id": "tmdb-50363", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1955, "year_end": 1955, "prominence": "primary"}]}
+{"id": "tmdb-31378", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1612, "year_end": 1612, "prominence": "primary"}]}
+{"id": "tmdb-26893", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1800, "year_end": 1899, "prominence": "primary"}]}
+{"id": "tmdb-2574", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1958, "year_end": 1958, "prominence": "primary"}]}
+{"id": "tmdb-46918", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1959, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-2546", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-28752", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1750, "year_end": 1750, "prominence": "primary"}]}
+{"id": "tmdb-1680", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1962, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-32488", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-53021", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1964, "year_end": 1964, "prominence": "primary"}]}
+{"id": "tmdb-46591", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-3591", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-27945", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1880, "prominence": "primary"}]}
+{"id": "tmdb-11912", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1968, "year_end": 1968, "prominence": "primary"}]}
+{"id": "tmdb-2527", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1969, "year_end": 1969, "prominence": "primary"}]}
+{"id": "tmdb-14676", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1825, "year_end": 1825, "prominence": "primary"}]}
+{"id": "tmdb-33583", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1348, "year_end": 1348, "prominence": "primary"}]}
+{"id": "tmdb-15573", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-2926", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1625, "year_end": 1625, "prominence": "primary"}]}
+{"id": "tmdb-37916", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1974, "year_end": 1974, "prominence": "primary"}]}
+{"id": "tmdb-22094", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-56648", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1976, "year_end": 1976, "prominence": "primary"}]}
+{"id": "tmdb-27703", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-17339", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-38438", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1979, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-14807", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1978, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-10768", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1981, "year_end": 1981, "prominence": "primary"}]}
+{"id": "tmdb-11541", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-18912", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-15014", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1984, "year_end": 1984, "prominence": "primary"}]}
+{"id": "tmdb-9463", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-5693", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1954, "year_end": 1954, "prominence": "primary"}]}
+{"id": "tmdb-6917", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1987, "year_end": 1987, "prominence": "primary"}]}
+{"id": "tmdb-10753", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-12150", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-39100", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-10617", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1880, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-39104", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-14282", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-44251", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-33542", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1995, "year_end": 1995, "prominence": "primary"}]}
+{"id": "tmdb-7863", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "secondary"}, {"year_start": 1996, "year_end": 1996, "prominence": "primary"}]}
+{"id": "tmdb-18329", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-10228", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-4291", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1999, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-11075", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2000, "year_end": 2000, "prominence": "primary"}]}
+{"id": "tmdb-1791", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-8346", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2002, "year_end": 2002, "prominence": "primary"}]}
+{"id": "tmdb-6171", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-9550", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 800, "year_end": 899, "prominence": "primary"}]}
+{"id": "tmdb-10027", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-1523", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1971, "year_end": 1971, "prominence": "primary"}]}
+{"id": "tmdb-1248", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1945, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-9539", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2008, "year_end": 2008, "prominence": "primary"}]}
+{"id": "tmdb-13455", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2009, "year_end": 2009, "prominence": "primary"}]}
+{"id": "tmdb-37472", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1950, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-49517", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-81796", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2055, "year_end": 2055, "prominence": "primary"}]}
+{"id": "tmdb-179144", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-220289", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2014, "year_end": 2014, "prominence": "primary"}]}
+{"id": "tmdb-292431", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2015, "year_end": 2015, "prominence": "primary"}]}
+{"id": "tmdb-378064", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2016, "year_end": 2016, "prominence": "primary"}]}
+{"id": "tmdb-403119", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2017, "year_end": 2017, "prominence": "primary"}]}
+{"id": "tmdb-429300", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-522162", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-614696", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2020, "year_end": 2020, "prominence": "primary"}]}
+{"id": "tmdb-314914", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1908, "year_end": 1908, "prominence": "primary"}]}
+{"id": "tmdb-222085", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1909, "year_end": 1909, "prominence": "primary"}]}
+{"id": "tmdb-367896", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-483341", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1865, "year_end": 1865, "prominence": "primary"}]}
+{"id": "tmdb-222100", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-132536", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1913, "year_end": 1913, "prominence": "primary"}]}
+{"id": "tmdb-288068", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1914, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-377607", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1915, "year_end": 1915, "prominence": "primary"}]}
+{"id": "tmdb-408179", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-116173", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1917, "year_end": 1917, "prominence": "primary"}]}
+{"id": "tmdb-238867", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1918, "year_end": 1918, "prominence": "primary"}]}
+{"id": "tmdb-285797", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1500, "year_end": 1500, "prominence": "primary"}]}
+{"id": "tmdb-133643", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1905, "year_end": 1905, "prominence": "primary"}]}
+{"id": "tmdb-147626", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1921, "year_end": 1921, "prominence": "primary"}]}
+{"id": "tmdb-210381", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1450, "year_end": 1450, "prominence": "primary"}]}
+{"id": "tmdb-76938", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1843, "year_end": 1843, "prominence": "primary"}]}
+{"id": "tmdb-186453", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1924, "year_end": 1924, "prominence": "primary"}]}
+{"id": "tmdb-143953", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": -500, "year_end": -500, "prominence": "primary"}]}
+{"id": "tmdb-282369", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1820, "year_end": 1820, "prominence": "primary"}]}
+{"id": "tmdb-189727", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-810693", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2021, "year_end": 2021, "prominence": "primary"}]}
+{"id": "tmdb-556694", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2022, "year_end": 2022, "prominence": "primary"}]}
+{"id": "tmdb-980078", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2023, "year_end": 2023, "prominence": "primary"}]}
+{"id": "tmdb-959604", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2024, "year_end": 2024, "prominence": "primary"}, {"year_start": 2009, "year_end": 2014, "prominence": "secondary"}]}
+{"id": "tmdb-1098006", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2025, "year_end": 2025, "prominence": "primary"}]}
+{"id": "tmdb-1613798", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2026, "year_end": 2026, "prominence": "primary"}]}
+{"id": "tmdb-404864", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1901, "year_end": 1901, "prominence": "primary"}]}
+{"id": "tmdb-195975", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1903, "year_end": 1903, "prominence": "primary"}]}
+{"id": "tmdb-196386", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1906, "year_end": 1906, "prominence": "primary"}]}
+{"id": "tmdb-862054", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1907, "year_end": 1907, "prominence": "primary"}]}
+{"id": "tmdb-222220", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1928, "year_end": 1928, "prominence": "primary"}]}
+{"id": "tmdb-190081", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-162751", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1930, "prominence": "primary"}]}
+{"id": "tmdb-125660", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-87673", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1932, "year_end": 1932, "prominence": "primary"}]}
+{"id": "tmdb-62937", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "minor"}]}
+{"id": "tmdb-43123", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1850, "year_end": 1850, "prominence": "primary"}]}
+{"id": "tmdb-282888", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1935, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-68849", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1936, "year_end": 1936, "prominence": "primary"}]}
+{"id": "tmdb-61483", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1937, "year_end": 1937, "prominence": "primary"}]}
+{"id": "tmdb-43850", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1938, "year_end": 1938, "prominence": "primary"}]}
+{"id": "tmdb-290633", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-203091", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-71984", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1941, "prominence": "primary"}]}
+{"id": "tmdb-111066", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-65646", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1949, "prominence": "primary"}]}
+{"id": "tmdb-204711", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1944, "year_end": 1944, "prominence": "primary"}]}
+{"id": "tmdb-101772", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-119806", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1946, "year_end": 1946, "prominence": "primary"}]}
+{"id": "tmdb-43460", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1581, "year_end": 1660, "prominence": "primary"}]}
+{"id": "tmdb-44521", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1958, "year_end": 1958, "prominence": "primary"}]}
+{"id": "tmdb-35124", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1959, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-24014", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-11580", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1961, "year_end": 1961, "prominence": "primary"}]}
+{"id": "tmdb-50759", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1962, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-28172", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-26031", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1964, "year_end": 1964, "prominence": "primary"}]}
+{"id": "tmdb-1942", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-15598", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-1629", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1967, "year_end": 1967, "prominence": "primary"}]}
+{"id": "tmdb-32066", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1872, "year_end": 1877, "prominence": "primary"}]}
+{"id": "tmdb-46096", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-54392", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-39039", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1951, "year_end": 1951, "prominence": "primary"}]}
+{"id": "tmdb-36916", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1180, "year_end": 1190, "prominence": "primary"}]}
+{"id": "tmdb-19957", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-56122", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1954, "year_end": 1954, "prominence": "primary"}]}
+{"id": "tmdb-13210", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-54436", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1956, "year_end": 1956, "prominence": "primary"}]}
+{"id": "tmdb-38006", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-2994", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1968, "year_end": 1968, "prominence": "primary"}]}
+{"id": "tmdb-15873", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-33157", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1815, "year_end": 1815, "prominence": "primary"}]}
+{"id": "tmdb-26405", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1971, "year_end": 1971, "prominence": "primary"}]}
+{"id": "tmdb-12530", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1972, "year_end": 1972, "prominence": "primary"}]}
+{"id": "tmdb-44741", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-5558", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1800, "year_end": 1899, "prominence": "secondary"}, {"year_start": 1970, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-1829", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1863, "year_end": 1864, "prominence": "primary"}]}
+{"id": "tmdb-8446", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1929, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-54561", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-11144", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1978, "year_end": 1978, "prominence": "primary"}]}
+{"id": "tmdb-10770", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1979, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-22504", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-1672", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1981, "year_end": 1981, "prominence": "primary"}]}
+{"id": "tmdb-24160", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-11235", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-39371", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1984, "year_end": 1984, "prominence": "primary"}]}
+{"id": "tmdb-10295", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-14924", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1978, "year_end": 1978, "prominence": "primary"}]}
+{"id": "tmdb-24341", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1987, "year_end": 1987, "prominence": "primary"}]}
+{"id": "tmdb-9447", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}]}
+{"id": "tmdb-10154", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1999, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-40096", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2000, "year_end": 2000, "prominence": "primary"}]}
+{"id": "tmdb-575", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-455", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2002, "year_end": 2002, "prominence": "primary"}]}
+{"id": "tmdb-9316", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-9833", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1870, "year_end": 1880, "prominence": "primary"}]}
+{"id": "tmdb-9641", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-9513", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-1691", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2007, "year_end": 2007, "prominence": "primary"}]}
+{"id": "tmdb-43645", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-28609", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-12157", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1990, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-10379", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1991, "year_end": 1991, "prominence": "primary"}]}
+{"id": "tmdb-11134", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1992, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-2259", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1920, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-22826", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1994, "year_end": 1994, "prominence": "primary"}]}
+{"id": "tmdb-39107", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-14553", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}, {"year_start": 1979, "year_end": 1979, "prominence": "secondary"}]}
+{"id": "tmdb-5910", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-8848", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1971, "year_end": 1971, "prominence": "primary"}]}
+{"id": "tmdb-10313", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2003, "year_end": 2008, "prominence": "primary"}, {"year_start": 1985, "year_end": 1992, "prominence": "secondary"}]}
+{"id": "tmdb-41216", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-52451", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1625, "year_end": 1626, "prominence": "primary"}]}
+{"id": "tmdb-109689", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-249397", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-262391", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2014, "year_end": 2014, "prominence": "primary"}]}
+{"id": "tmdb-294963", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1870, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-290098", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-346648", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2017, "year_end": 2017, "prominence": "primary"}]}
+{"id": "tmdb-476299", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2018, "year_end": 2018, "prominence": "primary"}, {"year_start": 2034, "year_end": 2034, "prominence": "primary"}]}
+{"id": "tmdb-458305", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2020, "year_end": 2020, "prominence": "primary"}]}
+{"id": "tmdb-667520", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2020, "year_end": 2020, "prominence": "primary"}]}
+{"id": "tmdb-565028", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2019, "year_end": 2021, "prominence": "primary"}, {"year_start": 1990, "year_end": 2000, "prominence": "secondary"}]}
+{"id": "tmdb-579974", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-1026227", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-1127166", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2024, "year_end": 2024, "prominence": "primary"}]}
+{"id": "tmdb-1223601", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-1259983", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2026, "year_end": 2026, "prominence": "primary"}]}
+{"id": "tmdb-183602", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1901, "year_end": 1901, "prominence": "primary"}]}
+{"id": "tmdb-195974", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1903, "year_end": 1903, "prominence": "primary"}]}
+{"id": "tmdb-232718", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1906, "year_end": 1906, "prominence": "primary"}]}
+{"id": "tmdb-290574", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1550, "year_end": 1550, "prominence": "primary"}]}
+{"id": "tmdb-222087", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": -44, "year_end": -44, "prominence": "primary"}]}
+{"id": "tmdb-193987", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-193923", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-226869", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-206656", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1813, "year_end": 1883, "prominence": "primary"}]}
+{"id": "tmdb-237649", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1914, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-304923", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1915, "year_end": 1915, "prominence": "primary"}]}
+{"id": "tmdb-300412", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-233270", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1917, "year_end": 1917, "prominence": "primary"}]}
+{"id": "tmdb-270586", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-174955", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1919, "year_end": 1919, "prominence": "primary"}]}
+{"id": "tmdb-184250", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-36126", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1900, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-293102", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1922, "year_end": 1922, "prominence": "primary"}]}
+{"id": "tmdb-280955", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1923, "year_end": 1923, "prominence": "primary"}]}
+{"id": "tmdb-169255", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1924, "year_end": 1924, "prominence": "primary"}]}
+{"id": "tmdb-271730", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1925, "year_end": 1925, "prominence": "primary"}]}
+{"id": "tmdb-222658", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1926, "year_end": 1926, "prominence": "primary"}]}
+{"id": "tmdb-118489", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1850, "year_end": 1865, "prominence": "primary"}]}
+{"id": "tmdb-171215", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1928, "year_end": 1928, "prominence": "primary"}]}
+{"id": "tmdb-190239", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1603, "year_end": 1867, "prominence": "primary"}]}
+{"id": "tmdb-88269", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1930, "prominence": "primary"}]}
+{"id": "tmdb-126514", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1931, "year_end": 1931, "prominence": "primary"}]}
+{"id": "tmdb-181745", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1932, "prominence": "primary"}]}
+{"id": "tmdb-126516", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-43687", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1745, "year_end": 1762, "prominence": "primary"}]}
+{"id": "tmdb-88186", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-35810", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1936, "year_end": 1936, "prominence": "primary"}]}
+{"id": "tmdb-146211", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-40994", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1938, "year_end": 1938, "prominence": "primary"}]}
+{"id": "tmdb-74675", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-61464", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1940, "prominence": "primary"}]}
+{"id": "tmdb-115596", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1941, "prominence": "primary"}]}
+{"id": "tmdb-231235", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1800, "year_end": 1899, "prominence": "primary"}]}
+{"id": "tmdb-69057", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1400, "year_end": 1600, "prominence": "primary"}]}
+{"id": "tmdb-145337", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-74207", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}, {"year_start": -750, "year_end": -750, "prominence": "secondary"}]}
+{"id": "tmdb-60799", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-43459", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1947, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-30327", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1948, "year_end": 1948, "prominence": "primary"}]}
+{"id": "tmdb-128679", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-118003", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-43882", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1951, "year_end": 1951, "prominence": "primary"}]}
+{"id": "tmdb-40996", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-16914", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-18174", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-35987", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1840, "year_end": 1860, "prominence": "primary"}]}
+{"id": "tmdb-11594", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1482, "year_end": 1482, "prominence": "primary"}]}
+{"id": "tmdb-35847", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-37454", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1958, "year_end": 1958, "prominence": "primary"}]}
+{"id": "tmdb-43100", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-60046", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-28430", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1961, "year_end": 1961, "prominence": "primary"}]}
+{"id": "tmdb-13671", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1910, "year_end": 1919, "prominence": "primary"}]}
+{"id": "tmdb-6166", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-24229", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1964, "year_end": 1964, "prominence": "primary"}]}
+{"id": "tmdb-2428", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 0, "year_end": 33, "prominence": "primary"}]}
+{"id": "tmdb-22293", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-49397", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1890, "year_end": 1890, "prominence": "primary"}, {"year_start": 1905, "year_end": 1905, "prominence": "primary"}]}
+{"id": "tmdb-26690", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-3171", "gaze": "atemporal", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": []}
+{"id": "tmdb-56366", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1970, "year_end": 1970, "prominence": "primary"}]}
+{"id": "tmdb-12598", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1971, "year_end": 1971, "prominence": "primary"}]}
+{"id": "tmdb-41471", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1700, "year_end": 1700, "prominence": "primary"}]}
+{"id": "tmdb-64847", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1300, "year_end": 1300, "prominence": "primary"}]}
+{"id": "tmdb-59189", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1974, "year_end": 1974, "prominence": "primary"}]}
+{"id": "tmdb-10915", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1880, "year_end": 1880, "prominence": "primary"}]}
+{"id": "tmdb-43751", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1976, "year_end": 1976, "prominence": "primary"}]}
+{"id": "tmdb-45004", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-11530", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1978, "year_end": 1978, "prominence": "primary"}]}
+{"id": "tmdb-661", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1945, "year_end": 1956, "prominence": "primary"}]}
+{"id": "tmdb-37767", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1980, "year_end": 1980, "prominence": "primary"}]}
+{"id": "tmdb-62204", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-13396", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-19698", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-11905", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1984, "year_end": 1984, "prominence": "secondary"}]}
+{"id": "tmdb-12775", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1500, "year_end": 1599, "prominence": "primary"}]}
+{"id": "tmdb-9404", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1996, "year_end": 1996, "prominence": "primary"}]}
+{"id": "tmdb-9406", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-309", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}]}
+{"id": "tmdb-1567", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1999, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-9871", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2000, "year_end": 2000, "prominence": "primary"}]}
+{"id": "tmdb-9696", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-10775", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2002, "year_end": 2002, "prominence": "primary"}]}
+{"id": "tmdb-8424", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-15165", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2004, "year_end": 2004, "prominence": "primary"}]}
+{"id": "tmdb-4550", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-4481", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1920, "year_end": 1940, "prominence": "primary"}]}
+{"id": "tmdb-21521", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1900, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-31056", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-11937", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-14249", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1990, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-15804", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1969, "prominence": "primary"}]}
+{"id": "tmdb-10412", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1992, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-10997", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1924, "year_end": 1949, "prominence": "secondary"}, {"year_start": 1950, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-9369", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": -50, "year_end": -50, "prominence": "primary"}]}
+{"id": "tmdb-39108", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-14069", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-2011", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1970, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-8265", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2008, "year_end": 2008, "prominence": "primary"}]}
+{"id": "tmdb-37169", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2009, "year_end": 2009, "prominence": "primary"}]}
+{"id": "tmdb-37707", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2010, "year_end": 2010, "prominence": "primary"}]}
+{"id": "tmdb-49021", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1974, "year_end": 1980, "prominence": "primary"}]}
+{"id": "tmdb-61012", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-152742", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-76649", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 79, "year_end": 79, "prominence": "primary"}]}
+{"id": "tmdb-301351", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2015, "year_end": 2015, "prominence": "primary"}]}
+{"id": "tmdb-205584", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": -1500, "year_end": -1000, "prominence": "primary"}]}
+{"id": "tmdb-339877", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1890, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-407436", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-568160", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 2019, "year_end": 2019, "prominence": "primary"}]}
+{"id": "tmdb-441130", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-568620", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2021, "year_end": 2021, "prominence": "primary"}]}
+{"id": "tmdb-705996", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2022, "year_end": 2022, "prominence": "primary"}]}
+{"id": "tmdb-744857", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2023, "year_end": 2023, "prominence": "primary"}]}
+{"id": "tmdb-799766", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1974, "year_end": 1985, "prominence": "secondary"}, {"year_start": 1990, "year_end": 1995, "prominence": "secondary"}, {"year_start": 1995, "year_end": 2024, "prominence": "primary"}]}
+{"id": "tmdb-324544", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-1468683", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2026, "year_end": 2026, "prominence": "primary"}]}
+{"id": "tmdb-195970", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1903, "year_end": 1903, "prominence": "primary"}]}
+{"id": "tmdb-196473", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1907, "year_end": 1907, "prominence": "primary"}]}
+{"id": "tmdb-270124", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1843, "year_end": 1843, "prominence": "primary"}]}
+{"id": "tmdb-330966", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1909, "year_end": 1909, "prominence": "primary"}]}
+{"id": "tmdb-367895", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-190857", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1864, "year_end": 1864, "prominence": "primary"}]}
+{"id": "tmdb-226861", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-229796", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1860, "year_end": 1869, "prominence": "primary"}]}
+{"id": "tmdb-304754", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1914, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-228695", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-6131", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1730, "year_end": 1750, "prominence": "primary"}]}
+{"id": "tmdb-287262", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1914, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-231850", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-49317", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1929, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-186164", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-156318", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1928, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-125713", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1932, "year_end": 1932, "prominence": "primary"}]}
+{"id": "tmdb-168751", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-269403", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1934, "year_end": 1934, "prominence": "primary"}]}
+{"id": "tmdb-210394", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1915, "year_end": 1915, "prominence": "primary"}]}
+{"id": "tmdb-282009", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1901, "year_end": 1901, "prominence": "secondary"}, {"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-222131", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1917, "year_end": 1917, "prominence": "primary"}]}
+{"id": "tmdb-624601", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-141979", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1919, "year_end": 1919, "prominence": "primary"}]}
+{"id": "tmdb-175323", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-175601", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-271358", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1490, "year_end": 1520, "prominence": "primary"}]}
+{"id": "tmdb-251168", "gaze": "atemporal", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": []}
+{"id": "tmdb-381337", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-43692", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1935, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-125891", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1936, "year_end": 1936, "prominence": "primary"}]}
+{"id": "tmdb-57662", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1937, "year_end": 1937, "prominence": "primary"}]}
+{"id": "tmdb-133840", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1938, "year_end": 1938, "prominence": "primary"}]}
+{"id": "tmdb-79220", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-87907", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1860, "year_end": 1860, "prominence": "primary"}]}
+{"id": "tmdb-213615", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1880, "prominence": "primary"}]}
+{"id": "tmdb-82692", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-43519", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-97088", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1944, "year_end": 1944, "prominence": "primary"}]}
+{"id": "tmdb-152018", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-101382", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1770, "year_end": 1810, "prominence": "primary"}]}
+{"id": "tmdb-146823", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1947, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-110915", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1948, "year_end": 1948, "prominence": "primary"}]}
+{"id": "tmdb-30322", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1949, "year_end": 1949, "prominence": "primary"}]}
+{"id": "tmdb-82778", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-324146", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1951, "year_end": 1951, "prominence": "primary"}]}
+{"id": "tmdb-56167", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1700, "year_end": 1799, "prominence": "primary"}]}
+{"id": "tmdb-82779", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1953, "year_end": 1953, "prominence": "primary"}]}
+{"id": "tmdb-54979", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1650, "year_end": 1680, "prominence": "primary"}]}
+{"id": "tmdb-37991", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-20379", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-27277", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-26372", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1968, "year_end": 1968, "prominence": "primary"}]}
+{"id": "tmdb-12529", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-44154", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1500, "year_end": 1700, "prominence": "primary"}]}
+{"id": "tmdb-17965", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1925, "year_end": 1930, "prominence": "primary"}]}
+{"id": "tmdb-10310", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1972, "year_end": 1972, "prominence": "primary"}]}
+{"id": "tmdb-16180", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-38582", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1974, "year_end": 1974, "prominence": "primary"}]}
+{"id": "tmdb-31374", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1604, "year_end": 1604, "prominence": "primary"}]}
+{"id": "tmdb-58074", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1956, "year_end": 1956, "prominence": "primary"}]}
+{"id": "tmdb-917", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-4412", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1815, "year_end": 1832, "prominence": "primary"}]}
+{"id": "tmdb-71041", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1900, "year_end": 1925, "prominence": "primary"}]}
+{"id": "tmdb-21967", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-63892", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1961, "year_end": 1961, "prominence": "primary"}]}
+{"id": "tmdb-12708", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1962, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-28503", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-15421", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1162, "year_end": 1170, "prominence": "primary"}]}
+{"id": "tmdb-4546", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1815, "year_end": 1815, "prominence": "primary"}]}
+{"id": "tmdb-58925", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-11940", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-7010", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1978, "year_end": 1978, "prominence": "primary"}]}
+{"id": "tmdb-10373", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-11333", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1980, "year_end": 1980, "prominence": "primary"}]}
+{"id": "tmdb-11027", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-71524", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1936, "year_end": 1936, "prominence": "primary"}]}
+{"id": "tmdb-37777", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-421467", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1984, "year_end": 1984, "prominence": "primary"}]}
+{"id": "tmdb-11830", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-10017", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1986, "year_end": 1986, "prominence": "primary"}]}
+{"id": "tmdb-30421", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1700, "year_end": 1700, "prominence": "primary"}]}
+{"id": "tmdb-2210", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-11305", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-30017", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-2767", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "both", "targets": [{"year_start": 1990, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-2007", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1985, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-7500", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1993, "year_end": 1993, "prominence": "primary"}]}
+{"id": "tmdb-11479", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1994, "year_end": 1994, "prominence": "primary"}]}
+{"id": "tmdb-10722", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1995, "year_end": 1995, "prominence": "primary"}]}
+{"id": "tmdb-25059", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1996, "year_end": 1996, "prominence": "primary"}]}
+{"id": "tmdb-10622", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-21348", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-823", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1999, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-2440", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2000, "year_end": 2000, "prominence": "primary"}]}
+{"id": "tmdb-15167", "gaze": "atemporal", "earthbound": false, "confidence": 0.65, "basis": "knowledge", "targets": []}
+{"id": "tmdb-4689", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2002, "year_end": 2002, "prominence": "primary"}]}
+{"id": "tmdb-2334", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-1653", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1953, "prominence": "primary"}]}
+{"id": "tmdb-11683", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-219", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-38142", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}, {"year_start": 2002, "year_end": 2002, "prominence": "primary"}, {"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-6972", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-28355", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2009, "year_end": 2009, "prominence": "primary"}]}
+{"id": "tmdb-22972", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-59678", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2011, "year_end": 2011, "prominence": "primary"}]}
+{"id": "tmdb-80389", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-77987", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-210479", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2014, "year_end": 2014, "prominence": "primary"}]}
+{"id": "tmdb-257088", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2015, "year_end": 2015, "prominence": "primary"}]}
+{"id": "tmdb-364433", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2016, "year_end": 2016, "prominence": "primary"}]}
+{"id": "tmdb-446791", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-401469", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2018, "year_end": 2018, "prominence": "primary"}]}
+{"id": "tmdb-549053", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2019, "year_end": 2019, "prominence": "primary"}]}
+{"id": "tmdb-636565", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1968, "year_end": 1968, "prominence": "primary"}]}
+{"id": "tmdb-760883", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2021, "year_end": 2021, "prominence": "primary"}]}
+{"id": "tmdb-829560", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2022, "year_end": 2022, "prominence": "primary"}]}
+{"id": "tmdb-796185", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1625, "year_end": 1625, "prominence": "primary"}]}
+{"id": "tmdb-1216191", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2024, "year_end": 2024, "prominence": "primary"}]}
+{"id": "tmdb-1356039", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2025, "year_end": 2025, "prominence": "primary"}]}
+{"id": "tmdb-1668364", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2026, "year_end": 2026, "prominence": "primary"}]}
+{"id": "tmdb-429015", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1903, "year_end": 1903, "prominence": "primary"}]}
+{"id": "tmdb-196493", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1907, "year_end": 1907, "prominence": "primary"}]}
+{"id": "tmdb-232923", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1908, "year_end": 1908, "prominence": "primary"}]}
+{"id": "tmdb-317469", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1909, "year_end": 1909, "prominence": "primary"}]}
+{"id": "tmdb-318971", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-190856", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1911, "year_end": 1911, "prominence": "primary"}]}
+{"id": "tmdb-193836", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-76937", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1843, "year_end": 1843, "prominence": "primary"}]}
+{"id": "tmdb-191929", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1914, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-210387", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1915, "year_end": 1915, "prominence": "primary"}]}
+{"id": "tmdb-270572", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1800, "year_end": 1820, "prominence": "primary"}]}
+{"id": "tmdb-130040", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1917, "year_end": 1917, "prominence": "primary"}]}
+{"id": "tmdb-253942", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1917, "year_end": 1918, "prominence": "primary"}]}
+{"id": "tmdb-227757", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1919, "year_end": 1919, "prominence": "primary"}]}
+{"id": "tmdb-213287", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1400, "year_end": 1500, "prominence": "primary"}]}
+{"id": "tmdb-131453", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1921, "year_end": 1921, "prominence": "primary"}]}
+{"id": "tmdb-285673", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1890, "year_end": 1900, "prominence": "primary"}]}
+{"id": "tmdb-175729", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1923, "year_end": 1923, "prominence": "primary"}]}
+{"id": "tmdb-186203", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1924, "year_end": 1924, "prominence": "primary"}]}
+{"id": "tmdb-279157", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1925, "year_end": 1925, "prominence": "primary"}, {"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-184899", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1926, "year_end": 1926, "prominence": "primary"}]}
+{"id": "tmdb-190154", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1927, "year_end": 1927, "prominence": "primary"}]}
+{"id": "tmdb-158219", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1928, "year_end": 1928, "prominence": "primary"}]}
+{"id": "tmdb-190278", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1929, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-263875", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-3029", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1931, "year_end": 1931, "prominence": "primary"}]}
+{"id": "tmdb-156529", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1932, "year_end": 1932, "prominence": "primary"}]}
+{"id": "tmdb-64728", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-38719", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1700, "year_end": 1700, "prominence": "primary"}]}
+{"id": "tmdb-125682", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1820, "year_end": 1829, "prominence": "primary"}]}
+{"id": "tmdb-195522", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1936, "year_end": 1936, "prominence": "primary"}]}
+{"id": "tmdb-30992", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1937, "year_end": 1937, "prominence": "primary"}]}
+{"id": "tmdb-64294", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1938, "year_end": 1938, "prominence": "primary"}]}
+{"id": "tmdb-65645", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1905, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-30179", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1940, "prominence": "primary"}]}
+{"id": "tmdb-68058", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-67455", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-109355", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-102419", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-76068", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1890, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-81741", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1946, "year_end": 1946, "prominence": "primary"}]}
+{"id": "tmdb-63764", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-68291", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1946, "year_end": 1946, "prominence": "primary"}]}
+{"id": "tmdb-51143", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1947, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-63179", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-46043", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1880, "prominence": "primary"}]}
+{"id": "tmdb-63178", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-3014", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-43339", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1928, "year_end": 1946, "prominence": "primary"}]}
+{"id": "tmdb-21490", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1955, "year_end": 1955, "prominence": "primary"}]}
+{"id": "tmdb-20531", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1956, "year_end": 1956, "prominence": "primary"}]}
+{"id": "tmdb-40933", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-16284", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-12649", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1959, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-39890", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1660, "year_end": 1660, "prominence": "secondary"}, {"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-43028", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1961, "year_end": 1961, "prominence": "primary"}]}
+{"id": "tmdb-16103", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1962, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-60773", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-11681", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1974, "year_end": 1974, "prominence": "primary"}]}
+{"id": "tmdb-4561", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1975, "year_end": 1975, "prominence": "primary"}]}
+{"id": "tmdb-51857", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1950, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-1421", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-48282", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1978, "year_end": 1978, "prominence": "primary"}]}
+{"id": "tmdb-33521", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1913, "year_end": 1913, "prominence": "primary"}]}
+{"id": "tmdb-38602", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1880, "year_end": 1889, "prominence": "primary"}]}
+{"id": "tmdb-39874", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1981, "year_end": 1981, "prominence": "primary"}]}
+{"id": "tmdb-30874", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-15035", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-30295", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-10338", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-3115", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-8074", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1967, "year_end": 1967, "prominence": "primary"}]}
+{"id": "tmdb-40149", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1467, "year_end": 1615, "prominence": "primary"}]}
+{"id": "tmdb-42329", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1900, "year_end": 1900, "prominence": "primary"}]}
+{"id": "tmdb-31952", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1700, "year_end": 1800, "prominence": "primary"}]}
+{"id": "tmdb-11842", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1870, "year_end": 1870, "prominence": "primary"}]}
+{"id": "tmdb-5691", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1380, "year_end": 1400, "prominence": "primary"}]}
+{"id": "tmdb-17897", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-15927", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1924, "year_end": 1924, "prominence": "primary"}]}
+{"id": "tmdb-16248", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-11986", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1986, "year_end": 1986, "prominence": "primary"}]}
+{"id": "tmdb-4043", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1987, "year_end": 1987, "prominence": "primary"}]}
+{"id": "tmdb-10754", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-19236", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-10264", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-17467", "gaze": "future", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-18183", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1910, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-21450", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1993, "year_end": 1993, "prominence": "primary"}]}
+{"id": "tmdb-17809", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1994, "year_end": 1994, "prominence": "primary"}]}
+{"id": "tmdb-9102", "gaze": "future", "earthbound": false, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2078, "year_end": 2078, "prominence": "primary"}]}
+{"id": "tmdb-1770", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-267", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-10353", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}, {"year_start": 1200, "year_end": 1400, "prominence": "secondary"}]}
+{"id": "tmdb-9669", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1999, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-18079", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2000, "year_end": 2000, "prominence": "primary"}]}
+{"id": "tmdb-11299", "gaze": "future", "earthbound": false, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2071, "year_end": 2071, "prominence": "primary"}]}
+{"id": "tmdb-437", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-13398", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-17111", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2004, "year_end": 2004, "prominence": "primary"}]}
+{"id": "tmdb-1985", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-15152", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1955, "year_end": 1955, "prominence": "primary"}]}
+{"id": "tmdb-10431", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2007, "year_end": 2007, "prominence": "primary"}]}
+{"id": "tmdb-9381", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2050, "year_end": 2050, "prominence": "primary"}]}
+{"id": "tmdb-29917", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2009, "year_end": 2009, "prominence": "primary"}]}
+{"id": "tmdb-26389", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2010, "year_end": 2010, "prominence": "primary"}]}
+{"id": "tmdb-48231", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1900, "year_end": 1913, "prominence": "primary"}]}
+{"id": "tmdb-10679", "gaze": "multi", "earthbound": false, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "minor"}, {"year_start": 2015, "year_end": 2015, "prominence": "primary"}]}
+{"id": "tmdb-152603", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-265177", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2014, "year_end": 2014, "prominence": "primary"}]}
+{"id": "tmdb-283445", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2015, "year_end": 2015, "prominence": "primary"}]}
+{"id": "tmdb-267193", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2016, "year_end": 2016, "prominence": "primary"}]}
+{"id": "tmdb-372343", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "both", "targets": [{"year_start": 2017, "year_end": 2017, "prominence": "primary"}]}
+{"id": "tmdb-507076", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2018, "year_end": 2018, "prominence": "primary"}]}
+{"id": "tmdb-481084", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2019, "year_end": 2019, "prominence": "primary"}]}
+{"id": "tmdb-522241", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1962, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-630240", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2021, "year_end": 2021, "prominence": "primary"}]}
+{"id": "tmdb-819876", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2100, "year_end": 2100, "prominence": "primary"}]}
+{"id": "tmdb-944401", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2023, "year_end": 2023, "prominence": "primary"}]}
+{"id": "tmdb-1152014", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2024, "year_end": 2024, "prominence": "primary"}]}
+{"id": "tmdb-1220564", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-1291659", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1990, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-196515", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1907, "year_end": 1907, "prominence": "primary"}]}
+{"id": "tmdb-456541", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1857, "year_end": 1858, "prominence": "primary"}]}
+{"id": "tmdb-188422", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1909, "year_end": 1909, "prominence": "primary"}]}
+{"id": "tmdb-302866", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-173846", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1911, "year_end": 1911, "prominence": "primary"}]}
+{"id": "tmdb-193881", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1890, "year_end": 1895, "prominence": "primary"}]}
+{"id": "tmdb-443494", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 79, "year_end": 79, "prominence": "primary"}]}
+{"id": "tmdb-219888", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1793, "year_end": 1793, "prominence": "primary"}]}
+{"id": "tmdb-238634", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-213263", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1917, "year_end": 1917, "prominence": "primary"}]}
+{"id": "tmdb-114194", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1919, "year_end": 1919, "prominence": "primary"}]}
+{"id": "tmdb-149157", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-184252", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1921, "year_end": 1921, "prominence": "primary"}]}
+{"id": "tmdb-268481", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1922, "year_end": 1922, "prominence": "primary"}]}
+{"id": "tmdb-292355", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-175317", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1924, "year_end": 1924, "prominence": "primary"}]}
+{"id": "tmdb-168378", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1925, "year_end": 1925, "prominence": "primary"}]}
+{"id": "tmdb-403205", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-103258", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-184106", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-36894", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-190354", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-41062", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-27341", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1890, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-117569", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-263768", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-151243", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-106266", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-112699", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1937, "year_end": 1937, "prominence": "primary"}]}
+{"id": "tmdb-76703", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1938, "year_end": 1938, "prominence": "primary"}]}
+{"id": "tmdb-64443", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-87060", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1940, "prominence": "primary"}]}
+{"id": "tmdb-294383", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1941, "prominence": "primary"}]}
+{"id": "tmdb-288918", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1450, "year_end": 1492, "prominence": "primary"}]}
+{"id": "tmdb-122846", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-99567", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1837, "year_end": 1901, "prominence": "primary"}]}
+{"id": "tmdb-47810", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-146783", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-77649", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1947, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-46984", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1948, "year_end": 1948, "prominence": "primary"}]}
+{"id": "tmdb-51618", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1949, "year_end": 1949, "prominence": "primary"}]}
+{"id": "tmdb-16939", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-79015", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1951, "year_end": 1951, "prominence": "primary"}]}
+{"id": "tmdb-84944", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-93863", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1953, "year_end": 1953, "prominence": "primary"}]}
+{"id": "tmdb-34000", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1954, "year_end": 1954, "prominence": "primary"}]}
+{"id": "tmdb-72083", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1955, "year_end": 1955, "prominence": "primary"}]}
+{"id": "tmdb-43791", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-28061", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-60899", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1958, "year_end": 1958, "prominence": "primary"}]}
+{"id": "tmdb-58736", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-29756", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-64568", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1961, "year_end": 1961, "prominence": "primary"}]}
+{"id": "tmdb-43002", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1962, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-54563", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-22829", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1964, "year_end": 1964, "prominence": "primary"}]}
+{"id": "tmdb-61765", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-4708", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1944, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-48784", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-11874", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1870, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-48688", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-36179", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1970, "year_end": 1970, "prominence": "primary"}]}
+{"id": "tmdb-11316", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1000, "year_end": 1099, "prominence": "primary"}]}
+{"id": "tmdb-19336", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1972, "year_end": 1972, "prominence": "primary"}]}
+{"id": "tmdb-11670", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-46581", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1974, "year_end": 1974, "prominence": "secondary"}, {"year_start": 1800, "year_end": 1899, "prominence": "secondary"}]}
+{"id": "tmdb-44132", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1700, "year_end": 1799, "prominence": "primary"}]}
+{"id": "tmdb-42236", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1750, "year_end": 1800, "prominence": "primary"}]}
+{"id": "tmdb-72277", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-22311", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1944, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-10912", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1914, "year_end": 1918, "prominence": "primary"}]}
+{"id": "tmdb-40969", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1980, "year_end": 1980, "prominence": "primary"}]}
+{"id": "tmdb-11646", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1915, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-30060", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-26198", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1939, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-19673", "gaze": "multi", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1984, "year_end": 1987, "prominence": "secondary"}, {"year_start": 2100, "year_end": 2200, "prominence": "primary"}]}
+{"id": "tmdb-44018", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-39148", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-21334", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-666", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}]}
+{"id": "tmdb-10951", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1999, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-29458", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1970, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-11826", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-9298", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2002, "year_end": 2002, "prominence": "primary"}]}
+{"id": "tmdb-10226", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-2841", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1920, "year_end": 1924, "prominence": "primary"}, {"year_start": 1916, "year_end": 1918, "prominence": "secondary"}]}
+{"id": "tmdb-7364", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-3", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1986, "year_end": 1986, "prominence": "primary"}]}
+{"id": "tmdb-39145", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-56825", "gaze": "multi", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "secondary"}, {"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-12622", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-8428", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1990, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-9065", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1946, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-18764", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1992, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-11101", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1942, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-21588", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1994, "year_end": 1994, "prominence": "primary"}]}
+{"id": "tmdb-42994", "gaze": "atemporal", "earthbound": false, "confidence": 0.35, "basis": "knowledge", "targets": []}
+{"id": "tmdb-7516", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-2196", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2007, "year_end": 2007, "prominence": "primary"}]}
+{"id": "tmdb-12184", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1522, "year_end": 1536, "prominence": "primary"}]}
+{"id": "tmdb-18947", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-29427", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2010, "year_end": 2010, "prominence": "primary"}]}
+{"id": "tmdb-45772", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2011, "year_end": 2011, "prominence": "primary"}]}
+{"id": "tmdb-112198", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-68727", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-68737", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-228066", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1790, "year_end": 1810, "prominence": "primary"}]}
+{"id": "tmdb-369557", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1980, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-345938", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2017, "year_end": 2017, "prominence": "primary"}]}
+{"id": "tmdb-505192", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2018, "year_end": 2018, "prominence": "primary"}]}
+{"id": "tmdb-280217", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-641662", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2020, "year_end": 2020, "prominence": "primary"}]}
+{"id": "tmdb-777270", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1969, "year_end": 1969, "prominence": "primary"}]}
+{"id": "tmdb-823625", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2022, "year_end": 2022, "prominence": "primary"}]}
+{"id": "tmdb-455476", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2023, "year_end": 2023, "prominence": "primary"}]}
+{"id": "tmdb-626412", "gaze": "multi", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": -1000, "year_end": -1000, "prominence": "secondary"}, {"year_start": 2200, "year_end": 2200, "prominence": "primary"}]}
+{"id": "tmdb-980477", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-1404684", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-214472", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1907, "year_end": 1907, "prominence": "primary"}]}
+{"id": "tmdb-270119", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1908, "year_end": 1908, "prominence": "primary"}]}
+{"id": "tmdb-139298", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1909, "year_end": 1909, "prominence": "primary"}]}
+{"id": "tmdb-302851", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-205462", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1801, "year_end": 1801, "prominence": "primary"}]}
+{"id": "tmdb-193856", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-228808", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": -41, "year_end": -30, "prominence": "primary"}]}
+{"id": "tmdb-194056", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1914, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-305150", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-191461", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1889, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-283491", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-162927", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1930, "prominence": "primary"}]}
+{"id": "tmdb-95759", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1814, "year_end": 1815, "prominence": "primary"}]}
+{"id": "tmdb-175822", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1932, "year_end": 1932, "prominence": "primary"}]}
+{"id": "tmdb-188346", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-43603", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1934, "year_end": 1934, "prominence": "primary"}]}
+{"id": "tmdb-110468", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1935, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-148243", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-142486", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1515, "year_end": 1547, "prominence": "primary"}, {"year_start": 1937, "year_end": 1937, "prominence": "secondary"}]}
+{"id": "tmdb-381330", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-175008", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-378191", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-227919", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 500, "year_end": 599, "prominence": "primary"}]}
+{"id": "tmdb-184276", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-175839", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 30, "year_end": 33, "prominence": "primary"}, {"year_start": 1923, "year_end": 1923, "prominence": "secondary"}]}
+{"id": "tmdb-228498", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 41, "year_end": 48, "prominence": "primary"}]}
+{"id": "tmdb-225839", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1925, "year_end": 1925, "prominence": "primary"}]}
+{"id": "tmdb-287156", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1926, "year_end": 1926, "prominence": "primary"}]}
+{"id": "tmdb-155789", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1927, "year_end": 1927, "prominence": "primary"}]}
+{"id": "tmdb-26292", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1938, "year_end": 1938, "prominence": "primary"}]}
+{"id": "tmdb-62566", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1939, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-277452", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1800, "year_end": 1815, "prominence": "primary"}]}
+{"id": "tmdb-76737", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-64595", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-118011", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-168994", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1944, "year_end": 1944, "prominence": "primary"}]}
+{"id": "tmdb-29368", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-82819", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-181081", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1947, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-43450", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1911, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-132332", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1946, "prominence": "primary"}]}
+{"id": "tmdb-135530", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-18650", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1888, "year_end": 1900, "prominence": "primary"}]}
+{"id": "tmdb-41300", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-42502", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1953, "year_end": 1953, "prominence": "primary"}]}
+{"id": "tmdb-82046", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1815, "year_end": 1844, "prominence": "primary"}]}
+{"id": "tmdb-45213", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1889, "year_end": 1889, "prominence": "primary"}]}
+{"id": "tmdb-66177", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1956, "year_end": 1956, "prominence": "primary"}]}
+{"id": "tmdb-61829", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-43143", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1958, "year_end": 1958, "prominence": "primary"}]}
+{"id": "tmdb-31427", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-37230", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-33336", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-16692", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1800, "year_end": 1868, "prominence": "primary"}]}
+{"id": "tmdb-4498", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-44450", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1600, "year_end": 1699, "prominence": "primary"}]}
+{"id": "tmdb-26811", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-21449", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-16081", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1967, "year_end": 1967, "prominence": "primary"}]}
+{"id": "tmdb-29778", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1900, "prominence": "primary"}]}
+{"id": "tmdb-12097", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1969, "year_end": 1969, "prominence": "primary"}]}
+{"id": "tmdb-26606", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1970, "year_end": 1970, "prominence": "primary"}]}
+{"id": "tmdb-39464", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1971, "year_end": 1971, "prominence": "primary"}]}
+{"id": "tmdb-12116", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1972, "year_end": 1972, "prominence": "primary"}]}
+{"id": "tmdb-28498", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-47848", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1974, "year_end": 1974, "prominence": "primary"}]}
+{"id": "tmdb-18450", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1810, "year_end": 1830, "prominence": "primary"}]}
+{"id": "tmdb-32037", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1976, "year_end": 1976, "prominence": "primary"}]}
+{"id": "tmdb-633", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-31542", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1900, "year_end": 1900, "prominence": "primary"}]}
+{"id": "tmdb-25476", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1979, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-23954", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1980, "year_end": 1980, "prominence": "primary"}]}
+{"id": "tmdb-11816", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1981, "year_end": 1981, "prominence": "primary"}]}
+{"id": "tmdb-11614", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-42112", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-10260", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1984, "year_end": 1984, "prominence": "primary"}]}
+{"id": "tmdb-11703", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-30163", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1986, "year_end": 1986, "prominence": "primary"}]}
+{"id": "tmdb-18305", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1987, "year_end": 1987, "prominence": "primary"}]}
+{"id": "tmdb-8697", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}]}
+{"id": "tmdb-10210", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-10991", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-15449", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-64", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2002, "year_end": 2002, "prominence": "primary"}]}
+{"id": "tmdb-3635", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "both", "targets": [{"year_start": 1660, "year_end": 1670, "prominence": "primary"}]}
+{"id": "tmdb-1280", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2004, "year_end": 2004, "prominence": "primary"}]}
+{"id": "tmdb-398", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1960, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-2179", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-1407", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1915, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-41664", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-8216", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-37770", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1990, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-18971", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-4507", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1992, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-39105", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-10531", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1990, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-36834", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1871, "year_end": 1875, "prominence": "primary"}]}
+{"id": "tmdb-41668", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1996, "year_end": 1996, "prominence": "primary"}]}
+{"id": "tmdb-30020", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-13655", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2008, "year_end": 2008, "prominence": "primary"}]}
+{"id": "tmdb-24238", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2009, "year_end": 2009, "prominence": "primary"}]}
+{"id": "tmdb-73861", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2010, "year_end": 2010, "prominence": "primary"}]}
+{"id": "tmdb-60243", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2011, "year_end": 2011, "prominence": "primary"}]}
+{"id": "tmdb-86837", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-198375", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-180299", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2014, "year_end": 2014, "prominence": "primary"}]}
+{"id": "tmdb-310593", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2015, "year_end": 2015, "prominence": "primary"}]}
+{"id": "tmdb-371645", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2016, "year_end": 2016, "prominence": "primary"}]}
+{"id": "tmdb-390062", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1981, "year_end": 1981, "prominence": "primary"}]}
+{"id": "tmdb-233020", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1810, "year_end": 1810, "prominence": "primary"}]}
+{"id": "tmdb-219886", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1622, "year_end": 1673, "prominence": "primary"}]}
+{"id": "tmdb-120287", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1911, "year_end": 1911, "prominence": "primary"}]}
+{"id": "tmdb-166725", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-125011", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1913, "year_end": 1913, "prominence": "primary"}]}
+{"id": "tmdb-174079", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-282998", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-466356", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1917, "year_end": 1917, "prominence": "primary"}]}
+{"id": "tmdb-149131", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1900, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-270992", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1800, "year_end": 1815, "prominence": "primary"}]}
+{"id": "tmdb-463821", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-523139", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2019, "year_end": 2019, "prominence": "primary"}]}
+{"id": "tmdb-555974", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2020, "year_end": 2020, "prominence": "primary"}]}
+{"id": "tmdb-471498", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2075, "year_end": 2075, "prominence": "primary"}]}
+{"id": "tmdb-926899", "gaze": "multi", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}, {"year_start": 1960, "year_end": 1960, "prominence": "primary"}, {"year_start": 2022, "year_end": 2022, "prominence": "primary"}]}
+{"id": "tmdb-365620", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-933131", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2080, "year_end": 2080, "prominence": "primary"}]}
+{"id": "tmdb-1408208", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2025, "year_end": 2025, "prominence": "primary"}]}
+{"id": "tmdb-1477317", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2026, "year_end": 2026, "prominence": "primary"}]}
+{"id": "tmdb-237533", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1908, "year_end": 1908, "prominence": "primary"}]}
+{"id": "tmdb-153444", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1930, "year_end": 1931, "prominence": "primary"}]}
+{"id": "tmdb-95292", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1885, "year_end": 1885, "prominence": "primary"}]}
+{"id": "tmdb-190375", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1605, "year_end": 1605, "prominence": "primary"}]}
+{"id": "tmdb-135335", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1934, "year_end": 1934, "prominence": "primary"}]}
+{"id": "tmdb-150314", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1935, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-76694", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1936, "year_end": 1936, "prominence": "primary"}]}
+{"id": "tmdb-43860", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1880, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-63069", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-335367", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1915, "year_end": 1915, "prominence": "primary"}]}
+{"id": "tmdb-219924", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1937, "year_end": 1937, "prominence": "primary"}]}
+{"id": "tmdb-155867", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1919, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-175600", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1922, "year_end": 1922, "prominence": "primary"}]}
+{"id": "tmdb-253083", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1923, "year_end": 1923, "prominence": "primary"}]}
+{"id": "tmdb-186451", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "both", "targets": [{"year_start": -1200, "year_end": -1200, "prominence": "primary"}]}
+{"id": "tmdb-291829", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1925, "year_end": 1925, "prominence": "primary"}]}
+{"id": "tmdb-157904", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1920, "year_end": 1926, "prominence": "primary"}]}
+{"id": "tmdb-151342", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1776, "year_end": 1776, "prominence": "primary"}]}
+{"id": "tmdb-151336", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-150537", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1929, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-234001", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "both", "targets": [{"year_start": 1250, "year_end": 1333, "prominence": "primary"}]}
+{"id": "tmdb-53714", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1951, "year_end": 1951, "prominence": "primary"}]}
+{"id": "tmdb-69544", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-31293", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1953, "year_end": 1953, "prominence": "primary"}]}
+{"id": "tmdb-64782", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1954, "year_end": 1954, "prominence": "primary"}]}
+{"id": "tmdb-77285", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1945, "prominence": "primary"}, {"year_start": 1946, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-35206", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1956, "year_end": 1956, "prominence": "primary"}]}
+{"id": "tmdb-41053", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-29347", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1958, "year_end": 1958, "prominence": "primary"}]}
+{"id": "tmdb-70555", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1959, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-34145", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-72019", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1941, "prominence": "primary"}]}
+{"id": "tmdb-930", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1942, "year_end": 1942, "prominence": "primary"}]}
+{"id": "tmdb-63981", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-73271", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1944, "year_end": 1944, "prominence": "primary"}]}
+{"id": "tmdb-143065", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1930, "prominence": "primary"}]}
+{"id": "tmdb-28006", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1944, "prominence": "primary"}]}
+{"id": "tmdb-105509", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1946, "year_end": 1947, "prominence": "primary"}]}
+{"id": "tmdb-61210", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1948, "year_end": 1948, "prominence": "primary"}]}
+{"id": "tmdb-77546", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1825, "year_end": 1835, "prominence": "primary"}]}
+{"id": "tmdb-85747", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-56343", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1943, "year_end": 1945, "prominence": "secondary"}, {"year_start": 1945, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-45267", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-21143", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-57144", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1964, "year_end": 1964, "prominence": "primary"}]}
+{"id": "tmdb-20723", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1965, "year_end": 1965, "prominence": "primary"}]}
+{"id": "tmdb-45706", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-2984", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1967, "year_end": 1967, "prominence": "primary"}]}
+{"id": "tmdb-58188", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1968, "year_end": 1968, "prominence": "primary"}]}
+{"id": "tmdb-29228", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1969, "year_end": 1969, "prominence": "primary"}]}
+{"id": "tmdb-34479", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1970, "year_end": 1970, "prominence": "primary"}]}
+{"id": "tmdb-59408", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1971, "year_end": 1971, "prominence": "primary"}]}
+{"id": "tmdb-25993", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1972, "year_end": 1972, "prominence": "primary"}]}
+{"id": "tmdb-39264", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1973, "year_end": 1973, "prominence": "primary"}]}
+{"id": "tmdb-25627", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1974, "year_end": 1974, "prominence": "primary"}]}
+{"id": "tmdb-83651", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1975, "year_end": 1975, "prominence": "primary"}]}
+{"id": "tmdb-2459", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1976, "year_end": 1976, "prominence": "primary"}]}
+{"id": "tmdb-40585", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1977, "year_end": 1977, "prominence": "primary"}]}
+{"id": "tmdb-22049", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-259", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1979, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-11936", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1980, "year_end": 1980, "prominence": "primary"}]}
+{"id": "tmdb-12627", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1991, "year_end": 1991, "prominence": "primary"}]}
+{"id": "tmdb-23637", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1992, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-39324", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-39106", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-56804", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1995, "year_end": 1995, "prominence": "primary"}]}
+{"id": "tmdb-26900", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1996, "year_end": 1996, "prominence": "primary"}]}
+{"id": "tmdb-37652", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-9457", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}]}
+{"id": "tmdb-11129", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1999, "year_end": 1999, "prominence": "primary"}]}
+{"id": "tmdb-11849", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-32480", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1700, "year_end": 1799, "prominence": "primary"}]}
+{"id": "tmdb-47886", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-42442", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-8221", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1984, "year_end": 1984, "prominence": "primary"}]}
+{"id": "tmdb-11240", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-24913", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1986, "year_end": 1986, "prominence": "primary"}]}
+{"id": "tmdb-21453", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-24163", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-18289", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-38718", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1985, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-83389", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-77883", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-212716", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2013, "year_end": 2013, "prominence": "primary"}]}
+{"id": "tmdb-304410", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2014, "year_end": 2014, "prominence": "primary"}]}
+{"id": "tmdb-303857", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-379170", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1890, "year_end": 1899, "prominence": "primary"}]}
+{"id": "tmdb-402897", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1953, "year_end": 1953, "prominence": "primary"}]}
+{"id": "tmdb-483184", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2018, "year_end": 2018, "prominence": "primary"}]}
+{"id": "tmdb-461130", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2019, "year_end": 2019, "prominence": "primary"}]}
+{"id": "tmdb-723072", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2020, "year_end": 2020, "prominence": "primary"}]}
+{"id": "tmdb-467", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-11442", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2002, "year_end": 2002, "prominence": "primary"}]}
+{"id": "tmdb-4552", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-21778", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": -35000, "year_end": -35000, "prominence": "primary"}]}
+{"id": "tmdb-179", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-9035", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-10030", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2007, "year_end": 2007, "prominence": "primary"}]}
+{"id": "tmdb-13510", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2008, "year_end": 2008, "prominence": "primary"}]}
+{"id": "tmdb-23488", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1890, "year_end": 1899, "prominence": "primary"}]}
+{"id": "tmdb-19901", "gaze": "future", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2019, "year_end": 2019, "prominence": "primary"}]}
+{"id": "tmdb-550205", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2021, "year_end": 2021, "prominence": "primary"}]}
+{"id": "tmdb-833339", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2022, "year_end": 2022, "prominence": "primary"}]}
+{"id": "tmdb-643215", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": -50, "year_end": -50, "prominence": "primary"}]}
+{"id": "tmdb-1064486", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2024, "year_end": 2024, "prominence": "primary"}]}
+{"id": "tmdb-1425045", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2025, "year_end": 2025, "prominence": "primary"}]}
+{"id": "tmdb-1165366", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1940, "prominence": "primary"}]}
+{"id": "tmdb-232938", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1908, "year_end": 1908, "prominence": "primary"}]}
+{"id": "tmdb-232988", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1909, "year_end": 1909, "prominence": "primary"}]}
+{"id": "tmdb-418269", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1000, "year_end": 1200, "prominence": "primary"}]}
+{"id": "tmdb-505045", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-417155", "gaze": "multi", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1895, "year_end": 1900, "prominence": "secondary"}, {"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-191905", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": -73, "year_end": -71, "prominence": "primary"}]}
+{"id": "tmdb-304042", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1914, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-282459", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1916, "year_end": 1916, "prominence": "primary"}]}
+{"id": "tmdb-148844", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1919, "year_end": 1919, "prominence": "primary"}]}
+{"id": "tmdb-526268", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-344337", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1921, "year_end": 1921, "prominence": "primary"}]}
+{"id": "tmdb-184264", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1820, "year_end": 1825, "prominence": "primary"}]}
+{"id": "tmdb-307075", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1923, "year_end": 1923, "prominence": "primary"}]}
+{"id": "tmdb-176389", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1820, "year_end": 1820, "prominence": "primary"}]}
+{"id": "tmdb-184860", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1832, "year_end": 1832, "prominence": "primary"}]}
+{"id": "tmdb-297584", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1907, "year_end": 1907, "prominence": "primary"}]}
+{"id": "tmdb-278938", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1927, "year_end": 1927, "prominence": "primary"}]}
+{"id": "tmdb-133649", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1918, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-65914", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1929, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-282026", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1930, "prominence": "primary"}]}
+{"id": "tmdb-97554", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1890, "year_end": 1900, "prominence": "primary"}]}
+{"id": "tmdb-64545", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1932, "year_end": 1932, "prominence": "primary"}]}
+{"id": "tmdb-165057", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-140469", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1934, "year_end": 1934, "prominence": "primary"}]}
+{"id": "tmdb-93057", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1935, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-43876", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1889, "year_end": 1889, "prominence": "primary"}]}
+{"id": "tmdb-74414", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1937, "year_end": 1937, "prominence": "primary"}]}
+{"id": "tmdb-256081", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1938, "year_end": 1938, "prominence": "primary"}]}
+{"id": "tmdb-81408", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1900, "year_end": 1914, "prominence": "primary"}]}
+{"id": "tmdb-63766", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1940, "year_end": 1940, "prominence": "primary"}]}
+{"id": "tmdb-274629", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1941, "year_end": 1941, "prominence": "primary"}]}
+{"id": "tmdb-185633", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1898, "year_end": 1898, "prominence": "secondary"}, {"year_start": 1936, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-120295", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-238733", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-77604", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1945, "year_end": 1945, "prominence": "primary"}]}
+{"id": "tmdb-117913", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1946, "year_end": 1946, "prominence": "primary"}]}
+{"id": "tmdb-162528", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-41309", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1948, "year_end": 1948, "prominence": "primary"}]}
+{"id": "tmdb-35852", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1949, "year_end": 1949, "prominence": "primary"}]}
+{"id": "tmdb-57628", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1950, "year_end": 1950, "prominence": "primary"}]}
+{"id": "tmdb-50444", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1951, "year_end": 1951, "prominence": "primary"}]}
+{"id": "tmdb-80374", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1952, "year_end": 1952, "prominence": "primary"}]}
+{"id": "tmdb-45991", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1953, "year_end": 1953, "prominence": "primary"}]}
+{"id": "tmdb-63857", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1954, "year_end": 1954, "prominence": "primary"}]}
+{"id": "tmdb-56435", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1955, "year_end": 1955, "prominence": "primary"}]}
+{"id": "tmdb-26865", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1956, "year_end": 1956, "prominence": "primary"}]}
+{"id": "tmdb-60195", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1957, "year_end": 1957, "prominence": "primary"}]}
+{"id": "tmdb-116690", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-62036", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1959, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-3764", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1960, "year_end": 1960, "prominence": "primary"}]}
+{"id": "tmdb-57998", "gaze": "future", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1962, "year_end": 1962, "prominence": "primary"}]}
+{"id": "tmdb-19972", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": -480, "year_end": -480, "prominence": "primary"}]}
+{"id": "tmdb-28041", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1963, "year_end": 1963, "prominence": "primary"}]}
+{"id": "tmdb-29030", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 1850, "year_end": 1900, "prominence": "primary"}]}
+{"id": "tmdb-16850", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1943, "year_end": 1943, "prominence": "primary"}]}
+{"id": "tmdb-25047", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1966, "year_end": 1966, "prominence": "primary"}]}
+{"id": "tmdb-28504", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1967, "year_end": 1967, "prominence": "primary"}]}
+{"id": "tmdb-39891", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1968, "year_end": 1968, "prominence": "primary"}]}
+{"id": "tmdb-8286", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1969, "year_end": 1969, "prominence": "primary"}]}
+{"id": "tmdb-29748", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1970, "year_end": 1970, "prominence": "primary"}]}
+{"id": "tmdb-11378", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1971, "year_end": 1971, "prominence": "primary"}]}
+{"id": "tmdb-33020", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1972, "year_end": 1972, "prominence": "primary"}]}
+{"id": "tmdb-11612", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1929, "year_end": 1939, "prominence": "primary"}]}
+{"id": "tmdb-47406", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-29859", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1890, "year_end": 1890, "prominence": "primary"}]}
+{"id": "tmdb-47096", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1976, "year_end": 1976, "prominence": "primary"}]}
+{"id": "tmdb-40074", "gaze": "atemporal", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": []}
+{"id": "tmdb-11623", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1978, "year_end": 1978, "prominence": "primary"}]}
+{"id": "tmdb-40420", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1979, "year_end": 1979, "prominence": "primary"}]}
+{"id": "tmdb-6028", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1980, "year_end": 1980, "prominence": "primary"}]}
+{"id": "tmdb-24124", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1981, "year_end": 1981, "prominence": "primary"}]}
+{"id": "tmdb-51925", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1982, "year_end": 1982, "prominence": "primary"}]}
+{"id": "tmdb-58833", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1983, "year_end": 1983, "prominence": "primary"}]}
+{"id": "tmdb-19621", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1984, "year_end": 1984, "prominence": "primary"}]}
+{"id": "tmdb-8816", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1959, "year_end": 1959, "prominence": "primary"}]}
+{"id": "tmdb-39144", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-83090", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-2", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1988, "year_end": 1988, "prominence": "primary"}]}
+{"id": "tmdb-118662", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1989, "year_end": 1989, "prominence": "primary"}]}
+{"id": "tmdb-11309", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1990, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-17792", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1991, "year_end": 1991, "prominence": "primary"}]}
+{"id": "tmdb-1987", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1992, "year_end": 1992, "prominence": "primary"}]}
+{"id": "tmdb-25403", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1993, "year_end": 1993, "prominence": "primary"}]}
+{"id": "tmdb-8011", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1994, "year_end": 1994, "prominence": "primary"}]}
+{"id": "tmdb-1802", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1995, "year_end": 1995, "prominence": "primary"}]}
+{"id": "tmdb-38288", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1996, "year_end": 1996, "prominence": "primary"}]}
+{"id": "tmdb-11015", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1997, "year_end": 1997, "prominence": "primary"}]}
+{"id": "tmdb-1075", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1998, "year_end": 1998, "prominence": "primary"}]}
+{"id": "tmdb-30923", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-25538", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2000, "year_end": 2000, "prominence": "primary"}]}
+{"id": "tmdb-10477", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2001, "year_end": 2001, "prominence": "primary"}]}
+{"id": "tmdb-15015", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-10610", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2003, "year_end": 2003, "prominence": "primary"}]}
+{"id": "tmdb-438", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "knowledge", "targets": [{"year_start": 2004, "year_end": 2004, "prominence": "primary"}]}
+{"id": "tmdb-10851", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2005, "year_end": 2005, "prominence": "primary"}]}
+{"id": "tmdb-512", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2006, "year_end": 2006, "prominence": "primary"}]}
+{"id": "tmdb-3638", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2007, "year_end": 2007, "prominence": "primary"}]}
+{"id": "tmdb-15157", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2008, "year_end": 2008, "prominence": "primary"}]}
+{"id": "tmdb-10664", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2009, "year_end": 2009, "prominence": "primary"}]}
+{"id": "tmdb-31867", "gaze": "future", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 2050, "year_end": 2050, "prominence": "primary"}]}
+{"id": "tmdb-71688", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1979, "year_end": 1990, "prominence": "primary"}]}
+{"id": "tmdb-80280", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2012, "year_end": 2012, "prominence": "primary"}]}
+{"id": "tmdb-149871", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-317442", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-251516", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1940, "year_end": 1940, "prominence": "primary"}, {"year_start": 1985, "year_end": 1985, "prominence": "primary"}]}
+{"id": "tmdb-58431", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "both", "targets": [{"year_start": 1811, "year_end": 1815, "prominence": "primary"}]}
+{"id": "tmdb-467938", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2017, "year_end": 2017, "prominence": "primary"}]}
+{"id": "tmdb-440161", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1851, "year_end": 1851, "prominence": "primary"}]}
+{"id": "tmdb-431580", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 2019, "year_end": 2019, "prominence": "primary"}]}
+{"id": "tmdb-593402", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2020, "year_end": 2020, "prominence": "primary"}]}
+{"id": "tmdb-758866", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2021, "year_end": 2021, "prominence": "primary"}]}
+{"id": "tmdb-900667", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-722149", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2023, "year_end": 2023, "prominence": "primary"}]}
+{"id": "tmdb-838209", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 2024, "year_end": 2024, "prominence": "primary"}]}
+{"id": "tmdb-1267905", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 2025, "year_end": 2025, "prominence": "primary"}]}
+{"id": "tmdb-1595852", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 2026, "year_end": 2026, "prominence": "primary"}]}
+{"id": "tmdb-196642", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1908, "year_end": 1908, "prominence": "primary"}]}
+{"id": "tmdb-232949", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1860, "year_end": 1860, "prominence": "primary"}]}
+{"id": "tmdb-233348", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1910, "year_end": 1910, "prominence": "primary"}]}
+{"id": "tmdb-488418", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1911, "year_end": 1911, "prominence": "primary"}]}
+{"id": "tmdb-213049", "gaze": "present", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1912, "year_end": 1912, "prominence": "primary"}]}
+{"id": "tmdb-342417", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1913, "year_end": 1913, "prominence": "primary"}]}
+{"id": "tmdb-174003", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": -100, "year_end": -44, "prominence": "primary"}]}
+{"id": "tmdb-207038", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1793, "year_end": 1794, "prominence": "primary"}]}
+{"id": "tmdb-202643", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1919, "year_end": 1919, "prominence": "primary"}]}
+{"id": "tmdb-175221", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1920, "prominence": "primary"}]}
+{"id": "tmdb-145803", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1, "year_end": 1, "prominence": "primary"}]}
+{"id": "tmdb-175522", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1922, "year_end": 1922, "prominence": "primary"}]}
+{"id": "tmdb-186173", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1926, "prominence": "primary"}]}
+{"id": "tmdb-130251", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1924, "year_end": 1924, "prominence": "primary"}]}
+{"id": "tmdb-447675", "gaze": "atemporal", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-285418", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "knowledge", "targets": [{"year_start": 1665, "year_end": 1685, "prominence": "primary"}]}
+{"id": "tmdb-125354", "gaze": "past", "earthbound": true, "confidence": 0.65, "basis": "knowledge", "targets": [{"year_start": 1800, "year_end": 1850, "prominence": "primary"}]}
+{"id": "tmdb-166514", "gaze": "present", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1928, "year_end": 1928, "prominence": "primary"}]}
+{"id": "tmdb-49466", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1929, "year_end": 1929, "prominence": "primary"}]}
+{"id": "tmdb-166526", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1930, "year_end": 1930, "prominence": "primary"}]}
+{"id": "tmdb-138772", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1931, "year_end": 1931, "prominence": "primary"}]}
+{"id": "tmdb-3474", "gaze": "atemporal", "earthbound": false, "confidence": 0.9, "basis": "knowledge", "targets": []}
+{"id": "tmdb-169377", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1933, "year_end": 1933, "prominence": "primary"}]}
+{"id": "tmdb-94889", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1860, "year_end": 1860, "prominence": "primary"}]}
+{"id": "tmdb-190165", "gaze": "present", "earthbound": true, "confidence": 0.65, "basis": "text", "targets": [{"year_start": 1935, "year_end": 1935, "prominence": "primary"}]}
+{"id": "tmdb-128722", "gaze": "past", "earthbound": true, "confidence": 0.35, "basis": "text", "targets": [{"year_start": 1700, "year_end": 1700, "prominence": "primary"}]}
+{"id": "tmdb-80087", "gaze": "past", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": -218, "year_end": -201, "prominence": "primary"}]}
+{"id": "tmdb-284976", "gaze": "multi", "earthbound": true, "confidence": 0.9, "basis": "text", "targets": [{"year_start": 1920, "year_end": 1929, "prominence": "secondary"}, {"year_start": 1930, "year_end": 1939, "prominence": "primary"}]}
