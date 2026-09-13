@@ -261,8 +261,15 @@ branch or folder to choose.
 
 ```bash
 make viz            # local preview -> out/standalone.html
+make ci-check       # build from a clean clone, as the runner does
 git push            # CI rebuilds and deploys; watch it in the Actions tab
 ```
+
+`make ci-check` exists because the first CI run failed in a way local builds could not
+catch: `out/` and `docs/` are gitignored, so they do not exist in a fresh checkout, and
+the build quietly relied on a tree it had been run in before. The target clones the repo
+into a temp dir and builds there, so a working tree that happens to be in a good state
+cannot hide a broken build.
 
 It lands at `https://eguiwow.github.io/CinemaTimeGaze/`, which is baked into the `SITE`
 constant near the bottom of `src/build_viz.py` — change it there, not in the HTML.

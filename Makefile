@@ -3,7 +3,7 @@ URL = https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies
 LABELS ?= labels_tmdb.jsonl
 
 .PHONY: data sample targets viz all clean-out
-.PHONY: tmdb-check tmdb-plan tmdb tmdb-flatten tmdb-sample labels tmdb-regions tmdb-global tmdb-plan-global classify classify-cli whoami cli-probe validate nightly
+.PHONY: tmdb-check tmdb-plan tmdb tmdb-flatten tmdb-sample labels tmdb-regions tmdb-global tmdb-plan-global classify classify-cli whoami cli-probe validate nightly ci-check
 
 # --- TMDB corpus ---
 # COUNTRIES is a region preset, an ISO list, or a mix — `make tmdb-regions` prints them.
@@ -81,3 +81,23 @@ all: targets viz
 
 clean-out:
 	rm -f out/*.html
+
+# Reproduce the Pages workflow against a CLEAN CLONE, which is what the runner
+# actually gets. The first CI run failed because out/ and docs/ are gitignored and
+# the build assumed a tree that had been built in before — it passed locally and
+# died on the runner. Run this before pushing a build change.
+ci-check:
+	@set -e; d=$$(mktemp -d); \
+	 git clone -q . $$d; cd $$d; \
+	 echo "--- clean clone, building as CI does ---"; \
+	 python3 src/build_viz.py; \
+	 test -f docs/index.html   || { echo "FAIL: no docs/index.html"; exit 1; }; \
+	 test -f docs/preview.png  || { echo "FAIL: no social card"; exit 1; }; \
+	 test -f docs/.nojekyll    || { echo "FAIL: no .nojekyll"; exit 1; }; \
+	 grep -q 'const DATA = {' docs/index.html || { echo "FAIL: no data inlined"; exit 1; }; \
+	 test -d docs/fonts && test "$$(ls docs/fonts/*.woff2 | wc -l)" -ge 8 \
+	   || { echo "FAIL: fonts missing"; exit 1; }; \
+	 ! grep -q 'fonts.googleapis.com\|fonts.gstatic.com' docs/index.html \
+	   || { echo "FAIL: external font request"; exit 1; }; \
+	 echo "OK  $$(du -h docs/index.html | cut -f1) raw, $$(gzip -9 -c docs/index.html | wc -c | awk '{printf "%d KB", $$1/1024}') gzipped"; \
+	 rm -rf $$d
