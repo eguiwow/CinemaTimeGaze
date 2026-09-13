@@ -1,0 +1,67 @@
+name: Build and deploy to Pages
+
+# The page is BUILT here rather than committed. docs/ used to be checked in, which
+# meant a template change committed without `make viz` shipped a stale page and
+# nothing complained. Building on push makes that impossible.
+#
+# Everything the build needs is in the repo: data/targets.json, data/validation.json,
+# the template, the fonts and the TMDB mark. No API key, no network, no secrets —
+# build_viz.py is stdlib only.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # a manual rebuild, from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a running deploy; queue behind it.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build the page
+        run: python3 src/build_viz.py
+
+      - name: Sanity-check what we are about to publish
+        run: |
+          set -e
+          test -f docs/index.html || { echo "::error::no docs/index.html"; exit 1; }
+          test -f docs/preview.png || { echo "::error::no social card"; exit 1; }
+          test -f docs/.nojekyll   || { echo "::error::no .nojekyll"; exit 1; }
+          # the data has to have made it in, not just the shell of the page
+          grep -q 'const DATA = {' docs/index.html || { echo "::error::no data inlined"; exit 1; }
+          # a build that lost its fonts should fail loudly, not ship a fallback face
+          test -d docs/fonts && test "$(ls docs/fonts/*.woff2 | wc -l)" -ge 8 \
+            || { echo "::error::fonts missing from the build"; exit 1; }
+          # and nothing should be phoning home
+          if grep -q 'fonts.googleapis.com\|fonts.gstatic.com' docs/index.html; then
+            echo "::error::page still references Google Fonts"; exit 1
+          fi
+          echo "size: $(du -h docs/index.html | cut -f1) raw, $(gzip -9 -c docs/index.html | wc -c | awk '{printf "%d KB", $1/1024}') gzipped"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

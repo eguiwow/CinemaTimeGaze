@@ -15,8 +15,11 @@ data/sample_wikipedia.json
 data/_batch.txt
 
 # --- generated build output ---
-# out/ is the local build; docs/ is the published one and IS committed.
+# Both are built by `make viz`. docs/ used to be committed; it is now built by
+# .github/workflows/pages.yml on every push, so the published page can never
+# drift from the source it claims to come from.
 out/
+docs/
 logs/
 _to_delete/
 
