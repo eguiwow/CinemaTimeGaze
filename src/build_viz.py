@@ -156,6 +156,50 @@ html = (tpl.replace("__DATA__", json.dumps(payload, separators=(",",":")))
 # Three outputs: the artifact body (no doctype — the Artifact tool supplies the
 # skeleton), a standalone document to open straight from disk, and the published
 # copy under docs/, which is what GitHub Pages serves.
+# ---- fonts, self-hosted ---------------------------------------------------------
+# The page used to pull three families from fonts.googleapis.com. That was the only
+# external request on an otherwise self-contained page, and it handed every visitor's
+# IP to a third party — which a Munich court found breaches GDPR in 2022. The files
+# are now in assets/fonts/, taken from the Fontsource packages, all OFL-1.1 and
+# redistributable with the licences alongside them.
+#
+# Two modes, because the outputs have different constraints:
+#   link   -> docs/: separate files, cached independently, parallel fetch
+#   inline -> standalone.html and the artifact body: data: URIs, so one file is
+#             genuinely one file and works with no server and no network at all
+import base64
+FONT_DIR = ROOT/"assets"/"fonts"
+FACES = json.loads((FONT_DIR/"faces.json").read_text()) if (FONT_DIR/"faces.json").exists() else []
+
+def face_css(f, src):
+    ur = f"\n  unicode-range: {f['unicode_range']};" if f.get("unicode_range") else ""
+    return (f"@font-face {{\n  font-family: '{f['family']}';\n  font-style: {f['style']};"
+            f"\n  font-weight: {f['weight']};\n  font-display: swap;"
+            f"\n  src: url({src}) format('woff2');{ur}\n}}")
+
+def fonts_html(mode):
+    if not FACES:
+        print("note: assets/fonts/faces.json missing — the page will fall back to system faces.")
+        return ""
+    if mode == "link":
+        return '<link rel="stylesheet" href="fonts/fonts.css">'
+    css = "\n".join(face_css(f, "data:font/woff2;base64," +
+                    base64.b64encode((FONT_DIR/f["file"]).read_bytes()).decode())
+                    for f in FACES)
+    return "<style>\n" + css + "\n</style>"
+
+def write_font_dir(dest):
+    """Separate files plus the stylesheet that points at them, for the served build."""
+    d = dest/"fonts"; d.mkdir(parents=True, exist_ok=True)
+    for f in FACES:
+        (d/f["file"]).write_bytes((FONT_DIR/f["file"]).read_bytes())
+    for lic in FONT_DIR.glob("LICENSE-*.txt"):        # OFL: the licence travels with the font
+        (d/lic.name).write_bytes(lic.read_bytes())
+    (d/"fonts.css").write_text(
+        "/* Self-hosted, OFL-1.1. See the LICENSE-*.txt files beside this one. */\n"
+        + "\n".join(face_css(f, f["file"]) for f in FACES) + "\n")
+    return sum((FONT_DIR/f["file"]).stat().st_size for f in FACES)
+
 # ---- full documents -----------------------------------------------------------
 # SITE is where the published copy lives. Open Graph needs absolute URLs — a
 # relative og:image is simply dropped by every scraper, which is how a shared
@@ -165,19 +209,23 @@ DESC = ("Every film is made in one year and set in another. This measures the ga
         "a century of cinema: how far back films look, how much further ahead they reach "
         "when they do, and how that has moved decade by decade.")
 
-i = html.index('<div class="root">')
+def body(mode):
+    """The page with its font strategy chosen. __FONTS__ is the only difference."""
+    return html.replace("__FONTS__", fonts_html(mode))
 
-def document(head_extra=""):
+def document(mode, head_extra=""):
+    h = body(mode)
+    i = h.index('<div class="root">')
     return ('<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width,initial-scale=1">\n'
             + head_extra +
             '<style>html,body{margin:0;padding:0}</style>\n'
-            + html[:i] + '</head>\n<body>\n' + html[i:] + '\n</body>\n</html>\n')
+            + h[:i] + '</head>\n<body>\n' + h[i:] + '\n</body>\n</html>\n')
 
 out = ROOT/"out"/"timeline.html"
-out.write_text(html)
+out.write_text(body("inline"))
 alone = ROOT/"out"/"standalone.html"
-alone.write_text(document())
+alone.write_text(document("inline"))
 
 social = f'''<meta name="description" content="{DESC}">
 <meta name="author" content="Ander Eguiluz">
@@ -198,13 +246,22 @@ social = f'''<meta name="description" content="{DESC}">
 <meta name="twitter:description" content="{DESC}">
 <meta name="twitter:image" content="{SITE}preview.png">
 '''
+# docs/ is generated, never committed — the Pages workflow builds it on every push,
+# so the published page cannot drift from the source it claims to come from.
 docs = ROOT/"docs"
 docs.mkdir(exist_ok=True)
-(docs/"index.html").write_text(document(social))
+(docs/"index.html").write_text(document("link", social))
 (docs/".nojekyll").write_text("")          # stop Pages running Jekyll over it
+font_bytes = write_font_dir(docs)
 
-print("wrote", out, f"{len(html)/1024:.0f} KB")
-print("wrote", alone, f"{len(document())/1024:.0f} KB  (open this one directly)")
-print("wrote", docs/"index.html", f"{len(document(social))/1024:.0f} KB  (what GitHub Pages serves)")
-if not (docs/"preview.png").exists():
-    print("note: docs/preview.png missing — the social card will be blank until it is generated.")
+card = ROOT/"assets"/"preview.png"
+if card.exists():
+    (docs/"preview.png").write_bytes(card.read_bytes())
+else:
+    print("note: assets/preview.png missing — the social card will be blank.")
+
+def kb(t): return f"{len(t)/1024:.0f} KB"
+print("wrote", out, kb(body("inline")))
+print("wrote", alone, kb(document("inline")), " (open this one directly)")
+print("wrote", docs/"index.html", kb(document("link", social)),
+      f" + {len(FACES)} font files ({font_bytes/1024:.0f} KB)   (what GitHub Pages serves)")
