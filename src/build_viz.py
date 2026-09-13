@@ -222,6 +222,11 @@ def document(mode, head_extra=""):
             '<style>html,body{margin:0;padding:0}</style>\n'
             + h[:i] + '</head>\n<body>\n' + h[i:] + '\n</body>\n</html>\n')
 
+# Both output dirs are gitignored, so neither exists in a fresh checkout — which is
+# exactly what CI does. Create them rather than assuming a working tree that has
+# been built in before.
+(ROOT/"out").mkdir(parents=True, exist_ok=True)
+
 out = ROOT/"out"/"timeline.html"
 out.write_text(body("inline"))
 alone = ROOT/"out"/"standalone.html"
@@ -249,7 +254,7 @@ social = f'''<meta name="description" content="{DESC}">
 # docs/ is generated, never committed — the Pages workflow builds it on every push,
 # so the published page cannot drift from the source it claims to come from.
 docs = ROOT/"docs"
-docs.mkdir(exist_ok=True)
+docs.mkdir(parents=True, exist_ok=True)
 (docs/"index.html").write_text(document("link", social))
 (docs/".nojekyll").write_text("")          # stop Pages running Jekyll over it
 font_bytes = write_font_dir(docs)
