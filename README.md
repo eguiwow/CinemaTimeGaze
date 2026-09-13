@@ -4,9 +4,8 @@
 movie was **released** and the year (or years) it is **set in**, then drawing where each
 release year's films look.
 
-Open **`out/standalone.html`** in a browser. It is fully self-contained — the data is inlined,
-no server, no build step. (Only external reference is the Google Fonts stylesheet; offline it
-falls back to Georgia / system sans / system mono.)
+Open **`out/standalone.html`** in a browser. It is fully self-contained — data inlined,
+fonts inlined, no server, no build step, **no network requests at all**.
 
 ## What it measures
 
@@ -242,6 +241,74 @@ timeless and the model filed under "present".
 
 This is agreement between two labelsets, not truth. Both could be wrong the same way, and
 the hand set is a judgment call on exactly the cases that are hard.
+
+## Publishing
+
+**The page is built in CI, not committed.** `.github/workflows/pages.yml` runs
+`build_viz.py` on every push to `main` and deploys the result. `docs/` is gitignored; it
+exists locally only as the output of `make viz`. This is deliberate — when `docs/` was
+committed, a template change pushed without rebuilding shipped a stale page and nothing
+complained.
+
+The workflow needs no dependencies, no network and no secrets: everything it reads
+(`data/targets.json`, `data/validation.json`, the template, `assets/`) is tracked, and
+`build_viz.py` is stdlib only. It fails rather than publishing something wrong — missing
+data, missing social card, missing `.nojekyll`, or any external font request is a hard
+error.
+
+One-time setup on github.com: **Settings → Pages → Source: GitHub Actions**. There is no
+branch or folder to choose.
+
+```bash
+make viz            # local preview -> out/standalone.html
+git push            # CI rebuilds and deploys; watch it in the Actions tab
+```
+
+It lands at `https://eguiwow.github.io/CinemaTimeGaze/`, which is baked into the `SITE`
+constant near the bottom of `src/build_viz.py` — change it there, not in the HTML.
+
+### Linkable state
+
+The page writes its state into the URL hash, so a specific finding can be linked rather
+than described:
+
+```
+#y=1950&mode=year&genre=Western&place=c:JP&film=tmdb-346&look=noir&q=samurai
+```
+
+`y` release year or decade · `mode=year` for single years · `genre` (suffix `!` to exclude
+it instead) · `place` as `c:<ISO>` or `r:<region>` · `film` pins one film on the arc chart ·
+`look` the era theme · `q` the search box. Everything is optional.
+
+## Fonts
+
+Self-hosted from `assets/fonts/`, taken from the Fontsource packages. All three families
+are OFL-1.1 and the licences are committed alongside them, as the licence requires.
+
+The page has **no external requests at all**. It previously pulled the families from
+`fonts.googleapis.com`, which handed every visitor's IP to a third party — something a
+Munich court found breached GDPR in 2022.
+
+This costs almost nothing: the browser downloaded those bytes either way, and self-hosting
+removes two cross-origin handshakes. `unicode-range` means a typical visit fetches 6 of the
+12 files.
+
+| face | subsets |
+|---|---|
+| Instrument Serif 400, 400 italic | latin |
+| IBM Plex Sans 400, 400 italic, 500, 600 | latin + latin-ext |
+| IBM Plex Mono 400, 500 | latin |
+
+`latin-ext` is on the body font only, because search results render Polish, Czech,
+Hungarian, Turkish and Romanian titles and latin-only drops those to a fallback face
+mid-list.
+
+`build_viz.py` has two modes. `docs/` links a stylesheet and separate files so they cache
+independently; `out/standalone.html` and the artifact body inline them as data URIs, so one
+file is genuinely one file and works with no server and no network. That is why the
+standalone build is ~300 KB larger.
+
+`assets/fonts/README.md` has the regeneration script and the reasoning on subsets.
 
 ## Licence
 
