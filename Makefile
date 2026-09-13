@@ -56,8 +56,10 @@ cli-probe:
 	python3 src/classify_api.py --cli-probe \
 	  --cli-cmd "$$(command -v $(CLAUDE_BIN))" --claude-config-dir "$(ACCOUNT_DIR)"
 
+# --json writes data/validation.json, which build_viz.py reads so the page prints
+# the measured accuracy rather than a number typed into the template.
 validate:
-	python3 src/validate.py data/labels_tmdb.jsonl data/labels_api.jsonl --by-basis
+	python3 src/validate.py data/labels_tmdb.jsonl data/labels_api.jsonl --by-basis --json
 
 targets:
 	python3 src/build_targets.py --labels $(LABELS)

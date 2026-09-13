@@ -58,6 +58,59 @@ else:
           "      Download the official logo from themoviedb.org/about/logos-attribution\n"
           "      and save it there; it will be inlined on the next build.")
 
+# The page's JS has a full ISO->name map; this caveat is built in Python and was
+# printing the bare code ("mostly a statement about US"). Only the handful of
+# countries that can realistically dominate a sample need naming here.
+CNAME = {"US":"the United States","GB":"the United Kingdom","FR":"France","DE":"Germany",
+         "IT":"Italy","ES":"Spain","JP":"Japan","IN":"India","CN":"China","KR":"South Korea",
+         "RU":"Russia","CA":"Canada","BR":"Brazil","MX":"Mexico","AU":"Australia",
+         "NL":"the Netherlands","SE":"Sweden","HK":"Hong Kong","TR":"Turkey","PH":"the Philippines"}
+# "a statement about the United States cinema" is not English; the sentence needs the
+# adjective, not the country name.
+ADJ = {"US":"American","GB":"British","FR":"French","DE":"German","IT":"Italian",
+       "ES":"Spanish","JP":"Japanese","IN":"Indian","CN":"Chinese","KR":"South Korean",
+       "RU":"Russian","CA":"Canadian","BR":"Brazilian","MX":"Mexican","AU":"Australian",
+       "NL":"Dutch","SE":"Swedish","HK":"Hong Kong","TR":"Turkish","PH":"Filipino"}
+cname = lambda c: CNAME.get(c, c)
+cadj  = lambda c: ADJ.get(c, CNAME.get(c, c))
+
+# ---- measured accuracy -------------------------------------------------------
+# validate.py scores the model labels against the independent hand-labelled set and
+# writes data/validation.json. The page prints THAT, never a number typed into the
+# template — hardcoding is how the corpus caveat ended up describing the wrong dataset
+# for a fortnight. No file, no claim: the page says plainly that nothing was checked.
+vpath = ROOT/"data"/"validation.json"
+if vpath.exists():
+    v = json.loads(vpath.read_text())
+    g  = round(100*v["gaze_agreement"])
+    y  = round(100*v["year_within_tol"]) if v.get("year_within_tol") is not None else None
+    bb = v.get("by_basis") or {}
+    kn_s = round(100*bb["knowledge"]["gaze"]) if "knowledge" in bb else None
+    tx_s = round(100*bb["text"]["gaze"]) if "text" in bb else None
+    split = ""
+    if kn_s is not None and tx_s is not None:
+        split = (f" That splits: <b>{tx_s}%</b> where the summary actually names a year, "
+                 f"<b>{kn_s}%</b> where the model is going on what it knows about the film.")
+    accuracy = (f"Checked against {v['n_overlap']} films labelled independently by hand, the "
+                f"classifier puts a film in the right category <b>{g}%</b> of the time"
+                + (f" and lands the depicted year within {v['tol']} years <b>{y}%</b> of the time"
+                   if y is not None else "") + "." + split)
+    accuracy_caveat = (
+        f"<b>The labels have now been scored.</b> Against {v['n_overlap']} films labelled by hand "
+        f"through a different process, the model agrees on gaze {g}% of the time"
+        + (f" and on the depicted year (within {v['tol']}y) {y}% of the time" if y is not None else "")
+        + ". "
+        + (f"The split by basis is the interesting part: {tx_s}% where the source text states a "
+           f"year against {kn_s}% where it does not, so the cheap model is meaningfully worse — "
+           f"but not guessing — when the text is silent. " if kn_s is not None and tx_s is not None else "")
+        + "This is agreement between two labelsets, not truth: both could be wrong the same way, "
+          "and the hand set is itself a judgment call on the hard cases.")
+else:
+    accuracy = ("These labels have <b>not</b> been checked against any independent reference. "
+                "Treat the shape as a hypothesis, not a measurement.")
+    accuracy_caveat = ("<b>Nothing here has been validated.</b> The labels have not been scored "
+                       "against an independent ground truth, so every figure is a hypothesis.")
+
 # ---- who actually produced the loaded data -----------------------------------
 n = len(d["films"])
 is_tmdb = sum(1 for f in d["films"] if str(f["id"]).startswith("tmdb-")) > n / 2
@@ -71,8 +124,9 @@ if is_tmdb:
              ) if countries else "an unrecorded set of countries"
     skew = ""
     if top and topn / n > 0.35:
-        skew = (f" It is not evenly spread: {top} alone is {round(100*topn/n)}% of it, so any "
-                f"figure you read without picking an origin is mostly a statement about {top}.")
+        skew = (f" It is not evenly spread: {cname(top)} alone is {round(100*topn/n)}% of it, so "
+                f"any figure you read without picking an origin is mostly a statement about "
+                f"{cadj(top)} cinema.")
     source_note = (f"{n} films from <b>TMDB</b>, {min(ys)}–{max(ys)}, sampled per release "
                    f"year and ranked within the year by TMDB vote count, covering {reach}."
                    f"{skew} Vote count is a popularity measure, and popularity travels badly "
@@ -96,7 +150,9 @@ html = (tpl.replace("__DATA__", json.dumps(payload, separators=(",",":")))
            .replace("__KPCT__", str(round(100*kn/len(d["films"]))))
            .replace("__SOURCE_NOTE__", source_note)
            .replace("__DATA_CREDIT__", data_credit)
-           .replace("__TMDB_LOGO__", logo))
+           .replace("__TMDB_LOGO__", logo)
+           .replace("__ACCURACY__", accuracy)
+           .replace("__ACCURACY_CAVEAT__", accuracy_caveat))
 # Three outputs: the artifact body (no doctype — the Artifact tool supplies the
 # skeleton), a standalone document to open straight from disk, and the published
 # copy under docs/, which is what GitHub Pages serves.

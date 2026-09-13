@@ -204,74 +204,44 @@ by normalised title and year, and reports what it could not match.
 
 | | |
 |---|---|
-| Corpus fetched | 76 countries probed, **51 with films in the sample** — `data/tmdb_coverage.json` records where each country's archive ran dry |
+| Corpus fetched | 76 countries probed, **51 with films in the sample** |
 | Sampled | **6,188 films**, 1900–2026, 50 per release year ranked by TMDB vote count |
-| Classified | **3,650 films / 3,682 targets** — 18 countries, 2 regions, 61% US |
-| Direction split | 2,390 present · 1,154 back · 138 forward |
-| Median lookback | **61 years** · median lookahead **38 years** |
-| Basis | 2,011 knowledge · 972 text · 667 both |
-| Validated | **not yet** — `make validate` has not been run against the 672 hand labels |
+| Classified | **6,187 films / 6,112 targets — the sample is complete**, 51 countries, 10 regions, 38% US |
+| Direction split | 4,049 present · 1,877 back · 186 forward |
+| Median lookback | **62 years** · median lookahead **35 years** |
+| Basis | 3,009 knowledge · 2,451 text · 727 both |
+| Validated | **yes — 90% gaze agreement** against 662 independently hand-labelled films |
 
-The gap that matters: the corpus is global, the *labels* are not. Classification is running
-nightly on the personal Claude Code account and works through the sample in order, so the
-non-Western half is fetched and sampled but still unlabelled. Every country or region
-comparison is thin until it catches up.
+### The validation result
 
-See `brief.md` §7–§9 for the divergences, the findings and what unblocks the next step.
-
-## Publishing
-
-`make viz` writes three copies of the page. `out/standalone.html` is the one to open
-locally; `docs/index.html` is the published copy, with the description, canonical URL and
-Open Graph tags that stop a shared link looking bare, plus `docs/preview.png` as the social
-card. `docs/.nojekyll` keeps GitHub Pages from running Jekyll over it.
-
-First time — create the remote and push. Do this from a normal Terminal; the sandboxed
-shell can reach github.com but carries no credentials.
-
-```bash
-gh auth status                                   # confirm which account is signed in
-gh repo create eguiwow/CinemaTimeGaze --public --source=. --remote=origin --push
-gh repo view --web                               # sanity-check what actually landed
-
-# Settings -> Pages -> Source: Deploy from a branch -> main -> /docs -> Save
-# (or: gh api -X POST repos/eguiwow/CinemaTimeGaze/pages \
-#        -f 'source[branch]=main' -f 'source[path]=/docs')
-```
-
-Before that first push, check the history is clean — the repo was initialised with the
-key already in `src/.env`, so it should never have been committed, but verify rather
-than assume:
-
-```bash
-git log --all --full-history -- src/.env .env    # must print nothing
-git grep -I -n -e 'eyJ' -e 'Bearer ' $(git rev-list --all) -- 2>/dev/null | head
-```
-
-Afterwards, each rebuild is:
-
-```bash
-make viz                                  # rebuilds docs/index.html from the current data
-git add -A && git commit -m "rebuild page"
-git push
-```
-
-It lands at `https://eguiwow.github.io/CinemaTimeGaze/`. That URL is baked into the
-`SITE` constant at the bottom of `src/build_viz.py` — change it there, not in the HTML,
-if the page ever moves or gets a custom domain.
-
-### Linkable state
-
-The page writes its state into the URL hash, so a specific finding can be linked rather
-than described:
+`make validate` scores the model run against the 672 hand labels, which came from a
+genuinely different process, and writes `data/validation.json`. The page reads that file,
+so the accuracy printed on it is always the measured one.
 
 ```
-#y=1950&genre=Western&place=c:JP&film=tmdb-346&look=noir&q=samurai
+gaze agreement          89.7%   594/662
+primary year within 2y  89.8%   527/587
+primary-year error      median 0y   p90 3y
+multi-timeline recall   76.7%    23/30
+atemporal agreement     78.2%    43/55
+
+by reference basis:     text  95.3%  (n=297)
+                   knowledge  85.4%  (n=364)
 ```
 
-`y` release year or decade · `mode=year` for single years · `genre` (suffix `!` to exclude
-it instead) · `place` as `c:<ISO>` or `r:<region>` · `film` pins one film on the arc chart ·
-`look` the era theme · `q` the search box. Everything is optional.
+**The by-basis split was the question that mattered** and it came back reassuring. The
+worry was that where the summary does not state a year, a cheap model would simply be
+guessing. It is 10 points worse there, not 40 — meaningfully weaker, but still doing real
+work. That says the plot text is the binding constraint, as suspected, without invalidating
+the 55% of labels that rest on world knowledge.
+
+Two weaker spots worth naming: **multi-timeline recall at 77%** means roughly a quarter of
+films with several timelines get flattened to one, which biases the target count down; and
+**atemporal agreement at 78%** is the messiest boundary, mostly films the hand pass called
+timeless and the model filed under "present".
+
+This is agreement between two labelsets, not truth. Both could be wrong the same way, and
+the hand set is a judgment call on exactly the cases that are hard.
 
 ## Licence
 

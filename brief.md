@@ -169,37 +169,59 @@ Negative years are BC. This is the contract the API classifier has to satisfy.
   model world knowledge rather than a stated year**. That is a finding, not just a caveat: the
   cheap-model plan is only as good as the text, and this text mostly does not name the setting.
 
-## 8. Current findings — hypothesis, not measurement
+## 8. Current findings — measured, with a stated error
 
-613 films. Median lookback held at ~54 years across 121 → 367 → 613 films, which is the kind of
-stability that suggests signal rather than sampling noise.
+The full corpus: 6,187 films, 6,112 targets, 51 countries, 1900–2026, at 90% agreement with
+the hand set. **Median lookback 62 years, median lookahead 35 years.**
 
-| decade | 1900s | 1910s | 1920s | 1930s | 1940s | 1950s | 1960s | 1970s | 1980s | 1990s | 2000s | 2010s |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| % back | 17 | 34 | 36 | 33 | 35 | 49 | 47 | 38 | 29 | 29 | 19 | 20 |
-| median back | 54y | 60y | 41y | 43y | 56y | 58y | 71y | 36y | 34y | 39y | 58y | 49y |
-| % forward | 0 | 2 | 0 | 0 | 2 | 0 | 4 | 4 | 9 | 13 | 9 | 9 |
+| decade | 1900s | 1910s | 1920s | 1930s | 1940s | 1950s | 1960s | 1970s | 1980s | 1990s | 2000s | 2010s | 2020s |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| % back | 11 | 20 | 28 | 26 | 29 | 37 | 36 | 34 | 25 | 26 | 28 | 29 | 26 |
+| median back | 182y | 69y | 108y | 52y | 50y | 68y | 81y | 54y | 50y | 57y | 60y | 55y | 69y |
+| % forward | 0 | 0 | 1 | 1 | 0 | 1 | 2 | 4 | 3 | 5 | 6 | 8 | 5 |
+| median forward | — | 20y | 36y | 20y | — | 12y | 34y | 49y | 34y | 40y | 46y | 30y | 42y |
+| n targets | 319 | 456 | 466 | 473 | 504 | 500 | 517 | 492 | 505 | 521 | 511 | 503 | 345 |
 
-Three readings, all provisional:
+**Going global changed the picture, and that is itself the finding.** On the old US-heavy
+build the backward share swung from 17% to 49%; on the global corpus it sits in a narrow
+25–37% band for every decade from the 1920s on. Much of what looked like a dramatic
+mid-century nostalgia peak was a fact about *which films were in the sample*, not about
+cinema. The US share fell from 61% to 38% and the shape flattened.
 
-1. **The ~20-year nostalgia hypothesis does not hold.** Typical lookback is 35–60 years — closer
-   to two generations than one — and it does not drift steadily.
-2. **The backward gaze peaks in the 1950s–60s** and falls after. Whether that is real or an
-   artifact of how the mid-century sample skews (Westerns, war films) is untested.
-3. **The forward gaze is the cleaner finding.** Essentially zero before 1960, then rising — and
-   far longer-range than the backward gaze when it happens. This is the asymmetry the timeline
-   makes visible at a glance.
+Three readings:
 
-## 9. Blockers and next steps
+1. **The ~20-year nostalgia hypothesis still does not hold.** Typical lookback is 50–70
+   years across the whole century — two generations, not one — and it is remarkably stable.
+   This is the most robust finding here: it survived the corpus tripling and going global.
+2. **The mid-century backward peak is real but modest.** The 1950s–60s do sit highest (37%,
+   36%), but against a 25–29% baseline rather than the 19–20% the US-only build suggested.
+   It is a bump, not a regime change.
+3. **The forward gaze is still the cleanest signal, and it is monotonic.** Essentially zero
+   before 1960, then 2 → 4 → 3 → 5 → 6 → 8%, peaking in the 2010s. It is also the more
+   volatile in distance: median lookahead swings 12–49y on small n, so read the share, not
+   the reach.
 
-1. **Network path for Wikidata.** Blocks the country filter (`v2-ideas` §1) *and* the entire
-   validation step. Nothing gets called a measurement until this is solved.
-2. **API key**, so the classifier runs at 50/year instead of 5/year.
-3. **Run `validate.py`** on the API pass against the 613 hand labels. The two labelsets come
-   from genuinely different processes, so the comparison is real. Watch the `--by-basis` split
-   in particular: if agreement collapses on the `knowledge` rows, the cheap model is guessing
-   where the text is silent, and the fix is richer plot text, not a bigger model.
-4. Decade aggregation (`v2-ideas` §2) is **done** — the table above, the timeline's Decade mode,
-   and the new *How each decade splits* chart, which shows the distribution rather than the
-   summary. The present band (60–80% of every decade) is set aside there for the same reason
-   the timeline collapses it to a bar.
+Caveats that still bite: the 1900s median lookback of 182y rests on a handful of targets;
+`% forward` before 1960 is built on single-digit counts; and the corpus is still 38%
+American, so the unfiltered numbers lean that way. The page prints the sample behind every
+figure for this reason.
+
+## 9. What is left
+
+1. **Turn on GitHub Pages** — Settings → Pages → main → `/docs`. The repo is public and
+   pushed; this is the only thing between the project and a public URL.
+2. **Wikidata cross-check.** `validate.py` compares the model against *our own* hand labels.
+   Both could be wrong the same way. Wikidata's narrative-time properties are the only
+   genuinely independent reference in the plan, and the egress policy still blocks them.
+   Until that runs, "90% agreement" is the honest claim, and "90% accurate" is not.
+3. **Multi-timeline recall is the weakest number (77%).** A quarter of multi-timeline films
+   flatten to one target, which biases the target count down and understates films like
+   *The Godfather Part II*. Likely a prompt fix rather than a model one — the array
+   instruction may need reinforcing.
+4. **Atemporal/present boundary (78%).** The messiest confusion in the matrix. Worth deciding
+   whether the rule needs sharpening or whether the hand labels were wrong on these.
+5. **Rebalance the sample.** The corpus is fetched globally but sampled by vote count, so it
+   is still 38% US. `--min-per-region` exists and has never been used in anger; a rerun with
+   it would be a different and arguably better dataset.
+6. **v4** — director/actor/company filters, which need a data-enrichment pass. See
+   `claude/v4-ideas.md`.

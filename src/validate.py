@@ -51,6 +51,9 @@ def main():
     ap.add_argument("--tol", type=int, default=2, help="years of slack for an exact-year match")
     ap.add_argument("--by-basis", action="store_true",
                     help="split every metric by the reference's basis field")
+    ap.add_argument("--json", metavar="PATH", nargs="?", const="data/validation.json",
+                    help="also write the headline numbers as JSON, so the page can print "
+                         "the measured accuracy instead of a hardcoded one that rots")
     a = ap.parse_args()
 
     ref, cand = load(a.reference), load(a.candidate)
@@ -128,6 +131,28 @@ def main():
             ry, cy = primary_year(ref[i]), primary_year(cand[i])
             print(f"  {i[:44]:<44} {ref[i]['gaze']:>9} {str(ry):>7}"
                   f"   vs {cand[i]['gaze']:>9} {str(cy):>7}")
+
+    # ---- machine-readable summary ------------------------------------------
+    # The page should print the accuracy it was actually measured at. Hardcoding
+    # it in the template is how the corpus caveat ended up describing the wrong
+    # dataset for a fortnight, so this is generated the same way the rest is.
+    if a.json:
+        out = {
+            "reference": Path(a.reference).name,
+            "candidate": Path(a.candidate).name,
+            "n_reference": len(ref), "n_candidate": len(cand), "n_overlap": len(shared),
+            "tol": a.tol,
+            "gaze_agreement": round(gaze_hit / len(shared), 4),
+            "year_within_tol": round(within / exact_n, 4) if exact_n else None,
+            "year_err_median": statistics.median(errs) if errs else None,
+            "multi_recall": round(multi_hit / multi_ref, 4) if multi_ref else None,
+            "atemporal_agreement": round(atem_hit / atem_ref, 4) if atem_ref else None,
+            "by_basis": {b: {"n": d["n"], "gaze": round(d["gaze"] / d["n"], 4),
+                             "year_err_median": statistics.median(d["yr"]) if d["yr"] else None}
+                         for b, d in by_basis.items() if d["n"] >= 10},
+        }
+        Path(a.json).write_text(json.dumps(out, indent=2))
+        print(f"\nwrote {a.json}")
 
 
 if __name__ == "__main__":

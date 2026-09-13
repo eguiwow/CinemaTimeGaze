@@ -222,6 +222,11 @@
   .chk input { accent-color: var(--ink); }
   .fnote { font-size: 12.5px; color: var(--ink-2); }
   .fnote.thin { color: var(--future); }
+  /* The measured accuracy rides directly under the numbers it qualifies, so it
+     travels with every chart rather than hiding in the caveats at the bottom. */
+  .accuracy { margin: 8px 2px 0; font-size: 12.5px; line-height: 1.55; color: var(--ink-3);
+              max-width: 90ch; }
+  .accuracy b { color: var(--ink-2); font-family: var(--mono); font-weight: 500; }
 
   .facts { margin-top: 40px; padding: 20px 22px; background: var(--panel); border-radius: 12px;
            display: grid; grid-template-columns: 1fr auto; gap: 8px 18px; align-items: center; }
@@ -457,6 +462,7 @@
   </div>
 
   <div class="stats" id="stats"></div>
+  <p class="accuracy">__ACCURACY__</p>
 
   <div class="sprockets top" aria-hidden="true"></div>
   <div class="figwrap">
@@ -548,7 +554,8 @@
     <summary>How this was built, and what is wrong with it</summary>
     <ul class="caveat">
       <li><b>Corpus.</b> __SOURCE_NOTE__</li>
-      <li><b>Labels are model judgments, not extractions.</b> __KPCT__% of films were classified from world knowledge rather than from a stated year in the source text, because the source text is a ~90-word Wikipedia lead that usually does not name the setting. Those labels have not been checked against an independent ground truth. Treat the shape as a hypothesis, not a measurement.</li>
+      <li><b>Labels are model judgments, not extractions.</b> __KPCT__% of films were classified from world knowledge rather than from a stated year in the source text, because the source text is a ~90-word summary that usually does not name the setting.</li>
+      <li>__ACCURACY_CAVEAT__</li>
       <li><b>Present is the default and the default is sticky.</b> A film whose setting is never stated and that the model does not recognise lands on "present". That biases the whole picture <i>toward</i> the diagonal, so real nostalgia is probably understated.</li>
       <li><b>Medians, never means.</b> One film set in the year 802,701 outweighs a thousand set last Tuesday. Every figure here is a median; the means are meaningless and are not shown.</li>
       <li><b>The year axis is piecewise.</b> The dense 1850–2050 band gets most of the width; deep past and far future are compressed, with dashed breaks marking the joins. Distances across a break are not comparable.</li>
