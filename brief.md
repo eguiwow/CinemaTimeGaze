@@ -97,8 +97,10 @@ stated year lands on "present", biasing everything toward the diagonal.
 ## 6. The visualization
 
 `out/timeline.html` — self-contained, data inlined as JSON, no build step, no local
-dependencies. Only external reference is the Google Fonts stylesheet, which degrades to
-Georgia / system-sans / system-mono offline.
+dependencies and **no external requests**: the fonts are self-hosted from `assets/fonts/`
+and inlined into the single-file builds. The served build under `docs/` links them as
+separate files instead, so they cache independently, and is produced by CI on every push
+rather than committed.
 
 - **The year explorer.** Horizontal year axis; select a year or decade; every film released in
   that slice throws one arc per target — left-and-below for the past, right-and-above for the
