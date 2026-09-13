@@ -201,6 +201,9 @@ __FONTS__
                       font-size: 13px; color: var(--ink-2); text-decoration: none; }
   .attrib p { margin: 0; max-width: 62ch; }
   .caveat li { margin-bottom: 6px; }
+  ol.caveat { padding-left: 20px; }
+  ol.caveat li { margin-bottom: 11px; }
+  p.caveat.lead { max-width: 68ch; margin: 0 0 10px; }
   .warn { border-left: 3px solid var(--future); padding-left: 12px; }
   .band-far  { fill: var(--b-far);  }
   .band-mid  { fill: var(--b-mid);  }
@@ -283,24 +286,63 @@ __FONTS__
   }
   @media (prefers-reduced-motion: reduce) { .grainlayer::before { opacity: calc(var(--grain) * .5); } }
 
-  /* Sprocket band — a strip of film either side of the arc chart. Drawn from
-     gradients, so it costs nothing and recolours with the look. */
-  .sprockets {
-    height: 10px; margin: 0; border-radius: 1.5px;
-    background-color: var(--ink-3);
-    background-image: radial-gradient(circle 3px at 11px 50%,
-                        var(--surface) 0 2.9px, transparent 3.4px);
-    background-size: 22px 100%;
-    background-repeat: repeat-x;
-    opacity: .2;
+  /* Filmstrip — the arc chart mounted as one length of 35mm film: perforated
+     edge, frame line, image area, frame line, perforated edge.
+
+     The perforations are PUNCHED OUT of a solid band with an SVG mask rather
+     than drawn as dots on top of it. That is what makes it read as film: a real
+     perforation is a rounded rectangle with the projector's light behind it, not
+     a circle painted on. The mask also means the band recolours with the look
+     for free, since only the band carries a colour. */
+  .filmstrip {
+    --perf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='20'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M0 0h28v20H0Z M9.5 5.5h9a2.5 2.5 0 0 1 2.5 2.5v4a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 7 12V8a2.5 2.5 0 0 1 2.5-2.5Z'/%3E%3C/svg%3E");
+    --filmop: .6;
+    margin: 14px 0 0; background: var(--surface);
   }
-  .sprockets.top { margin-bottom: 6px; }
-  .sprockets.bot { margin-top: 6px; }
+  .sprockets {
+    height: 20px; margin: 0;
+    background-color: var(--ink-3); opacity: var(--filmop);
+    -webkit-mask-image: var(--perf); mask-image: var(--perf);
+    -webkit-mask-size: 28px 20px; mask-size: 28px 20px;
+    -webkit-mask-repeat: repeat-x; mask-repeat: repeat-x;
+  }
+  /* The frame lines are the detail that actually sells it — film has a hard
+     edge between the perforated margin and the image area, and without it the
+     two perforated bands read as two unrelated ornaments rather than as the
+     edges of one strip. Pseudo-elements rather than a border so they can carry
+     the same opacity as the bands and match them exactly. */
+  .filmstrip .figwrap { margin: 0; padding: 12px 0 6px; }
+  .filmstrip .figwrap::before, .filmstrip .figwrap::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 3px;
+    background: var(--ink-3); opacity: var(--filmop); pointer-events: none;
+  }
+  .filmstrip .figwrap::before { top: 0; }
+  .filmstrip .figwrap::after  { bottom: 0; }
+  @media (max-width: 620px) {
+    .sprockets { height: 15px; }
+    .filmstrip {
+      --perf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='15'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M0 0h22v15H0Z M7.5 4h7a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z'/%3E%3C/svg%3E");
+    }
+    .sprockets { -webkit-mask-size: 22px 15px; mask-size: 22px 15px; }
+    .filmstrip .figwrap { padding: 9px 0 5px; }
+  }
 
   /* Look picker */
   .looks { margin-left: auto; display: flex; align-items: center; gap: 7px; }
   .looks label { font-family: var(--mono); font-size: 10.5px; color: var(--ink-2);
                  text-transform: uppercase; letter-spacing: .1em; }
+
+  /* When the look follows the years, the palette has to CROSS-FADE. A hard cut
+     between palettes mid-playback reads as a rendering bug rather than as a
+     transition. Opacity and transform are deliberately not in this list: the
+     playback dissolve drives both, and a transition on them would smear it.
+     The projector leader is excluded because it runs its own fade-out. */
+  :root[data-look-auto="1"], :root[data-look-auto="1"] body,
+  :root[data-look-auto="1"] .root,
+  :root[data-look-auto="1"] .root :where(*:not(.leader, .leader *, .grainlayer)) {
+    transition: background-color .65s linear, color .65s linear,
+                border-color .65s linear, fill .65s linear, stroke .65s linear;
+  }
 
   /* Projector leader — the academy countdown, for the half-second the charts
      take to draw. Never shown to anyone who asked for less motion. */
@@ -385,6 +427,8 @@ __FONTS__
   .signature cite { font-style: italic; }
   .signature .src { font-size: 11.5px; color: var(--ink-3); opacity: .85; }
   .signature a { color: var(--ink-2); }
+  .signature s { text-decoration-thickness: 1px; opacity: .65; }
+  .signature.dreams { margin-top: 16px; }
   .fact.aside { font-size: 18px; font-style: italic; }
   .facts.is-aside { background: none; border: 1px dashed var(--line); }
   .fact-n.aside-tag { font-family: var(--mono); text-transform: uppercase; letter-spacing: .12em;
@@ -435,9 +479,19 @@ __FONTS__
       <span class="yearbox" id="yrLabel">—</span>
     </div>
     <button class="btn" id="play">▶ Play</button>
+    <div class="ctl">
+      <label for="speed">Speed</label>
+      <select id="speed" title="Playback runs at 24 frames a second and dissolves from one year into the next rather than cutting.">
+        <option value="0.5">&frac12;&times;</option>
+        <option value="1" selected>1&times;</option>
+        <option value="2">2&times;</option>
+        <option value="4">4&times;</option>
+      </select>
+    </div>
     <div class="looks">
       <label for="look">Look</label>
-      <select id="look">
+      <select id="look" title="Auto ages the palette with the years on screen: silent stock, Technicolor, noir, modern, neon.">
+        <option value="auto">Auto &mdash; ages with the years</option>
         <option value="modern">Modern</option>
         <option value="silent">Silent era</option>
         <option value="techni">Technicolor</option>
@@ -464,14 +518,16 @@ __FONTS__
   <div class="stats" id="stats"></div>
   <p class="accuracy">__ACCURACY__</p>
 
-  <div class="sprockets top" aria-hidden="true"></div>
-  <div class="figwrap">
-    <svg id="fan" viewBox="0 0 1000 400" role="img" aria-labelledby="fanTitle">
-      <title id="fanTitle">Arcs from the selected release year to the years its films depict</title>
-    </svg>
-    <div class="tip" id="tip"></div>
+  <div class="filmstrip">
+    <div class="sprockets top" aria-hidden="true"></div>
+    <div class="figwrap">
+      <svg id="fan" viewBox="0 0 1000 400" role="img" aria-labelledby="fanTitle">
+        <title id="fanTitle">Arcs from the selected release year to the years its films depict</title>
+      </svg>
+      <div class="tip" id="tip"></div>
+    </div>
+    <div class="sprockets bot" aria-hidden="true"></div>
   </div>
-  <div class="sprockets bot" aria-hidden="true"></div>
 
   <div class="legend">
     <span><i style="background:var(--past)"></i>Looks back (set before release)</span>
@@ -496,7 +552,7 @@ __FONTS__
   </div>
   <div class="legend" id="bandLegend"></div>
 
-  <h2>Every film at once</h2>
+  <h2>Every film, every year. All at once.</h2>
   <p class="note">The year a film came out along the bottom, the year it depicts up the side, one
   dot for every year any film points at. The diagonal is cinema set in its own moment, and almost
   everything sits on it. Below that line is memory; above it is speculation — and you can see at a
@@ -551,16 +607,59 @@ __FONTS__
   </details>
 
   <details>
-    <summary>How this was built, and what is wrong with it</summary>
+    <summary>Methodology &mdash; how this was built, and where it breaks</summary>
+    <p class="caveat lead">Three steps. Each one has a failure mode, and the third exists to
+    measure the second.</p>
+    <ol class="caveat">
+      <li><b>Take a sample of films.</b> __SOURCE_NOTE__</li>
+      <li><b>Ask a language model what year each film depicts.</b> Every film goes to the model
+      with its title, release year, genres and a short published summary, and comes back with
+      the year or years it is set in, how much of the film sits in each, and &mdash; the part
+      that matters &mdash; whether that came from a year <i>stated in the text</i> or from the
+      model's own knowledge of the film. Those summaries run to about ninety words and usually
+      do not name a setting, so <b>__KPCT__% of the labels here rest on world knowledge rather
+      than on anything written down</b>. Where the model knows the film, that is a strength.
+      Where it does not, it is a guess wearing the clothes of a reading, and there is no way
+      to tell the two apart from the outside.</li>
+      <li><b>Score those labels against a second, independent pass.</b> __ACCURACY_CAVEAT__</li>
+    </ol>
+    <p class="caveat lead">What the method leaves wrong, roughly in the order it matters:</p>
     <ul class="caveat">
-      <li><b>Corpus.</b> __SOURCE_NOTE__</li>
-      <li><b>Labels are model judgments, not extractions.</b> __KPCT__% of films were classified from world knowledge rather than from a stated year in the source text, because the source text is a ~90-word summary that usually does not name the setting.</li>
-      <li>__ACCURACY_CAVEAT__</li>
-      <li><b>Present is the default and the default is sticky.</b> A film whose setting is never stated and that the model does not recognise lands on "present". That biases the whole picture <i>toward</i> the diagonal, so real nostalgia is probably understated.</li>
-      <li><b>Medians, never means.</b> One film set in the year 802,701 outweighs a thousand set last Tuesday. Every figure here is a median; the means are meaningless and are not shown.</li>
-      <li><b>The year axis is piecewise.</b> The dense 1850–2050 band gets most of the width; deep past and far future are compressed, with dashed breaks marking the joins. Distances across a break are not comparable.</li>
-      <li><b>Re-releases contaminate.</b> A 2013 3-D re-release of a 1993 film reads as a 20-year lookback. Rare, but present.</li>
+      <li><b>Present is the default, and the default is sticky.</b> A film whose setting is
+      never stated and that the model does not recognise lands on "present". That pulls the
+      whole picture <i>toward</i> the diagonal, so if anything is being missed here it is
+      nostalgia, not invented.</li>
+      <li><b>A popular sample is not cinema.</b> Films are ranked within each release year by
+      vote count, which measures how many people on one website have got round to rating
+      something. It travels badly between film industries, and it thins out sharply the
+      further back you go.</li>
+      <li><b>Medians, never means.</b> One film set in the year 802,701 outweighs a thousand
+      set last Tuesday. Every figure on this page is a median; the means are not shown because
+      they would be meaningless.</li>
+      <li><b>The year axis is piecewise.</b> The dense 1850&ndash;2050 band gets most of the
+      width, deep past and far future are compressed, and dashed breaks mark the joins. A
+      distance measured across a break is not comparable to one measured inside it.</li>
+      <li><b>"Set in" is taken literally.</b> A film about the 1970s made as an argument about
+      now counts as looking back, because that is what the rule says, and a rule that bends
+      for allegory stops being a rule.</li>
+      <li><b>Re-releases contaminate.</b> A 2013 3-D re-release of a 1993 film reads as a
+      twenty-year lookback. Rare, but present.</li>
     </ul>
+  </details>
+
+  <details>
+    <summary>Where the idea came from</summary>
+    <p class="caveat lead">A dream. Not as a figure of speech &mdash; an actual night's sleep,
+    in which cinema had a direction of gaze the way a compass has north, and some films pointed
+    hard away from the year that made them. It seemed on waking like the kind of thing somebody
+    would obviously have plotted already.</p>
+    <p class="caveat lead">Nobody had, as far as I could find. So: a sample of films, a
+    classifier to ask each one what year it depicts, and a chart to see whether the century
+    spends more time remembering or predicting. The answer turned out to be neither &mdash;
+    overwhelmingly, cinema is set in the year it was made, and the interesting part is the
+    small fraction that travels.</p>
+    <p class="caveat lead">The dream version was more confident than this one. It did not come
+    with a note about how often the model is guessing.</p>
   </details>
 
   <footer class="attrib">
@@ -570,11 +669,13 @@ __FONTS__
     <b>This product uses the TMDB API but is not endorsed or certified by TMDB.</b></p>
   </footer>
   <p class="signature">
-    Built by <a href="https://github.com/eguiwow" target="_blank" rel="noopener noreferrer">@eguiwow</a>.
+    Built by <a href="https://github.com/eguiwow" target="_blank" rel="noopener noreferrer">@eguiwow</a>
+    and <s>Jarvis</s> Claude.
     Code and data at <a href="https://github.com/eguiwow/CinemaTimeGaze" target="_blank"
-    rel="noopener noreferrer">github.com/eguiwow/CinemaTimeGaze</a>.<br>
-    This project was made with <cite title="The Maltese Falcon (1941)">the stuff dreams are
-    made of</cite>. <span class="src">&mdash; The Maltese Falcon, 1941</span>
+    rel="noopener noreferrer">github.com/eguiwow/CinemaTimeGaze</a>.
+  </p>
+  <p class="signature dreams">
+    This project was made with <cite>the stuff dreams are made of</cite>.
   </p>
 </div>
 
@@ -646,15 +747,16 @@ const DATA = __DATA__;
   const X = y => L + frac(y)*(W-L-R);
 
   /* ---- state ---- */
-  let mode='decade', idx=0, timer=null;
+  let mode='decade', idx=0;
   const decades = [...new Set(DATA.films.map(f=>Math.floor(f.year/10)*10))].sort((a,b)=>a-b);
   const el = id => document.getElementById(id);
   const slider=el('yr'), yrLabel=el('yrLabel');
 
-  function selection(){
-    if (mode==='year'){ const y=years[idx]; return {lo:y, hi:y, label:String(y)}; }
-    const d=decades[idx]; return {lo:d, hi:d+9, label:d+'s'};
+  function selFor(i){
+    if (mode==='year'){ const y=years[i]; return {lo:y, hi:y, label:String(y)}; }
+    const d=decades[i]; return {lo:d, hi:d+9, label:d+'s'};
   }
+  function selection(){ return selFor(idx); }
   function syncSlider(){
     slider.max = (mode==='year'?years.length:decades.length)-1;
     if (idx>slider.max) idx=slider.max;
@@ -698,34 +800,48 @@ const DATA = __DATA__;
   }
   const hideTip = () => tip.style.opacity=0;
 
-  function renderFan(sel, rows){
-    const svg=el('fan'); svg.innerHTML='<title id="fanTitle">Arcs from the selected release year to the years its films depict</title>';
-    const AX=250, H=400;
-    const g=mk('g',{});
+  /* ---------------------------------------------------------------------------
+     THE FAN, IN THREE LAYERS.
 
-    const axisLabels = mk('g',{});     // appended last, so the arcs never bury the years
-    let prevRight=-1e9;
+     The chrome — axis, ticks, breaks, zone labels — does not depend on the
+     selection. The arcs for one selection are a single detached <g>. Splitting
+     them this way is the whole reason playback below can afford to dissolve
+     rather than cut: moving between two selections at 24 fps then means setting
+     two attributes, not rebuilding four hundred paths twenty-four times a second.
+     --------------------------------------------------------------------------- */
+  const AX = 250, FANH = 400;
+  const FAN_TITLE = '<title id="fanTitle">Arcs from the selected release year to the years its films depict</title>';
+
+  function fanChrome(){
+    const bg = mk('g',{}), labels = mk('g',{});
+    let prevRight = -1e9;
     for (const t of TICKS){
-      const x=X(t);
-      g.appendChild(mk('line',{class:'tick',x1:x,x2:x,y1:AX-4,y2:AX+4,stroke:'currentColor',opacity:.35}));
+      const x = X(t);
+      bg.appendChild(mk('line',{class:'tick',x1:x,x2:x,y1:AX-4,y2:AX+4,stroke:'currentColor',opacity:.35}));
       const half = fmtY(t).length*2.9;
       if (x - half < prevRight + 7) continue;     // skip labels that would collide
       prevRight = x + half;
-      const tx=mk('text',{class:'tick',x:x,y:AX+18,'text-anchor':'middle'});
+      const tx = mk('text',{class:'tick',x:x,y:AX+18,'text-anchor':'middle'});
       tx.setAttribute('fill','currentColor'); tx.setAttribute('opacity','.85');
-      tx.setAttribute('font-size','10'); tx.textContent=fmtY(t);
-      axisLabels.appendChild(tx);
+      tx.setAttribute('font-size','10'); tx.textContent = fmtY(t);
+      labels.appendChild(tx);
     }
-    for (const b of BREAKS) g.appendChild(mk('line',{class:'brk',x1:X(b),x2:X(b),y1:24,y2:H-40}));
-    g.appendChild(mk('line',{class:'axis-line',x1:L-8,x2:W-R+8,y1:AX,y2:AX}));
+    for (const b of BREAKS) bg.appendChild(mk('line',{class:'brk',x1:X(b),x2:X(b),y1:24,y2:FANH-40}));
+    bg.appendChild(mk('line',{class:'axis-line',x1:L-8,x2:W-R+8,y1:AX,y2:AX}));
+    const lab1 = mk('text',{class:'zonelab',x:L-8,y:16}); lab1.textContent='\u2191 looks ahead'; bg.appendChild(lab1);
+    const lab2 = mk('text',{class:'zonelab',x:L-8,y:FANH-14}); lab2.textContent='\u2193 looks back'; bg.appendChild(lab2);
+    return {bg, labels};
+  }
 
-    const lab1=mk('text',{class:'zonelab',x:L-8,y:16}); lab1.textContent='↑ looks ahead'; g.appendChild(lab1);
-    const lab2=mk('text',{class:'zonelab',x:L-8,y:H-14}); lab2.textContent='↓ looks back'; g.appendChild(lab2);
-
+  /* One selection's arcs, detached and self-contained. `live` adds the invisible
+     hit paths that carry the tooltips — they are the expensive half, and during
+     playback there is nothing to hover, so playback goes without them. */
+  function fanFrame(sel, rows, live){
+    const g = mk('g',{});
     const cx = X((sel.lo+sel.hi)/2);
     g.appendChild(mk('line',{class:'nowline',x1:cx,x2:cx,y1:AX-14,y2:AX+14}));
-    const nl=mk('text',{x:cx,y:AX-22,'text-anchor':'middle','font-size':'11','font-weight':'600'});
-    nl.setAttribute('fill','currentColor'); nl.textContent=sel.label; g.appendChild(nl);
+    const nl = mk('text',{x:cx,y:AX-22,'text-anchor':'middle','font-size':'11','font-weight':'600'});
+    nl.setAttribute('fill','currentColor'); nl.textContent = sel.label; g.appendChild(nl);
 
     const present = rows.filter(r=>r.direction==='present');
     const wAll = rows.reduce((s,r)=>s+r.weight,0)||1;
@@ -738,26 +854,28 @@ const DATA = __DATA__;
     const travellers = rows.filter(r=>r.direction!=='present')
                            .sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta));
     for (const r of travellers){
-      const x2=X(r.year_mid), up=r.direction==='forward';
-      const reach=Math.abs(x2-cx);
-      const h=Math.min(up?200:130, 26+reach*0.60);
-      const my=up?AX-h:AX+h;
-      const d=`M ${cx} ${AX} Q ${(cx+x2)/2} ${my} ${x2} ${AX}`;
-      const sw=1.2+2.6*r.weight;
+      const x2 = X(r.year_mid), up = r.direction==='forward';
+      const reach = Math.abs(x2-cx);
+      const h = Math.min(up?200:130, 26+reach*0.60);
+      const my = up?AX-h:AX+h;
+      const d = `M ${cx} ${AX} Q ${(cx+x2)/2} ${my} ${x2} ${AX}`;
+      const sw = 1.2+2.6*r.weight;
       const isPin = r.film_id===PINNED;
-      const path=mk('path',{class:'arc '+(up?'future':'past')+(isPin?' pinned':''),d:d,
-                            'stroke-width':sw,
-                            opacity: isPin ? 1 : (0.30+0.5*r.confidence).toFixed(2)});
+      const path = mk('path',{class:'arc '+(up?'future':'past')+(isPin?' pinned':''),d:d,
+                              'stroke-width':sw,
+                              opacity: isPin ? 1 : (0.30+0.5*r.confidence).toFixed(2)});
       if (isPin) pins.push({x:x2, up, r});
       g.appendChild(path);
-      const hit=mk('path',{class:'hit',d:d});
-      const span = r.year_start===r.year_end ? fmtY(r.year_start) : fmtY(r.year_start)+'–'+fmtY(r.year_end);
-      const html=`<b>${r.title}</b> (${r.release_year})<br>set in ${span}<br>
-        <span class="m">${Math.abs(r.delta).toLocaleString()} years ${up?'ahead':'back'} · ${r.prominence} thread
-        · basis: ${r.basis}</span>`;
-      hit.addEventListener('mousemove',e=>showTip(el('fan').parentNode,e,html));
-      hit.addEventListener('mouseleave',hideTip);
-      g.appendChild(hit);
+      if (live){
+        const hit = mk('path',{class:'hit',d:d});
+        const span = r.year_start===r.year_end ? fmtY(r.year_start) : fmtY(r.year_start)+'\u2013'+fmtY(r.year_end);
+        const html = `<b>${r.title}</b> (${r.release_year})<br>set in ${span}<br>
+          <span class="m">${Math.abs(r.delta).toLocaleString()} years ${up?'ahead':'back'} \u00b7 ${r.prominence} thread
+          \u00b7 basis: ${r.basis}</span>`;
+        hit.addEventListener('mousemove',e=>showTip(el('fan').parentNode,e,html));
+        hit.addEventListener('mouseleave',hideTip);
+        g.appendChild(hit);
+      }
       g.appendChild(mk('circle',{cx:x2,cy:AX,r:Math.max(2.5,sw*.9),
         fill:up?'var(--future)':'var(--past)',opacity:.85,stroke:'var(--surface)','stroke-width':1.5}));
     }
@@ -772,14 +890,23 @@ const DATA = __DATA__;
           g.appendChild(mk('circle',{class:'pinhalo',cx:pn.x,cy:AX,r:9}));
           if (i) return;
           const ty = pn.up ? AX-44 : AX+50;
-          const lab=mk('text',{class:'pinlab',x:Math.min(W-R,Math.max(L,pn.x)),y:ty,
-                               'text-anchor':'middle'});
+          const lab = mk('text',{class:'pinlab',x:Math.min(W-R,Math.max(L,pn.x)),y:ty,
+                                 'text-anchor':'middle'});
           lab.textContent = pf.t; g.appendChild(lab);
         });
       }
     }
-    g.appendChild(axisLabels);
-    svg.appendChild(g);
+    g.__cx = cx;
+    return g;
+  }
+
+  function renderFan(sel, rows){
+    const svg = el('fan');
+    svg.innerHTML = FAN_TITLE;
+    const c = fanChrome();
+    svg.appendChild(c.bg);
+    svg.appendChild(fanFrame(sel, rows, true));   // axis labels last, over the arcs
+    svg.appendChild(c.labels);
   }
 
   /* ---- render: scatter ---- */
@@ -872,7 +999,7 @@ const DATA = __DATA__;
     const cl=mk('text',{x:LL,y:TOP-20,'font-size':'9.5'});
     cl.setAttribute('fill','currentColor'); cl.setAttribute('opacity','.55');
     cl.setAttribute('letter-spacing','.12em');
-    cl.textContent='SHARE OF THE FILMS THAT TRAVEL \u2014 FURTHEST BACK ON THE LEFT';
+    cl.textContent='SHARE OF THE FILMS THAT TRAVEL — FURTHEST BACK ON THE LEFT';
     g.appendChild(cl);
 
     rows.forEach((r,i)=>{
@@ -898,7 +1025,7 @@ const DATA = __DATA__;
 
     el('bandLegend').innerHTML = BANDS.filter(b=>b.k!=='now').map(b=>
       `<span class="swatch"><i style="background:var(--${b.k})"></i>${b.lab}</span>`).join('')
-      + '<span style="color:var(--ink-3)">bars exclude films set in their own present \u2014 that share is on the right</span>';
+      + '<span style="color:var(--ink-3)">bars exclude films set in their own present — that share is on the right</span>';
   }
 
   function rowRect(b,r,x,y,w){
@@ -926,13 +1053,23 @@ const DATA = __DATA__;
     }).join('') : '<tr><td colspan="7">No films in this selection.</td></tr>';
   }
 
-  function draw(){
-    const sel=selection();
+  const rowsFor = sel => FT.filter(r=>r.release_year>=sel.lo && r.release_year<=sel.hi);
+
+  /* Everything except the arcs. Playback redraws this once per STEP, never per
+     frame: a table and a scatter rebuilding twenty-four times a second is what
+     makes an animated page feel broken rather than filmic. */
+  function drawSlow(sel){
     yrLabel.textContent=sel.label;
     const fl=FF.filter(f=>f.year>=sel.lo && f.year<=sel.hi);
-    const rows=FT.filter(r=>r.release_year>=sel.lo && r.release_year<=sel.hi);
-    renderStats(sel,rows,fl); renderFan(sel,rows); renderBands(sel);
+    const rows=rowsFor(sel);
+    renderStats(sel,rows,fl); renderBands(sel);
     renderScatter(sel); renderTable(rows); renderFacts();
+    if (LOOKAUTO) autoLook(sel);
+    return rows;
+  }
+  function draw(){
+    const sel=selection();
+    renderFan(sel, drawSlow(sel));
   }
 
   /* ---- filters ---- */
@@ -1122,7 +1259,7 @@ const DATA = __DATA__;
          &ldquo;the stuff that dreams are made of&rdquo; &mdash; a bend of Prospero&rsquo;s
          &ldquo;such stuff as dreams are made on&rdquo;, written around 1611. A 330-year
          lookback: further than anything on this chart.`,
-      n:'An aside \u2014 the only line here not counted from the data'});
+      n:'An aside — the only line here not counted from the data'});
 
     return out;
   }
@@ -1155,7 +1292,7 @@ const DATA = __DATA__;
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches)
     factTimer=setInterval(()=>stepFact(1), 9000);
 
-  const refilter = () => { applyFilters(); draw(); renderResults(); writeURL(); };
+  const refilter = () => { stopPlay(false); applyFilters(); draw(); renderResults(); writeURL(); };
   el('fGenre').addEventListener('change',e=>{ filt.genre=e.target.value; refilter(); });
   el('fGenreEx').addEventListener('change',e=>{ filt.genreEx=e.target.checked; refilter(); });
   el('fCountry').addEventListener('change',e=>{ filt.place=e.target.value; refilter(); });
@@ -1165,11 +1302,12 @@ const DATA = __DATA__;
     refilter();
   });
 
-  slider.addEventListener('input',()=>{ idx=+slider.value; draw(); writeURL(); });
+  slider.addEventListener('input',()=>{ stopPlay(false); idx=+slider.value; draw(); writeURL(); });
   el('mYear').addEventListener('click',()=>setMode('year'));
   el('mDec').addEventListener('click',()=>setMode('decade'));
   function setMode(m){
     if (m===mode) return;
+    stopPlay(false);
     const cur = mode==='year'?years[idx]:decades[idx];
     mode=m;
     idx = m==='year' ? Math.max(0,years.findIndex(y=>y>=cur))
@@ -1178,14 +1316,82 @@ const DATA = __DATA__;
     el('mDec').setAttribute('aria-pressed',m==='decade');
     syncSlider(); draw(); writeURL();
   }
-  el('play').addEventListener('click',()=>{
-    if (timer){ clearInterval(timer); timer=null; el('play').textContent='▶ Play'; return; }
-    el('play').textContent='❚❚ Pause';
-    timer=setInterval(()=>{
-      idx++; if (idx> +slider.max) idx=0;
-      slider.value=idx; draw();
-    }, mode==='year'?420:900);
-  });
+  /* =========================================================================
+     PLAYBACK — twenty-four frames a second, dissolving instead of cutting.
+
+     Film runs at 24 fps, so this does too. The position along the slider is a
+     float rather than an index, the rate is set as real time per step rather
+     than as a frame interval, and between two steps the outgoing selection
+     cross-dissolves into the incoming one while both slide toward the new
+     anchor year. The slide is the one honest compromise here: mid-dissolve, the
+     outgoing frame's arcs sit off their true x positions by the width of one
+     step — about a pixel in year mode, about ten in decade mode. They are back
+     on their exact positions at every moment the dissolve is NOT running, which
+     is every moment anything is hoverable.
+     ========================================================================= */
+  const FPS = 24;
+  const STEP_MS = { year: 1000, decade: 2500 };            // at 1x
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let speed = 1, playing = false, raf = null, lastT = 0;
+  let playPos = 0, tweenA = null, tweenB = null, tweenI = -1;
+
+  const stepMs = () => STEP_MS[mode] / speed;
+
+  function mountStep(i){
+    const n = +slider.max;
+    idx = i; slider.value = i;
+    const selA = selFor(i), selB = selFor(i >= n ? 0 : i + 1);
+    drawSlow(selA);
+    const svg = el('fan');
+    svg.innerHTML = FAN_TITLE;
+    const c = fanChrome();
+    tweenA = fanFrame(selA, rowsFor(selA), false);
+    tweenB = fanFrame(selB, rowsFor(selB), false);
+    svg.appendChild(c.bg); svg.appendChild(tweenA); svg.appendChild(tweenB);
+    svg.appendChild(c.labels);
+    tweenI = i; paintTween(0);
+  }
+
+  function paintTween(f){
+    if (!tweenA || !tweenB) return;
+    if (REDUCED) f = 0;                       // then it is a cut, which is what was asked for
+    const dx = tweenB.__cx - tweenA.__cx;
+    tweenA.setAttribute('opacity', (1-f).toFixed(3));
+    tweenA.setAttribute('transform', 'translate(' + (dx*f).toFixed(2) + ',0)');
+    tweenB.setAttribute('opacity', f.toFixed(3));
+    tweenB.setAttribute('transform', 'translate(' + (-dx*(1-f)).toFixed(2) + ',0)');
+  }
+
+  function frame(t){
+    if (!playing) return;
+    raf = requestAnimationFrame(frame);
+    if (lastT && t - lastT < 1000/FPS) return;
+    const dt = lastT ? Math.min(t - lastT, 250) : 0;   // a backgrounded tab must not jump
+    lastT = t;
+    const n = +slider.max;
+    playPos += dt / stepMs();
+    if (playPos >= n + 1) playPos -= (n + 1);
+    const i = Math.min(n, Math.floor(playPos));
+    if (i !== tweenI) mountStep(i);
+    paintTween(playPos - i);
+  }
+
+  function startPlay(){
+    playing = true; lastT = 0; playPos = idx;
+    el('play').textContent = '\u275a\u275a Pause';
+    mountStep(idx);
+    raf = requestAnimationFrame(frame);
+  }
+  function stopPlay(redraw){
+    if (!playing) return;
+    playing = false;
+    if (raf) cancelAnimationFrame(raf);
+    raf = null; tweenA = tweenB = null; tweenI = -1;
+    el('play').textContent = '\u25b6 Play';
+    if (redraw !== false){ draw(); writeURL(); }
+  }
+  el('play').addEventListener('click', () => playing ? stopPlay() : startPlay());
+  el('speed').addEventListener('change', e => { speed = parseFloat(e.target.value) || 1; });
 
 
   /* =========================================================================
@@ -1343,11 +1549,37 @@ const DATA = __DATA__;
      LOOK — era themes, remembered per reader where the browser allows it
      ========================================================================= */
   const LOOKS = ['modern','silent','techni','noir','neon'];
+  /* "Auto" ages the palette with the years on screen, so playing the century
+     through takes the page from silent stock to neon. Loosely chronological
+     rather than strictly — Technicolor and noir overlap in reality, and the
+     ordering that reads as a progression beats the one that is defensible to a
+     film historian by six years either side. */
+  const LOOK_ERAS = [[1930,'silent'],[1955,'techni'],[1980,'noir'],[2005,'modern']];
+  let LOOKAUTO = false;
+
+  function eraFor(y){
+    for (const [lim,k] of LOOK_ERAS) if (y < lim) return k;
+    return 'neon';
+  }
+  function autoLook(sel){
+    const want = eraFor((sel.lo + sel.hi) / 2);
+    if (document.documentElement.getAttribute('data-look') !== want)
+      document.documentElement.setAttribute('data-look', want);
+  }
   function setLook(v, persist){
-    if (!LOOKS.includes(v)) v = 'modern';
-    document.documentElement.setAttribute('data-look', v);
-    el('look').value = v;
-    if (persist){ try { localStorage.setItem('ctg-look', v); } catch(_){} }
+    LOOKAUTO = (v === 'auto');
+    const root = document.documentElement;
+    if (LOOKAUTO){
+      root.setAttribute('data-look-auto','1');
+      el('look').value = 'auto';
+      autoLook(selection());
+    } else {
+      root.removeAttribute('data-look-auto');
+      if (!LOOKS.includes(v)) v = 'modern';
+      root.setAttribute('data-look', v);
+      el('look').value = v;
+    }
+    if (persist){ try { localStorage.setItem('ctg-look', LOOKAUTO ? 'auto' : v); } catch(_){} }
   }
   el('look').addEventListener('change', e => { setLook(e.target.value, true); writeURL(); });
 
@@ -1365,7 +1597,7 @@ const DATA = __DATA__;
     if (filt.place) p.set('place', filt.place);
     if (PINNED) p.set('film', PINNED);
     if (qEl.value.trim()) p.set('q', qEl.value.trim());
-    const look = document.documentElement.getAttribute('data-look');
+    const look = LOOKAUTO ? 'auto' : document.documentElement.getAttribute('data-look');
     if (look && look !== 'modern') p.set('look', look);
     try { history.replaceState(null, '', '#' + p.toString()); } catch(_){}
   }
