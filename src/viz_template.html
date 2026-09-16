@@ -334,14 +334,48 @@ __FONTS__
 
   /* When the look follows the years, the palette has to CROSS-FADE. A hard cut
      between palettes mid-playback reads as a rendering bug rather than as a
-     transition. Opacity and transform are deliberately not in this list: the
-     playback dissolve drives both, and a transition on them would smear it.
-     The projector leader is excluded because it runs its own fade-out. */
+     transition.
+
+     THE SELECTOR LIST IS EXPLICIT ON PURPOSE. It used to be `.root :where(*)`,
+     which hung a five-property transition on every element under .root --
+     including the several hundred SVG nodes the fan chart rebuilds twenty-four
+     times a second during playback. Style recalc then cost about nine times
+     more with auto look than with a fixed one (2.3s against 0.25s over an
+     eight-second run), which is why playback crawled with the looks rotating
+     and ran fine without. Nothing below matches inside the SVG.
+
+     Colour is inherited, so the transition on .root carries its descendants
+     with it; the elements listed are the ones that declare a colour of their own.
+
+     Opacity and transform stay out of the list: the playback dissolve drives
+     both, and a transition on them would smear it. The projector leader is
+     absent because it runs its own fade-out. */
+  /* .root gets BACKGROUND ONLY, never colour. `color` is inherited, so animating
+     it on the element that wraps the whole page re-resolves every descendant on
+     every frame of the fade -- thousands of SVG nodes, sixty times a second, for
+     .65s after each era change. That single declaration was most of the residual
+     hitch. Text colour therefore snaps while the grounds fade, which across
+     these five palettes is not something you can see. */
   :root[data-look-auto="1"], :root[data-look-auto="1"] body,
-  :root[data-look-auto="1"] .root,
-  :root[data-look-auto="1"] .root :where(*:not(.leader, .leader *, .grainlayer)) {
+  :root[data-look-auto="1"] .root {
+    transition: background-color .65s linear;
+  }
+  :root[data-look-auto="1"] :is(h1, h2, summary, cite, label, select, input, button,
+      .sub, .note, .caveat, .accuracy, .controls, .seg, .btn, .yearbox, .fnote,
+      .stats, .stat, .stat .k, .stat .v, .stat .n, .filmstrip, .sprockets,
+      .facts, .fact, .fact-eyebrow, .fact-n, .legend, .searchbar, .field,
+      .searchnote, .results, .hitrow, .noresult, .tip, details, table, th, td,
+      .attrib, .signature, .src) {
     transition: background-color .65s linear, color .65s linear,
-                border-color .65s linear, fill .65s linear, stroke .65s linear;
+                border-color .65s linear;
+  }
+
+  /* The chart marks fade too -- but only while playback is NOT running. During
+     playback they are destroyed and recreated every frame, so a transition on
+     them animates nothing and costs everything. */
+  :root[data-look-auto="1"] .root:not(.playing) :is(.arc, .nowbar, .nowline,
+      .axis-line, .tick, .brk, .zonelab, .band-row rect) {
+    transition: fill .65s linear, stroke .65s linear;
   }
 
   /* Projector leader — the academy countdown, for the half-second the charts
@@ -1341,9 +1375,26 @@ const DATA = __DATA__;
     const n = +slider.max;
     idx = i; slider.value = i;
     const selA = selFor(i), selB = selFor(i >= n ? 0 : i + 1);
-    drawSlow(selA);
     const svg = el('fan');
+
+    /* ORDER MATTERS HERE, and it is worth a paragraph.
+
+       Under the auto look, crossing an era boundary rewrites the palette custom
+       properties on :root, which invalidates the computed style of EVERY element
+       that reads one -- and mid-playback that is a few thousand SVG nodes across
+       the fan and the scatter. Doing it with the old charts still mounted cost
+       about 270ms, a visible quarter-second hitch at each of the four boundaries.
+
+       So: empty the three chart SVGs first, flip the palette while the document
+       is just page chrome, and only then draw. The nodes that would have been
+       invalidated no longer exist, and the ones that replace them are styled
+       once, on insertion, which playback pays for every frame anyway. */
     svg.innerHTML = FAN_TITLE;
+    el('scatter').textContent = '';
+    el('bands').textContent = '';
+    if (LOOKAUTO) autoLook(selA);
+
+    drawSlow(selA);
     const c = fanChrome();
     tweenA = fanFrame(selA, rowsFor(selA), false);
     tweenB = fanFrame(selB, rowsFor(selB), false);
@@ -1378,6 +1429,7 @@ const DATA = __DATA__;
 
   function startPlay(){
     playing = true; lastT = 0; playPos = idx;
+    document.querySelector('.root').classList.add('playing');
     el('play').textContent = '\u275a\u275a Pause';
     mountStep(idx);
     raf = requestAnimationFrame(frame);
@@ -1387,6 +1439,7 @@ const DATA = __DATA__;
     playing = false;
     if (raf) cancelAnimationFrame(raf);
     raf = null; tweenA = tweenB = null; tweenI = -1;
+    document.querySelector('.root').classList.remove('playing');
     el('play').textContent = '\u25b6 Play';
     if (redraw !== false){ draw(); writeURL(); }
   }
