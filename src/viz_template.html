@@ -225,6 +225,64 @@ __FONTS__
   .chk input { accent-color: var(--ink); }
   .fnote { font-size: 12.5px; color: var(--ink-2); }
   .fnote.thin { color: var(--future); }
+  .fnote.adv { color: var(--ink); flex: 1 1 100%; }
+
+  /* ---------------------------------------------------------------------------
+     ADVANCED FILTERS — director / actor / production company.
+
+     A disclosure rather than more controls in the open bar: the backlog's own
+     framing is that burying these costs the curious visitor one click and saves
+     everyone else a wall of controls. Built on the same tokens as the rest of
+     the page, so all five looks and dark mode fall out for free.
+     --------------------------------------------------------------------------- */
+  .advdet { margin-top: 10px; border-top: none; padding-top: 0; width: 100%; }
+  .advdet summary { font-family: var(--mono); font-size: 11px; font-weight: 600;
+                    color: var(--ink-2); text-transform: uppercase; letter-spacing: .08em;
+                    list-style: none; }
+  .advdet summary::-webkit-details-marker { display: none; }
+  .advdet summary::before { content: '\25b8\2002'; }
+  .advdet[open] summary::before { content: '\25be\2002'; }
+  .advbody { margin-top: 12px; display: flex; flex-direction: column; gap: 12px; }
+  .advloading, .adverror { font-size: 12.5px; color: var(--ink-2); }
+  .adverror { color: var(--future); }
+  .advpickers { display: flex; flex-wrap: wrap; gap: 16px; }
+  .picker { position: relative; min-width: 200px; flex: 1 1 220px; }
+  .picker label { display: block; font-family: var(--mono); font-size: 10px; color: var(--ink-2);
+                  text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+  .pfield { position: relative; display: flex; align-items: center; }
+  .picker input[type=text] { font: inherit; font-size: 13px; width: 100%;
+                              padding: 7px 28px 7px 10px; border: 1px solid var(--line);
+                              border-radius: 7px; background: var(--surface); color: var(--ink); }
+  .picker input[type=text]:disabled { opacity: .55; }
+  .pickerClear { position: absolute; right: 4px; border: 0; background: none; cursor: pointer;
+                 color: var(--ink-3); font: inherit; font-size: 16px; line-height: 1;
+                 padding: 3px 6px; border-radius: 5px; }
+  .pickerClear:hover { color: var(--ink); }
+  .plist { position: absolute; top: 100%; left: 0; right: 0; margin-top: 4px; z-index: 8;
+           max-height: 240px; overflow-y: auto; background: var(--surface);
+           border: 1px solid var(--line); border-radius: 8px;
+           box-shadow: 0 6px 18px rgba(0,0,0,.16); }
+  .prow { display: flex; justify-content: space-between; gap: 10px; padding: 7px 10px;
+          font-size: 12.5px; cursor: pointer; }
+  .prow:hover, .prow[aria-selected="true"] { background: var(--panel); }
+  .prow .pn { color: var(--ink-3); font-variant-numeric: tabular-nums; font-size: 11.5px;
+              white-space: nowrap; }
+  .pempty { padding: 10px; font-size: 12px; color: var(--ink-3); }
+  .advresult { font-size: 12.5px; color: var(--ink-2); }
+  .advhl-list { margin-top: 2px; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .advhl-row { display: flex; justify-content: space-between; gap: 10px; padding: 6px 10px;
+               font-size: 12px; border-top: 1px solid var(--line); }
+  .advhl-row:first-child { border-top: 0; }
+  .advhl-row .v { color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .wltag { font-family: var(--mono); font-size: 9px; text-transform: uppercase;
+           letter-spacing: .07em; color: var(--ink-3); border: 1px solid var(--line);
+           border-radius: 4px; padding: 1px 5px; margin-left: 6px; vertical-align: middle;
+           white-space: nowrap; }
+  .arc.hl { stroke-width: 4; }
+  .hlhalo { pointer-events: none; }
+  @media (max-width: 620px) {
+    .picker { flex: 1 1 100%; }
+  }
   /* The measured accuracy rides directly under the numbers it qualifies, so it
      travels with every chart rather than hiding in the caveats at the bottom. */
   .accuracy { margin: 8px 2px 0; font-size: 12.5px; line-height: 1.55; color: var(--ink-3);
@@ -365,7 +423,7 @@ __FONTS__
       .stats, .stat, .stat .k, .stat .v, .stat .n, .filmstrip, .sprockets,
       .facts, .fact, .fact-eyebrow, .fact-n, .legend, .searchbar, .field,
       .searchnote, .results, .hitrow, .noresult, .tip, details, table, th, td,
-      .attrib, .signature, .src) {
+      .attrib, .signature, .src, .plist, .prow, .advresult, .advhl-row, .wltag) {
     transition: background-color .65s linear, color .65s linear,
                 border-color .65s linear;
   }
@@ -545,9 +603,57 @@ __FONTS__
       <label for="fCountry">Origin</label>
       <select id="fCountry"></select>
     </div>
+    <div class="ctl" id="wlWrap" hidden>
+      <label class="chk"><input type="checkbox" id="fWL"> Include wishlisted films</label>
+    </div>
     <button class="btn" id="fReset">Reset</button>
     <span class="fnote" id="fNote"></span>
+    <span class="fnote adv" id="advStatus" hidden></span>
   </div>
+
+  <details class="advdet" id="advDetails" hidden>
+    <summary>Advanced filters &mdash; director, actor, production company</summary>
+    <div class="advbody">
+      <div class="advloading" id="advLoading" hidden>Loading credits&hellip;</div>
+      <div class="adverror" id="advError" hidden></div>
+      <div class="advpickers" id="advPickers">
+        <div class="picker" data-kind="dir">
+          <label for="pDirIn">Director</label>
+          <div class="pfield">
+            <input type="text" id="pDirIn" autocomplete="off" spellcheck="false"
+                   role="combobox" aria-expanded="false" aria-autocomplete="list"
+                   aria-controls="pDirList" aria-label="Filter by director"
+                   placeholder="e.g. Agn&egrave;s Varda">
+            <button class="pickerClear" id="pDirClear" hidden aria-label="Clear director filter">&times;</button>
+          </div>
+          <div class="plist" id="pDirList" role="listbox" aria-label="Director suggestions" hidden></div>
+        </div>
+        <div class="picker" data-kind="act">
+          <label for="pActIn">Actor</label>
+          <div class="pfield">
+            <input type="text" id="pActIn" autocomplete="off" spellcheck="false"
+                   role="combobox" aria-expanded="false" aria-autocomplete="list"
+                   aria-controls="pActList" aria-label="Filter by actor"
+                   placeholder="e.g. Toshir&#333; Mifune">
+            <button class="pickerClear" id="pActClear" hidden aria-label="Clear actor filter">&times;</button>
+          </div>
+          <div class="plist" id="pActList" role="listbox" aria-label="Actor suggestions" hidden></div>
+        </div>
+        <div class="picker" data-kind="co">
+          <label for="pCoIn">Production company</label>
+          <div class="pfield">
+            <input type="text" id="pCoIn" autocomplete="off" spellcheck="false"
+                   role="combobox" aria-expanded="false" aria-autocomplete="list"
+                   aria-controls="pCoList" aria-label="Filter by production company"
+                   placeholder="e.g. A24, Warner Bros.">
+            <button class="pickerClear" id="pCoClear" hidden aria-label="Clear production company filter">&times;</button>
+          </div>
+          <div class="plist" id="pCoList" role="listbox" aria-label="Production company suggestions" hidden></div>
+        </div>
+      </div>
+      <div class="advresult" id="advResult" hidden></div>
+    </div>
+  </details>
 
   <div class="stats" id="stats"></div>
   <p class="accuracy">__ACCURACY__</p>
@@ -645,7 +751,7 @@ __FONTS__
     <p class="caveat lead">Three steps. Each one has a failure mode, and the third exists to
     measure the second.</p>
     <ol class="caveat">
-      <li><b>Take a sample of films.</b> __SOURCE_NOTE__</li>
+      <li><b>Take a sample of films.</b> __SOURCE_NOTE__ __WISHLIST_NOTE__</li>
       <li><b>Ask a language model what year each film depicts.</b> Every film goes to the model
       with its title, release year, genres and a short published summary, and comes back with
       the year or years it is set in, how much of the film sits in each, and &mdash; the part
@@ -678,6 +784,10 @@ __FONTS__
       for allegory stops being a rule.</li>
       <li><b>Re-releases contaminate.</b> A 2013 3-D re-release of a 1993 film reads as a
       twenty-year lookback. Rare, but present.</li>
+      <li><b>Pre-1960 non-Western cinema stays thin, and no sampling parameter fixes that.</b>
+      TMDB's own catalogue is sparse there &mdash; the metadata was never entered to sample
+      from, long before this project chose how to rank it. Widening the sample cannot recover
+      what a source never had.</li>
     </ul>
   </details>
 
@@ -715,6 +825,7 @@ __FONTS__
 
 <script>
 const DATA = __DATA__;
+const CREDITS_SRC = __CREDITS_SRC__;
 (function(){
   /* The payload is trimmed to what cannot be recomputed — film_id is an index,
      delta and direction are derived, and anything equal to a default is absent.
@@ -737,6 +848,26 @@ const DATA = __DATA__;
   const HAS_COUNTRY = FL.some(f => f.c);
   const HAS_REGION  = FL.some(f => f.r);
   let PINNED = null;                 // film id called out on the arc chart, from search
+
+  /* ---- wishlist (contract C3/C6): src:'w' films are excluded from every
+     aggregate figure by default, but stay searchable and pinnable ---- */
+  const WISHLIST_PRESENT = FL.some(f => f.src === 'w');
+  let INCLUDE_WL = false;
+
+  /* ---- advanced filters: director / actor / production company (contract C4/C5) ----
+     CREDITS_SRC is null (feature absent), a URL string (fetched lazily), or an
+     inline object (out/ builds). CREDITS itself, once loaded, is normalised into
+     three id -> [film index...] maps so a picker's suggestion count and a film's
+     membership are both O(1) lookups. */
+  let CREDITS = null, creditsPromise = null;
+  let dirIndex = [], actIndex = [], coIndex = [];
+  let HIGHLIGHT_IDS = null;           // film ids to draw emphasised, or null
+  let SOK = new Set(FL.map(f => f.id));  // search-eligible ids: genre/origin/aggregate-credit
+                                          // filtered, but NEVER wishlist-excluded — a
+                                          // wishlisted film must stay findable by search.
+  let PENDING_DIR = null, PENDING_ACT = null, PENDING_CO = null;
+  const PICKERS = {};
+  const CREDIT_AGG_MIN = 25;          // same bar as a country: below it, highlight only
   /* ISO codes are what the fetch stores; nobody reads a corpus in ISO. */
   const CNAME = {US:'United States',GB:'United Kingdom',FR:'France',DE:'Germany',IT:'Italy',
     ES:'Spain',NL:'Netherlands',SE:'Sweden',DK:'Denmark',BE:'Belgium',AT:'Austria',
@@ -895,11 +1026,15 @@ const DATA = __DATA__;
       const d = `M ${cx} ${AX} Q ${(cx+x2)/2} ${my} ${x2} ${AX}`;
       const sw = 1.2+2.6*r.weight;
       const isPin = r.film_id===PINNED;
-      const path = mk('path',{class:'arc '+(up?'future':'past')+(isPin?' pinned':''),d:d,
-                              'stroke-width':sw,
-                              opacity: isPin ? 1 : (0.30+0.5*r.confidence).toFixed(2)});
+      const isHL = !!(HIGHLIGHT_IDS && HIGHLIGHT_IDS.has(r.film_id));
+      const path = mk('path',{class:'arc '+(up?'future':'past')+(isPin?' pinned':'')+(isHL?' hl':''),d:d,
+                              'stroke-width': isHL ? Math.max(sw,3.4) : sw,
+                              opacity: isPin ? 1 : (isHL ? 0.95 : (0.30+0.5*r.confidence).toFixed(2))});
       if (isPin) pins.push({x:x2, up, r});
       g.appendChild(path);
+      if (isHL && !isPin)
+        g.appendChild(mk('circle',{class:'hlhalo',cx:x2,cy:AX,r:Math.max(4,sw*1.1),
+          fill:'none',stroke:'var(--ink)','stroke-width':1,opacity:.55}));
       if (live){
         const hit = mk('path',{class:'hit',d:d});
         const span = r.year_start===r.year_end ? fmtY(r.year_start) : fmtY(r.year_start)+'\u2013'+fmtY(r.year_end);
@@ -1107,7 +1242,226 @@ const DATA = __DATA__;
   }
 
   /* ---- filters ---- */
-  const filt = {genre:'', genreEx:false, place:''};   // '' | 'c:JP' | 'r:east_asia'
+  const filt = {genre:'', genreEx:false, place:'', dir:null, act:null, co:null};
+
+  /* =========================================================================
+     ADVANCED FILTERS — credits payload, loading, and the three pickers.
+     ========================================================================= */
+  function normalizeCredits(raw){
+    const people = raw.people || [], companies = raw.companies || [];
+    const perFilm = raw.f || [];
+    const dirFilms = new Map(), actFilms = new Map(), coFilms = new Map();
+    const bump = (m,k,i) => { if(!m.has(k)) m.set(k,[]); m.get(k).push(i); };
+    perFilm.forEach((entry, i) => {
+      if (!entry) return;
+      const [ds, as, cos] = entry;
+      (ds||[]).forEach(p => bump(dirFilms, p, i));
+      (as||[]).forEach(p => bump(actFilms, p, i));
+      (cos||[]).forEach(c => bump(coFilms, c, i));
+    });
+    return {people, companies, dirFilms, actFilms, coFilms};
+  }
+
+  function loadCredits(){
+    if (CREDITS_SRC === null) return Promise.resolve(null);
+    if (CREDITS) return Promise.resolve(CREDITS);
+    if (creditsPromise) return creditsPromise;
+    const p = (typeof CREDITS_SRC === 'string')
+      ? fetch(CREDITS_SRC).then(r => { if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      : Promise.resolve(CREDITS_SRC);
+    creditsPromise = p.then(raw => { CREDITS = normalizeCredits(raw); return CREDITS; });
+    return creditsPromise;
+  }
+
+  /* Suggestion candidates, built once the payload is in: every person/company
+     that credits at least one film, alongside the raw film-index list a count
+     and a filter are both computed from. */
+  function buildCreditIndexes(){
+    dirIndex = [...CREDITS.dirFilms.entries()].map(([pIdx, arr]) => {
+      const rec = CREDITS.people[pIdx] || [pIdx, 'Unknown'];
+      return {kind:'dir', key:String(rec[0]), name:rec[1], norm:norm(rec[1]), films:arr};
+    });
+    actIndex = [...CREDITS.actFilms.entries()].map(([pIdx, arr]) => {
+      const rec = CREDITS.people[pIdx] || [pIdx, 'Unknown'];
+      return {kind:'act', key:String(rec[0]), name:rec[1], norm:norm(rec[1]), films:arr};
+    });
+    coIndex = [...CREDITS.coFilms.entries()].map(([cIdx, arr]) => {
+      const rec = CREDITS.companies[cIdx] || [String(cIdx), 'Unknown'];
+      return {kind:'co', key:rec[0], name:rec[1], norm:norm(rec[1]), films:arr};
+    });
+  }
+
+  /* A pick's count always answers "how many films in the sample", independent
+     of which decade is on screen — the same convention the genre/origin
+     dropdowns already use. It follows the wishlist switch, because a
+     wishlisted film is not really "in the sample" until that switch says so. */
+  const creditCount = entry => entry.films.reduce((n,i) =>
+    n + ((INCLUDE_WL || FL[i].src !== 'w') ? 1 : 0), 0);
+  const creditFilmIdSet = entry => new Set(entry.films
+    .filter(i => INCLUDE_WL || FL[i].src !== 'w').map(i => FL[i].id));
+  function intersectCounts(entries){
+    let inter = null;
+    for (const e of entries){
+      const s = creditFilmIdSet(e);
+      inter = inter ? new Set([...inter].filter(id => s.has(id))) : s;
+    }
+    return inter || new Set();
+  }
+
+  function activePicks(){ return [filt.dir, filt.act, filt.co].filter(Boolean); }
+
+  function renderAdvHighlightList(){
+    const box = el('advResult');
+    if (!HIGHLIGHT_IDS || !HIGHLIGHT_IDS.size){ box.hidden = true; box.innerHTML=''; return; }
+    const rows = [...HIGHLIGHT_IDS].map(id => films.get(id)).filter(Boolean)
+                                    .sort((a,b) => a.year - b.year);
+    box.hidden = false;
+    box.innerHTML = '<div class="advhl-list">' + rows.map(f => {
+      const v = verdict(f);
+      return `<div class="advhl-row"><span>${esc(f.t)} <span class="v">(${f.year})</span></span>
+        <span class="v">${esc(v.big)}</span></div>`;
+    }).join('') + '</div>';
+  }
+
+  function renderAdvStatus(){
+    const picks = activePicks();
+    const statusEl = el('advStatus');
+    if (!picks.length){ statusEl.hidden = true; statusEl.textContent=''; renderAdvHighlightList(); return; }
+    const parts = picks.map(p => { const n = creditCount(p);
+      return {p, n, mode: n >= CREDIT_AGG_MIN ? 'aggregate' : 'highlight'}; });
+    let sentence;
+    if (parts.length === 1){
+      const {p,n,mode} = parts[0];
+      sentence = `${p.name} — ${n} film${n===1?'':'s'} in this sample · ` +
+        (mode==='aggregate' ? 'charts show only these films.' : 'highlighted against the overall pattern.');
+    } else {
+      const allAgg = parts.every(x=>x.mode==='aggregate'), allHl = parts.every(x=>x.mode==='highlight');
+      if (allAgg || allHl){
+        const names = parts.map(x=>`${x.p.name} (${x.n})`).join(' ∩ ');
+        const n = intersectCounts(parts.map(x=>x.p)).size;
+        sentence = `${names} — ${n} film${n===1?'':'s'} in this sample, intersection · ` +
+          (allAgg ? 'charts show only these films.' : 'highlighted against the overall pattern.');
+      } else {
+        const aggP = parts.filter(x=>x.mode==='aggregate'), hlP = parts.filter(x=>x.mode==='highlight');
+        const aggNames = aggP.map(x=>x.p.name).join(' ∩ ');
+        const hlNames = hlP.map(x=>x.p.name).join(' ∩ ');
+        const n = intersectCounts(hlP.map(x=>x.p)).size;
+        sentence = `${aggNames} — charts show only these films; within them, ${hlNames} `
+          + `(${n} film${n===1?'':'s'}, intersection) highlighted against that view.`;
+      }
+    }
+    statusEl.hidden = false;
+    statusEl.textContent = sentence;
+    renderAdvHighlightList();
+  }
+
+  function refreshOpenPickers(){ for (const k in PICKERS) if (PICKERS[k]) PICKERS[k].refreshCounts(); }
+
+  /* One picker, reused for director/actor/company on top of the same
+     norm()/hitScore() machinery search already uses, with the same
+     down-arrow-into-the-list keyboard pattern as the search box below. */
+  function setupPicker(inputId, listId, clearId, filtKey, getIndex){
+    const input = el(inputId), list = el(listId), clearBtn = el(clearId);
+    if (!input) return null;
+    let items = [], activeI = -1;
+
+    function renderList(q){
+      const idx = getIndex();
+      if (!idx.length){ list.hidden = true; return; }
+      const nq = norm(q);
+      let scored = nq
+        ? idx.map(c => ({c, sc: hitScore(c.norm, nq, 0)})).filter(x=>x.sc>0)
+             .sort((a,b) => b.sc-a.sc || creditCount(b.c)-creditCount(a.c) || a.c.name.localeCompare(b.c.name))
+             .map(x=>x.c)
+        : idx.slice().sort((a,b) => creditCount(b)-creditCount(a) || a.name.localeCompare(b.name));
+      items = scored.slice(0, 12);
+      activeI = -1;
+      if (!items.length){ list.hidden=false; list.innerHTML='<div class="pempty">No match in this sample</div>'; return; }
+      list.hidden = false;
+      list.innerHTML = items.map((c,i) =>
+        `<div class="prow" role="option" id="${listId}-${i}" aria-selected="false" data-i="${i}">
+           <span>${esc(c.name)}</span><span class="pn">${creditCount(c)}</span></div>`).join('');
+      input.setAttribute('aria-expanded','true');
+    }
+    function closeList(){ list.hidden=true; list.innerHTML=''; items=[]; activeI=-1;
+      input.setAttribute('aria-expanded','false'); input.removeAttribute('aria-activedescendant'); }
+    function select(c){
+      filt[filtKey] = c; input.value = c.name; clearBtn.hidden = false; closeList();
+      refilter();
+    }
+    function clearSel(){
+      filt[filtKey] = null; input.value=''; clearBtn.hidden=true; closeList(); input.focus();
+      refilter();
+    }
+    function updateActive(rows){
+      rows.forEach((r,i) => r.setAttribute('aria-selected', String(i===activeI)));
+      if (activeI>=0){ input.setAttribute('aria-activedescendant', rows[activeI].id);
+        rows[activeI].scrollIntoView({block:'nearest'}); }
+    }
+    let tmr=null;
+    input.addEventListener('input', () => {
+      if (filt[filtKey]){ filt[filtKey]=null; clearBtn.hidden=true; refilter(); }
+      clearTimeout(tmr); tmr = setTimeout(() => renderList(input.value), 120);
+    });
+    input.addEventListener('focus', () => { if (!filt[filtKey]) renderList(input.value); });
+    input.addEventListener('keydown', e => {
+      if (list.hidden && e.key==='ArrowDown'){ renderList(input.value); return; }
+      const rows = [...list.querySelectorAll('.prow')];
+      if (e.key==='ArrowDown'){ e.preventDefault(); activeI=Math.min(rows.length-1, activeI+1); updateActive(rows); }
+      else if (e.key==='ArrowUp'){ e.preventDefault(); activeI=Math.max(0, activeI-1); updateActive(rows); }
+      else if (e.key==='Enter'){ if (activeI>=0 && items[activeI]){ e.preventDefault(); select(items[activeI]); } }
+      else if (e.key==='Escape'){ closeList(); }
+    });
+    list.addEventListener('mousedown', e => {
+      const row = e.target.closest('.prow'); if (!row) return;
+      e.preventDefault(); const i=+row.dataset.i; if (items[i]) select(items[i]);
+    });
+    input.addEventListener('blur', () => setTimeout(closeList, 120));
+    clearBtn.addEventListener('click', clearSel);
+    return {
+      setFromExternal(c){ filt[filtKey]=c; input.value = c?c.name:''; clearBtn.hidden = !c; },
+      refreshCounts(){ if (!list.hidden) renderList(input.value); }
+    };
+  }
+
+  function setupPickersOnce(){
+    if (PICKERS.dir) return;
+    PICKERS.dir = setupPicker('pDirIn','pDirList','pDirClear','dir', () => dirIndex);
+    PICKERS.act = setupPicker('pActIn','pActList','pActClear','act', () => actIndex);
+    PICKERS.co  = setupPicker('pCoIn','pCoList','pCoClear','co',  () => coIndex);
+  }
+
+  function resolvePendingCreditParams(){
+    let changed = false;
+    const tryOne = (pending, idx, key) => {
+      if (pending == null) return null;
+      const c = idx.find(x => x.key === String(pending));
+      if (c){ filt[key] = c; PICKERS[key].setFromExternal(c); changed = true; }
+      return null;
+    };
+    tryOne(PENDING_DIR, dirIndex, 'dir'); PENDING_DIR = null;
+    tryOne(PENDING_ACT, actIndex, 'act'); PENDING_ACT = null;
+    tryOne(PENDING_CO,  coIndex,  'co');  PENDING_CO  = null;
+    if (changed) refilter();
+  }
+
+  function ensureCreditsUI(){
+    if (CREDITS_SRC === null) return;
+    if (CREDITS){ buildCreditIndexes(); setupPickersOnce(); resolvePendingCreditParams(); return; }
+    // an inline payload resolves on the next microtask — no visible loading flash needed;
+    // a URL is a real network fetch and gets the loading state contract 1 asks for.
+    if (typeof CREDITS_SRC === 'string'){
+      el('advLoading').hidden = false; el('advError').hidden = true; el('advPickers').hidden = true;
+    }
+    loadCredits().then(() => {
+      el('advLoading').hidden = true; el('advPickers').hidden = false;
+      buildCreditIndexes(); setupPickersOnce(); resolvePendingCreditParams();
+    }).catch(err => {
+      el('advLoading').hidden = true; el('advError').hidden = false;
+      el('advError').textContent = 'Could not load the credits data (' + err.message +
+        '). Advanced filters are unavailable right now.';
+    });
+  }
 
   const regionOf = new Map(DATA.films.filter(f=>f.c).map(f=>[f.c, f.r||'other']));
 
@@ -1150,7 +1504,7 @@ const DATA = __DATA__;
   }
 
   function applyFilters(){
-    const keep = f => {
+    const genrePlaceOk = f => {
       if (filt.place){
         const [kind, val] = [filt.place.slice(0,1), filt.place.slice(2)];
         if (kind === 'c' ? f.c !== val : (f.r||'other') !== val) return false;
@@ -1161,14 +1515,37 @@ const DATA = __DATA__;
       }
       return true;
     };
+    const picks = activePicks();
+    const aggPicks = picks.filter(p => creditCount(p) >= CREDIT_AGG_MIN);
+    const hlPicks  = picks.filter(p => creditCount(p) <  CREDIT_AGG_MIN);
+    const aggSets = aggPicks.map(creditFilmIdSet);
+
+    // Search stays reachable across the genre/origin/aggregate-credit filters —
+    // exactly like today — but, unlike the charts, is never wishlist-excluded:
+    // a wishlisted film must still turn up, tagged, when someone searches for it.
+    SOK = new Set(DATA.films.filter(f => genrePlaceOk(f) && aggSets.every(s=>s.has(f.id))).map(f=>f.id));
+
+    const keep = f => {
+      if (!genrePlaceOk(f)) return false;
+      if (!INCLUDE_WL && f.src === 'w') return false;
+      for (const s of aggSets) if (!s.has(f.id)) return false;
+      return true;
+    };
     FF = DATA.films.filter(keep);
     const ok = new Set(FF.map(f=>f.id));
     FT = T.filter(t=>ok.has(t.film_id));
+
+    HIGHLIGHT_IDS = null;
+    if (hlPicks.length){
+      const inter = intersectCounts(hlPicks);
+      HIGHLIGHT_IDS = new Set([...inter].filter(id => ok.has(id)));
+    }
 
     const bits = [];
     if (filt.genre) bits.push((filt.genreEx?'everything except ':'')+filt.genre);
     if (filt.place) bits.push(filt.place.startsWith('r:')
       ? rName(filt.place.slice(2)) : cName(filt.place.slice(2)));
+    if (aggPicks.length) bits.push(aggPicks.map(p=>p.name).join(' ∩ '));
     const note = el('fNote');
     if (!bits.length){ note.textContent=''; note.className='fnote'; }
     else if (FT.length < MIN_TARGETS){
@@ -1178,6 +1555,7 @@ const DATA = __DATA__;
       note.textContent = `${bits.join(' · ')} — ${FF.length} films, ${FT.length} targets`;
       note.className = 'fnote';
     }
+    renderAdvStatus();
   }
 
   /* ---- facts: derived, never hand-written, each with its own sample floor ---- */
@@ -1333,8 +1711,17 @@ const DATA = __DATA__;
   el('fReset').addEventListener('click',()=>{
     filt.genre=''; filt.genreEx=false; filt.place='';
     el('fGenre').value=''; el('fGenreEx').checked=false; if(HAS_COUNTRY) el('fCountry').value='';
+    for (const k of ['dir','act','co']){ filt[k]=null; if (PICKERS[k]) PICKERS[k].setFromExternal(null); }
     refilter();
   });
+  if (WISHLIST_PRESENT){
+    el('wlWrap').hidden = false;
+    el('fWL').addEventListener('change', e => { INCLUDE_WL = e.target.checked; refilter(); refreshOpenPickers(); });
+  }
+  if (CREDITS_SRC !== null){
+    el('advDetails').hidden = false;
+    el('advDetails').addEventListener('toggle', () => { if (el('advDetails').open) ensureCreditsUI(); });
+  }
 
   slider.addEventListener('input',()=>{ stopPlay(false); idx=+slider.value; draw(); writeURL(); });
   el('mYear').addEventListener('click',()=>setMode('year'));
@@ -1458,6 +1845,13 @@ const DATA = __DATA__;
   const esc = t => String(t==null?'':t).replace(/[&<>"']/g,
     c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+  /* contract C6: no backend, just a prefilled GitHub issue */
+  function wishlistUrl(q){
+    const title = 'Wishlist: ' + q;
+    return 'https://github.com/eguiwow/CinemaTimeGaze/issues/new?template=wishlist.yml'
+         + '&labels=wishlist&title=' + encodeURIComponent(title);
+  }
+
   /* Accent- and case-insensitive, punctuation-flattened, but NOT Latin-only:
      folding to [a-z0-9] erased every CJK, Korean, Cyrillic, Greek and Arabic
      original title in the corpus, which is most of the reason this field exists.
@@ -1468,23 +1862,25 @@ const DATA = __DATA__;
 
   const INDEX = FL.map(f => ({ f, k: norm(f.t), o: f.ot ? norm(f.ot) : '' }));
 
-  function score(rec, q){
-    const hit = (k, bonus) => {
-      if (!k) return 0;
-      if (k === q) return 4 + bonus;
-      if (k.startsWith(q)) return 3 + bonus;
-      if (k.includes(' ' + q)) return 2 + bonus;
-      if (k.includes(q)) return 1 + bonus;
-      return 0;
-    };
-    return Math.max(hit(rec.k, 0.5), hit(rec.o, 0));
+  /* Shared with the advanced-filter pickers below — one scoring rule for "does
+     this normalised label match this normalised query" used everywhere in the
+     page that offers an autocomplete. */
+  function hitScore(k, q, bonus){
+    if (!k) return 0;
+    if (k === q) return 4 + bonus;
+    if (k.startsWith(q)) return 3 + bonus;
+    if (k.includes(' ' + q)) return 2 + bonus;
+    if (k.includes(q)) return 1 + bonus;
+    return 0;
   }
+  function score(rec, q){ return Math.max(hitScore(rec.k, q, 0.5), hitScore(rec.o, q, 0)); }
 
   const MAXHITS = 25;
   function search(raw){
     const q = norm(raw);
     if (q.length < 2) return {q:'', hits:[], short:true};
-    const live = new Set(FF.map(f=>f.id));       // search obeys the genre/origin filters
+    const live = SOK;       // search obeys the genre/origin/aggregate-credit filters,
+                             // but never the wishlist exclusion — see applyFilters()
     const out = [];
     for (const rec of INDEX){
       if (!live.has(rec.f.id)) continue;
@@ -1542,7 +1938,9 @@ const DATA = __DATA__;
         voted on them at TMDB. It is a slice of cinema, not cinema.</p>
         <p>So a favourite can be missing for three dull reasons: it never made the fifty for
         its year, it is not classified yet, or it is filed under a title you did not type —
-        try the original-language one, or fewer words.</p></div>`;
+        try the original-language one, or fewer words.</p>
+        <p><a class="btn" href="${wishlistUrl(raw.trim())}" target="_blank" rel="noopener noreferrer">
+        Missing a film? Add it to the wishlist</a></p></div>`;
       return;
     }
     qNote.textContent = total > hits.length
@@ -1553,7 +1951,8 @@ const DATA = __DATA__;
                     .filter(Boolean).join(' · ');
       return `<button class="hitrow" data-id="${esc(f.id)}" role="option"
                 aria-current="${f.id===PINNED}">
-        <span class="ti">${mark(f.t, raw)}${f.ot ? ` <span class="ot">· ${mark(f.ot, raw)}</span>` : ''}</span>
+        <span class="ti">${mark(f.t, raw)}${f.ot ? ` <span class="ot">· ${mark(f.ot, raw)}</span>` : ''}${
+          f.src==='w' ? ' <span class="wltag">wishlist — not in the sample</span>' : ''}</span>
         <span class="meta">${f.year}${place ? ' · ' + esc(place) : ''}</span>
         <span class="verdict ${v.cls}"><b>${esc(v.big)}</b><span>${esc(v.small)}</span></span>
       </button>`;
@@ -1648,6 +2047,10 @@ const DATA = __DATA__;
     p.set('y', String(sel.lo));
     if (filt.genre) p.set('genre', filt.genre + (filt.genreEx ? '!' : ''));
     if (filt.place) p.set('place', filt.place);
+    if (filt.dir) p.set('dir', filt.dir.key);
+    if (filt.act) p.set('act', filt.act.key);
+    if (filt.co)  p.set('co',  filt.co.key);
+    if (INCLUDE_WL) p.set('wl', '1');
     if (PINNED) p.set('film', PINNED);
     if (qEl.value.trim()) p.set('q', qEl.value.trim());
     const look = LOOKAUTO ? 'auto' : document.documentElement.getAttribute('data-look');
@@ -1666,10 +2069,18 @@ const DATA = __DATA__;
     if (g){ filt.genreEx = g.endsWith('!'); filt.genre = filt.genreEx ? g.slice(0,-1) : g;
             el('fGenre').value = filt.genre; el('fGenreEx').checked = filt.genreEx; }
     if (p.get('place') && HAS_COUNTRY){ filt.place = p.get('place'); el('fCountry').value = filt.place; }
+    if (p.get('dir')) PENDING_DIR = p.get('dir');
+    if (p.get('act')) PENDING_ACT = p.get('act');
+    if (p.get('co'))  PENDING_CO  = p.get('co');
+    if (p.get('wl') === '1' && WISHLIST_PRESENT){ INCLUDE_WL = true; el('fWL').checked = true; }
     applyFilters();
     const y = parseInt(p.get('y'), 10);
-    if (!isNaN(y)) idx = mode==='year'
-      ? Math.max(0, years.indexOf(y)) : Math.max(0, decades.indexOf(Math.floor(y/10)*10));
+    // no y= (e.g. a link that only carries dir= or look=) lands on the same 1980s a bare
+    // visit does, not on 1900 — the first decade is the thinnest one to meet the page on
+    const yy = isNaN(y) ? 1980 : y;
+    idx = mode==='year'
+      ? Math.max(0, years.indexOf(isNaN(y) ? (years.includes(1980) ? 1980 : years[0]) : yy))
+      : Math.max(0, decades.indexOf(Math.floor(yy/10)*10));
     if (p.get('film') && films.has(p.get('film'))) PINNED = p.get('film');
     if (p.get('q')){ qEl.value = p.get('q'); }
     urlLock = false;
@@ -1697,5 +2108,11 @@ const DATA = __DATA__;
   renderResults();
   writeURL();
   runLeader();
+  // contract C5/item 6: a link carrying dir=/act=/co= auto-loads credits and
+  // opens the disclosure, rather than leaving the visitor to find it.
+  if (CREDITS_SRC !== null && (PENDING_DIR || PENDING_ACT || PENDING_CO)){
+    el('advDetails').open = true;
+    ensureCreditsUI();
+  }
 })();
 </script>
