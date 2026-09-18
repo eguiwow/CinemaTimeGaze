@@ -1,0 +1,16 @@
+{
+  "v": 1,
+  "sets": [
+    {"name": "pass1", "file": "labels_api.jsonl",
+     "role": "base", "note": "the original full-corpus API pass (v3), all 6,187 sampled films"},
+    {"name": "pass2", "file": "labels_pass2.jsonl",
+     "role": "secondpass", "note": "weak-row re-run: --ids weak_ids.txt/boundary_ids.txt, optionally --plots and/or --prompt v2. Never overwrites pass1 in place - its own file, stamped labelset=pass2."},
+    {"name": "hand", "file": "labels_tmdb.jsonl",
+     "role": "reference", "note": "the 672-film hand/reference set used by validate.py"}
+  ],
+  "precedence": {
+    "order": ["hand", "pass2", "pass1"],
+    "rule": "For each film id, take the highest-precedence labelset that has a label for it, with ONE exception: pass2 only outranks pass1 when pass2 actually improved on it — pass2.basis in ('text','both') (it read real plot text, pass1 usually only had a knowledge guess) OR pass2.confidence > pass1.confidence (a stronger read even from knowledge alone). Otherwise pass1's label is kept and pass2's attempt is recorded as a disagreement, not a replacement. hand always wins outright: it is never compared, only preferred. A film with no label in any set is absent from the merge.",
+    "implemented_in": "src/merge_labelsets.py"
+  }
+}

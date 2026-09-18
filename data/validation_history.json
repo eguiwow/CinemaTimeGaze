@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2026-09-18",
+    "name": "pass1 (v3 baseline)",
+    "reference": "labels_tmdb.jsonl",
+    "candidate": "labels_api.jsonl",
+    "n_reference": 672,
+    "n_candidate": 6187,
+    "n_overlap": 662,
+    "tol": 2,
+    "gaze_agreement": 0.8973,
+    "year_within_tol": 0.8978,
+    "year_err_median": 0,
+    "multi_recall": 0.7667,
+    "atemporal_agreement": 0.7818,
+    "by_basis": {
+      "knowledge": {
+        "n": 364,
+        "gaze": 0.8544,
+        "year_err_median": 0
+      },
+      "text": {
+        "n": 297,
+        "gaze": 0.9529,
+        "year_err_median": 0
+      }
+    }
+  }
+]

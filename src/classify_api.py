@@ -208,7 +208,10 @@ def whoami():
 PROM = {"primary": 1.0, "secondary": 0.5, "minor": 0.25}
 CONF = {"high": 0.9, "medium": 0.65, "low": 0.35}
 
-SYSTEM = """\
+# v1 is the prompt that produced data/labels_api.jsonl (pass 1). It must never change —
+# tests/test_labels.py pins it against a stored hash. Add new rules for v2+ instead of
+# editing these lines.
+SYSTEM_V1 = """\
 You classify films by the year they are SET IN, relative to the year they were released.
 
 THE GOVERNING RULE
@@ -242,6 +245,49 @@ Every object: {"id","gaze","earthbound","confidence","targets":[{"year_start","y
 "prominence","basis"}]}
 """
 
+# v2 keeps every v1 rule verbatim and only sharpens the two boundaries validate.py scores
+# worst on: multi-timeline recall (framing/flashback/epilogue structures collapsed to one
+# target) and atemporal agreement (unmoored-but-real-world "present" mislabelled atemporal,
+# or vice versa). See the report for the exact diff against v1.
+SYSTEM_V2 = SYSTEM_V1.replace(
+    "1. A film may depict more than one period. Return ONE ENTRY PER PERIOD in `targets`.\n"
+    "   Framing devices, time travel and generational sagas all produce two or three targets.\n"
+    "   Do not flatten them to one. A film set entirely in one year has exactly one target.\n",
+    "1. A film may depict more than one period. Return ONE ENTRY PER PERIOD in `targets`.\n"
+    "   Framing devices, time travel and generational sagas all produce two or three targets.\n"
+    "   Do not flatten them to one. A film set entirely in one year has exactly one target.\n"
+    "   1a. A FRAMING STORY counts as its own target even if it is brief: an elderly narrator\n"
+    "       recalling their life, a \"years later\" epilogue, a story told to a present-day\n"
+    "       listener, a device that opens/closes the film in a different year than the body\n"
+    "       of the story. Give it prominence=\"secondary\" or \"minor\" as appropriate, but do\n"
+    "       not drop it — a two-minute frame is still a second period.\n"
+    "   1b. A single embedded flashback/flash-forward that stays inside the SAME period as the\n"
+    "       main action (a scene from earlier the same year, a brief memory with no new dated\n"
+    "       anchor) is NOT a second target — only create one when the flashback/epilogue is\n"
+    "       itself pinned to a distinct year or era.\n",
+).replace(
+    "2. If NO Earth calendar year is depicted — a secondary world, a fantasy realm, an unnamed\n"
+    "   fairy-tale past, a purely non-Earth setting — set gaze=\"atemporal\" and targets=[].\n"
+    "   Star Wars is atemporal. Middle-earth is atemporal. Ancient Rome is NOT (it is 1st century).\n",
+    "2. If NO Earth calendar year is depicted — a secondary world, a fantasy realm, an unnamed\n"
+    "   fairy-tale past, a purely non-Earth setting — set gaze=\"atemporal\" and targets=[].\n"
+    "   Star Wars is atemporal. Middle-earth is atemporal. Ancient Rome is NOT (it is 1st century).\n"
+    "   2a. \"atemporal\" is for settings with NO real-world calendar to anchor to at all, not for\n"
+    "       settings that simply don't STATE a year. A film that is plainly our own world in what\n"
+    "       looks like the ordinary present day — contemporary clothes, cars, phones, cities —\n"
+    "       is gaze=\"present\" even with no date on screen; do not mark it atemporal for lack of\n"
+    "       an explicit year. Reserve \"atemporal\" for secondary worlds, unmoored fables/fairy\n"
+    "       tales explicitly outside real history, and settings with no discernible calendar\n"
+    "       (not merely an unstated one).\n"
+    "   2b. An unspecified-but-clearly-historical setting (\"a medieval kingdom\", \"an unnamed\n"
+    "       17th-century war\") that is on Earth and in real history gets a best-guess year range\n"
+    "       with confidence=\"low\", not \"atemporal\" — atemporal means no history, not vague\n"
+    "       history.\n",
+)
+
+PROMPTS = {"v1": SYSTEM_V1, "v2": SYSTEM_V2}
+SYSTEM = SYSTEM_V1          # back-compat name; several call sites default to this
+
 USER_TMPL = """Classify these {n} films.
 
 {films}
@@ -249,9 +295,26 @@ USER_TMPL = """Classify these {n} films.
 Return the JSON array now."""
 
 
-def film_line(r, words):
+def load_plots(path):
+    """--plots FILE: JSONL {id, plot, source} — a longer plot that replaces the TMDB
+    extract for that film, e.g. a Wikipedia section from fetch_plots.py."""
+    plots = {}
+    if not path:
+        return plots
+    p = Path(path)
+    if not p.exists():
+        sys.exit(f"--plots file not found: {p}")
+    for line in p.read_text().split("\n"):
+        if line.strip():
+            r = json.loads(line)
+            plots[r["id"]] = r
+    return plots
+
+
+def film_line(r, words, plot_override=None):
     g = "/".join(r["genres"][:3]) or "unknown genre"
-    ex = " ".join((r.get("extract") or "").split()[:words])
+    text = plot_override if plot_override is not None else (r.get("extract") or "")
+    ex = " ".join(text.split()[:words])
     head = f'id={r["id"]} | {r["title"]} ({r["year"]}) [{g}]'
     return f"{head}\n  {ex}" if ex else head
 
@@ -268,16 +331,40 @@ def load_done(path):
     return done
 
 
-def pick(sample, per_year, done, limit):
+def pick(sample, per_year, done, limit, ids=None):
+    """Select films to classify.
+
+    `ids`, when given, is an explicit id list (e.g. from weak_rows.py) — it BYPASSES the
+    per-year cap entirely: every requested id not already done is queued, in the order
+    given, up to `limit`. This is the only mode used for a targeted second pass.
+
+    Otherwise: films with "source"=="wishlist" always survive, because they were added
+    outside the sampling rule on purpose (C3/C6) — the per-year notability cap must never
+    be the reason a wishlisted film stays unclassified. Every other film goes through the
+    existing per-year-by-notability selection, unchanged from v3.
+    """
+    if ids is not None:
+        by_id = {r["id"]: r for r in sample}
+        out = [by_id[i] for i in ids if i in by_id and i not in done]
+        return out[:limit] if limit else out
+
+    wishlist = [r for r in sample if r.get("source") == "wishlist" and r["id"] not in done]
+    rest = [r for r in sample if r.get("source") != "wishlist"]
+
     by_year = defaultdict(list)
-    for r in sorted(sample, key=lambda r: -r["notability"]):
+    for r in sorted(rest, key=lambda r: -r["notability"]):
         by_year[r["year"]].append(r)
-    out = []
+    capped = []
     for rank in range(per_year):
         for y in sorted(by_year):
             pool = [r for r in by_year[y] if r["id"] not in done]
             if rank < len(pool):
-                out.append(pool[rank])
+                capped.append(pool[rank])
+
+    seen, out = set(), []
+    for r in wishlist + capped:                 # wishlist first: never cut by --limit either
+        if r["id"] not in seen:
+            seen.add(r["id"]); out.append(r)
     return out[:limit] if limit else out
 
 
@@ -332,6 +419,19 @@ def main():
     ap.add_argument("--per-year", type=int, default=50)
     ap.add_argument("--limit", type=int, default=0, help="0 = no cap")
     ap.add_argument("--words", type=int, default=45, help="words of summary per film")
+    ap.add_argument("--ids", default=None,
+                    help="file of film ids (one per line, e.g. from weak_rows.py) — classify "
+                         "exactly these films, bypassing the per-year cap")
+    ap.add_argument("--plots", default=None,
+                    help="JSONL {id, plot, source} of longer plot text (e.g. from "
+                         "fetch_plots.py) that replaces the TMDB extract for those films")
+    ap.add_argument("--prompt", choices=sorted(PROMPTS), default="v1",
+                    help="v1 is the unchanged pass-1 prompt; v2 sharpens the multi-timeline "
+                         "and atemporal boundary rules (see report/diff)")
+    ap.add_argument("--labelset", default=None,
+                    help="stamps \"labelset\", \"model\" and \"prompt\" fields onto every "
+                         "output record — use a name like pass2 so merge_labelsets.py and "
+                         "validate.py can tell passes apart without guessing from the filename")
     ap.add_argument("--concurrency", type=int, default=4)
     ap.add_argument("--max-tokens", type=int, default=2048)
     ap.add_argument("--dry-run", action="store_true")
@@ -355,8 +455,14 @@ def main():
     out_path = Path(a.out)
     sample = json.loads(Path(a.sample).read_text())
     done = load_done(out_path)
-    queue = pick(sample, a.per_year, done, a.limit)
+    ids_filter = None
+    if a.ids:
+        ids_filter = [line.strip() for line in Path(a.ids).read_text().split("\n")
+                      if line.strip()]
+    queue = pick(sample, a.per_year, done, a.limit, ids=ids_filter)
     batches = [queue[i:i + a.batch] for i in range(0, len(queue), a.batch)]
+    plots = load_plots(a.plots)
+    system_prompt = PROMPTS[a.prompt]
 
     if a.cli_probe:
         cli_probe(a.cli_cmd, a.claude_config_dir, model=a.model); return
@@ -373,14 +479,18 @@ def main():
         if not batches:
             print("nothing to do — every selected film is already labelled"); return
         b = batches[0]
-        prompt = USER_TMPL.format(n=len(b), films="\n".join(film_line(r, a.words) for r in b))
-        print("=" * 70); print(SYSTEM); print("-" * 70); print(prompt); print("=" * 70)
-        pt = (len(SYSTEM) + len(prompt)) / 3.6          # ~3.6 chars/token, close enough
+        prompt = USER_TMPL.format(n=len(b), films="\n".join(
+            film_line(r, a.words, plots.get(r["id"], {}).get("plot")) for r in b))
+        print("=" * 70); print(system_prompt); print("-" * 70); print(prompt); print("=" * 70)
+        pt = (len(system_prompt) + len(prompt)) / 3.6   # ~3.6 chars/token, close enough
         print(f"\nfilms queued     {len(queue)}  ({len(done)} already done)")
         print(f"requests         {len(batches)} of {a.batch}")
         print(f"input tokens     ~{int(pt * len(batches)):,}")
         print(f"output tokens    ~{int(len(queue) * 55):,}")
         print(f"model            {a.model}")
+        print(f"prompt           {a.prompt}")
+        if plots:
+            print(f"plots            {len(plots)} overrides loaded from {a.plots}")
         print("\nNo calls made. Drop --dry-run to run it.")
         return
 
@@ -399,21 +509,27 @@ def main():
         idx, b = idx_batch
         if state["abort"]:
             return
-        prompt = USER_TMPL.format(n=len(b), films="\n".join(film_line(r, a.words) for r in b))
+        prompt = USER_TMPL.format(n=len(b), films="\n".join(
+            film_line(r, a.words, plots.get(r["id"], {}).get("plot")) for r in b))
         try:
             if a.backend == "cli":
-                text = cli_complete(a.cli_cmd, SYSTEM, prompt,
+                text = cli_complete(a.cli_cmd, system_prompt, prompt,
                                     timeout=a.cli_timeout,
                                     config_dir=a.claude_config_dir,
                                     model=a.model)
                 msg = {}
             else:
                 msg = api_call("/messages", {
-                    "model": a.model, "max_tokens": a.max_tokens, "system": SYSTEM,
+                    "model": a.model, "max_tokens": a.max_tokens, "system": system_prompt,
                     "messages": [{"role": "user", "content": prompt}],
                 })
                 text = "".join(c.get("text", "") for c in msg.get("content", []))
             rows, bad = parse_reply(text, [r["id"] for r in b])
+            if a.labelset:
+                for r in rows:
+                    r["labelset"] = a.labelset
+                    r["model"] = a.model
+                    r["prompt"] = a.prompt
         except Exception as e:
             with lock:
                 tally["fail"] += 1
