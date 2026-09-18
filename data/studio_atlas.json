@@ -1,0 +1,243 @@
+{
+  "_comment": "Hand-curated alias map from TMDB production_companies to a handful of studio labels people actually search for (contract C2 in the v4 plan). TMDB lists every company on a film — often 5-6, including tiny co-financiers and regional/animation/classics sub-labels of the same studio — so without this, 'Warner Bros.' fragments into a dozen near-duplicates. Matching: by numeric TMDB company id first (only ids we are highly confident of, checked against well-known reference films), then by case-insensitive regex on the company name (name_patterns, all anchored with ^ to avoid matching an unrelated company whose name merely contains the string). Everything that matches neither stays raw, keyed 'c:<tmdb_company_id>' with the literal TMDB name — most of the long tail. TO REVIEW: run `python3 src/build_credits.py --report` after an enrichment pass and read the 'top 40 unmapped companies' list — anything there that is clearly one of these studios under a spelling we missed should become a new name_pattern (or, once confirmed against a specific film, a new id) in the matching entry below. Never delete a studio's existing ids without checking they were wrong; do add new ids/patterns freely as evidence accumulates.",
+  "studios": [
+    {
+      "key": "warner",
+      "label": "Warner Bros.",
+      "ids": [174, 12],
+      "name_patterns": [
+        "^Warner Bros",
+        "^WB Animation",
+        "^Warner Animation Group",
+        "^New Line Cinema",
+        "^Turner (Entertainment|Pictures)",
+        "^Castle Rock Entertainment"
+      ],
+      "notes": "174 = Warner Bros. Pictures, 12 = New Line Cinema (confident, checked against known New Line titles). Folded in by name pattern: WB/Warner Animation, Turner (WB's TV/library arm), Castle Rock (long-time WB-distributed label). Regional WB entities (e.g. 'Warner Bros. Pictures Germany') are covered by the '^Warner Bros' prefix. Excludes DC Films/DC Studios on purpose: kept as raw 'c:<id>' rather than folded into Warner, since it is a creative brand rather than a distinct production company id and is thin, inconsistent data on TMDB."
+    },
+    {
+      "key": "sony",
+      "label": "Sony / Columbia",
+      "ids": [5],
+      "name_patterns": [
+        "^Columbia Pictures",
+        "^Sony Pictures($| Entertainment)",
+        "^TriStar Pictures",
+        "^Screen Gems",
+        "^Sony Pictures Classics",
+        "^Sony Pictures Animation",
+        "^Stage 6 Films"
+      ],
+      "notes": "5 = Columbia Pictures (confident). TriStar, Screen Gems, Sony Pictures Classics and Sony Pictures Animation are all divisions of Sony Pictures Entertainment and are folded into one 'sony' studio by name pattern rather than id, since their ids are not memorized with confidence. This is a judgment call: someone specifically searching 'TriStar' loses that granularity, but the alternative is four near-identical entries that all mean 'released by Sony'."
+    },
+    {
+      "key": "universal",
+      "label": "Universal Pictures",
+      "ids": [33],
+      "name_patterns": ["^Universal Pictures", "^Universal Studios", "^Universal 1440 Entertainment"],
+      "notes": "33 = Universal Pictures (confident). Focus Features is DELIBERATELY KEPT SEPARATE (see the 'focus' entry) rather than merged in, even though it is a Universal specialty division: it is a distinct arthouse brand people search for by name and merging it would erase that signal. Illumination Entertainment (Despicable Me etc.) is also left unmapped/raw on purpose — animation-specific and not requested in the v4 brief; add it here if it turns up often in --report."
+    },
+    {
+      "key": "focus",
+      "label": "Focus Features",
+      "ids": [],
+      "name_patterns": ["^Focus Features", "^Focus World"],
+      "notes": "No id memorized with confidence, so id-matching relies entirely on the anchored name pattern. Kept as its own studio rather than folded into 'universal' — see the note there."
+    },
+    {
+      "key": "paramount",
+      "label": "Paramount Pictures",
+      "ids": [4],
+      "name_patterns": ["^Paramount Pictures", "^Paramount Vantage", "^Paramount Animation"],
+      "notes": "4 = Paramount Pictures (confident)."
+    },
+    {
+      "key": "fox",
+      "label": "20th Century Fox",
+      "ids": [25],
+      "name_patterns": [
+        "^20th Century Fox",
+        "^20th Century Studios",
+        "^Fox Searchlight Pictures",
+        "^Searchlight Pictures",
+        "^Fox 2000 Pictures"
+      ],
+      "notes": "25 = 20th Century Fox (confident). Disney renamed the studio '20th Century Studios' and 'Fox Searchlight' to 'Searchlight Pictures' after the 2019 acquisition; both old and new names are the same underlying company for our purposes and are folded together under the pre-acquisition label 'fox' since most of the film-history corpus predates the rename."
+    },
+    {
+      "key": "disney",
+      "label": "Walt Disney Pictures",
+      "ids": [2, 3],
+      "name_patterns": [
+        "^Walt Disney Pictures",
+        "^Walt Disney Animation Studios",
+        "^Walt Disney Productions",
+        "^Disney Television Animation",
+        "^Touchstone Pictures",
+        "^Pixar"
+      ],
+      "notes": "2 = Walt Disney Pictures, 3 = Pixar (both confident). Touchstone Pictures (Disney's former adult-skewing label) is folded in by pattern. Marvel Studios and Lucasfilm are DELIBERATELY KEPT SEPARATE (own entries below) despite common Disney ownership: both are strong creative brands that visitors filter for specifically ('Marvel movies', 'Star Wars/Lucasfilm'), and folding them into 'Disney' would bury exactly the signal a company filter is for. This mirrors how the sister brands are marketed and searched, not the corporate org chart."
+    },
+    {
+      "key": "marvel",
+      "label": "Marvel Studios",
+      "ids": [],
+      "name_patterns": ["^Marvel Studios"],
+      "notes": "No id memorized with confidence; matched purely by name pattern. Kept separate from Disney — see the note on the 'disney' entry."
+    },
+    {
+      "key": "lucasfilm",
+      "label": "Lucasfilm",
+      "ids": [],
+      "name_patterns": ["^Lucasfilm"],
+      "notes": "No id memorized with confidence; matched purely by name pattern. Kept separate from Disney — see the note on the 'disney' entry."
+    },
+    {
+      "key": "mgm",
+      "label": "MGM / United Artists",
+      "ids": [21],
+      "name_patterns": ["^Metro-Goldwyn-Mayer", "^United Artists", "^MGM\\b"],
+      "notes": "21 = Metro-Goldwyn-Mayer (confident). United Artists is folded into the same studio by name pattern: MGM acquired UA in 1981 and the two have been run as one library/company for most of the corpus's timeframe. This blurs the pre-1981 distinction between them, a deliberate simplification — split them back out if that period turns out to matter."
+    },
+    {
+      "key": "lionsgate",
+      "label": "Lionsgate",
+      "ids": [],
+      "name_patterns": ["^Lionsgate", "^Lions Gate"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "a24",
+      "label": "A24",
+      "ids": [41077],
+      "name_patterns": ["^A24$"],
+      "notes": "41077 = A24 (confident). Name pattern anchored exact-match since 'A24' as a bare prefix could otherwise be too loose."
+    },
+    {
+      "key": "miramax",
+      "label": "Miramax",
+      "ids": [14],
+      "name_patterns": ["^Miramax"],
+      "notes": "14 = Miramax (confident)."
+    },
+    {
+      "key": "dreamworks",
+      "label": "DreamWorks",
+      "ids": [7],
+      "name_patterns": ["^DreamWorks Pictures", "^DreamWorks SKG", "^DreamWorks Animation"],
+      "notes": "7 = DreamWorks Pictures/SKG (confident, live-action). DreamWorks Animation has had a separate corporate history (spun off, later folded into NBCUniversal/Comcast) but is the same audience-facing 'DreamWorks' brand, so it is folded in by name pattern rather than kept apart."
+    },
+    {
+      "key": "neon",
+      "label": "NEON",
+      "ids": [],
+      "name_patterns": ["^NEON$"],
+      "notes": "No id memorized with confidence. Exact-match pattern since 'Neon' is short enough to risk false positives otherwise."
+    },
+    {
+      "key": "blumhouse",
+      "label": "Blumhouse",
+      "ids": [],
+      "name_patterns": ["^Blumhouse"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "legendary",
+      "label": "Legendary",
+      "ids": [],
+      "name_patterns": ["^Legendary (Entertainment|Pictures)"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "toho",
+      "label": "Toho",
+      "ids": [],
+      "name_patterns": ["^Toho Co", "^Toho Company", "^Toho Studios", "^Toho Animation"],
+      "notes": "No id memorized with confidence. Patterns avoid a bare '^Toho' anchor colliding with unrelated companies that happen to start the same way; extend from --report output if a common Toho spelling is missed."
+    },
+    {
+      "key": "toei",
+      "label": "Toei",
+      "ids": [],
+      "name_patterns": ["^Toei Company", "^Toei Animation", "^Toei Co"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "shochiku",
+      "label": "Shochiku",
+      "ids": [],
+      "name_patterns": ["^Shochiku"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "ghibli",
+      "label": "Studio Ghibli",
+      "ids": [10342],
+      "name_patterns": ["^Studio Ghibli"],
+      "notes": "10342 = Studio Ghibli (confident)."
+    },
+    {
+      "key": "gaumont",
+      "label": "Gaumont",
+      "ids": [],
+      "name_patterns": ["^Gaumont"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "pathe",
+      "label": "Pathé",
+      "ids": [],
+      "name_patterns": ["^Path[eé]"],
+      "notes": "No id memorized with confidence. Pattern covers both the accented and unaccented spelling TMDB may return."
+    },
+    {
+      "key": "studiocanal",
+      "label": "StudioCanal",
+      "ids": [],
+      "name_patterns": ["^StudioCanal"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "cj_entertainment",
+      "label": "CJ Entertainment",
+      "ids": [],
+      "name_patterns": ["^CJ Entertainment", "^CJ ENM"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "shaw_brothers",
+      "label": "Shaw Brothers",
+      "ids": [],
+      "name_patterns": ["^Shaw Brothers", "^Shaw Studio"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "golden_harvest",
+      "label": "Golden Harvest",
+      "ids": [],
+      "name_patterns": ["^Golden Harvest"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "yash_raj",
+      "label": "Yash Raj Films",
+      "ids": [],
+      "name_patterns": ["^Yash Raj Films"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "mosfilm",
+      "label": "Mosfilm",
+      "ids": [],
+      "name_patterns": ["^Mosfilm"],
+      "notes": "No id memorized with confidence; matched purely by name pattern."
+    },
+    {
+      "key": "ufa",
+      "label": "UFA",
+      "ids": [],
+      "name_patterns": ["^UFA\\b", "^Universum Film"],
+      "notes": "No id memorized with confidence. '^UFA\\\\b' is anchored and word-bounded to avoid matching unrelated companies that merely start with those letters."
+    }
+  ]
+}

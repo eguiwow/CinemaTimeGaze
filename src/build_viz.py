@@ -1,7 +1,13 @@
-import json, collections
+import json, collections, os
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
-d = json.loads((ROOT/"data"/"targets.json").read_text())
+# Overridable so tests can build against a fixture data/ dir and throwaway out/docs dirs
+# without touching this checkout's real files — nothing under test may leave a real
+# data/credits.json or a stray out/docs behind (none of that exists for real yet).
+DATA_DIR = Path(os.environ.get("CTG_DATA_DIR", str(ROOT / "data")))
+OUT_DIR = Path(os.environ.get("CTG_OUT_DIR", str(ROOT / "out")))
+DOCS_DIR = Path(os.environ.get("CTG_DOCS_DIR", str(ROOT / "docs")))
+d = json.loads((DATA_DIR/"targets.json").read_text())
 tpl = (ROOT/"src"/"viz_template.html").read_text()
 
 # This page has to open fast on a phone over a cold cache, so the payload is trimmed to
@@ -20,7 +26,11 @@ PROM = {"primary": "p", "secondary": "s", "minor": "m"}
 slim_f = [{"id": f["id"], "t": f["title"], "year": f["year"], "gaze": f["gaze"],
            "g": f.get("genres") or [], "c": f.get("country"), "r": f.get("region"),
            "cf": f.get("confidence"), "b": f.get("basis"), "v": f.get("votes") or 0,
-           **({"ot": f["original_title"]} if f.get("original_title") else {})}
+           **({"ot": f["original_title"]} if f.get("original_title") else {}),
+           # contract C3: a wishlisted film (added outside the sampling rule) is flagged so
+           # the page can exclude it from every aggregate by default while keeping it
+           # searchable/pinnable. Omitted for the (overwhelming) common case.
+           **({"src": "w"} if f.get("source") == "wishlist" else {})}
           for f in d["films"]]
 fidx = {f["id"]: k for k, f in enumerate(slim_f)}
 
@@ -36,6 +46,49 @@ for t in d["targets"]:
 payload = {"tol": PRESENT_TOL, "films": slim_f, "targets": slim_t}
 ys = [f["year"] for f in d["films"]]
 kn = sum(1 for f in d["films"] if f["basis"]=="knowledge")
+
+# ---- wishlist methodology sentence (contract C3) ------------------------------
+# One sentence for the methodology section, next to the sampling rule. Agent B places
+# __WISHLIST_NOTE__ there; "" when there is nothing to say, so the sentence simply
+# disappears rather than leaving an awkward "0 films were added" claim on the page.
+n_wishlist = sum(1 for f in slim_f if f.get("src") == "w")
+wishlist_note = (
+    f"{n_wishlist} film{'s were' if n_wishlist != 1 else ' was'} added from the visitor "
+    "wishlist outside the sampling rule; they can be searched and inspected but are left "
+    "out of every figure unless you switch them in."
+) if n_wishlist else ""
+
+# ---- credits payload (contract C4) --------------------------------------------
+# Advanced filters (director/actor/company) need per-film credits, built separately by
+# src/build_credits.py into data/credits.json — a file that does not exist until that pass
+# has run at least once. Three destinations, three shapes:
+#   no data/credits.json yet -> null everywhere, Advanced filters does not render at all
+#   docs/ (served)           -> "credits.json", fetched lazily; the file itself is written
+#                                to docs/credits.json in the index-aligned shape below
+#   out/*.html (offline)     -> the object itself, inlined, so one file works standalone
+CREDITS_PATH = DATA_DIR / "credits.json"
+_credits_raw = None
+if CREDITS_PATH.exists():
+    try:
+        _credits_raw = json.loads(CREDITS_PATH.read_text())
+    except json.JSONDecodeError:
+        print(f"note: {CREDITS_PATH} is not valid JSON — building without credits.")
+        _credits_raw = None
+
+credits_payload = None
+if _credits_raw is not None:
+    cfilms = _credits_raw.get("films") or {}
+    credits_payload = {
+        "v": _credits_raw.get("v", 1),
+        "people": _credits_raw.get("people") or [],
+        "companies": _credits_raw.get("companies") or [],
+        # index-aligned to DATA.films (== slim_f), same length and order, so the page can
+        # look a film's credits up by the same index it already uses for everything else
+        "f": [([c["d"], c["a"], c["co"]] if (c := cfilms.get(f["id"])) else 0)
+              for f in slim_f],
+    }
+
+HAS_CREDITS_SLOT = "__CREDITS_SRC__" in tpl  # false until Agent B adds the placeholder
 
 # ---- attribution -------------------------------------------------------------
 # TMDB's terms require the disclaimer wording verbatim and the *official* logo file,
@@ -79,7 +132,7 @@ cadj  = lambda c: ADJ.get(c, CNAME.get(c, c))
 # writes data/validation.json. The page prints THAT, never a number typed into the
 # template — hardcoding is how the corpus caveat ended up describing the wrong dataset
 # for a fortnight. No file, no claim: the page says plainly that nothing was checked.
-vpath = ROOT/"data"/"validation.json"
+vpath = DATA_DIR/"validation.json"
 if vpath.exists():
     v = json.loads(vpath.read_text())
     g  = round(100*v["gaze_agreement"])
@@ -152,7 +205,8 @@ html = (tpl.replace("__DATA__", json.dumps(payload, separators=(",",":")))
            .replace("__DATA_CREDIT__", data_credit)
            .replace("__TMDB_LOGO__", logo)
            .replace("__ACCURACY__", accuracy)
-           .replace("__ACCURACY_CAVEAT__", accuracy_caveat))
+           .replace("__ACCURACY_CAVEAT__", accuracy_caveat)
+           .replace("__WISHLIST_NOTE__", wishlist_note))
 # Three outputs: the artifact body (no doctype — the Artifact tool supplies the
 # skeleton), a standalone document to open straight from disk, and the published
 # copy under docs/, which is what GitHub Pages serves.
@@ -210,8 +264,17 @@ DESC = ("Every film is made in one year and set in another. This measures the ga
         "when they do, and how that has moved decade by decade.")
 
 def body(mode):
-    """The page with its font strategy chosen. __FONTS__ is the only difference."""
-    return html.replace("__FONTS__", fonts_html(mode))
+    """The page with its font strategy and credits source chosen (__FONTS__, __CREDITS_SRC__)."""
+    h = html.replace("__FONTS__", fonts_html(mode))
+    if HAS_CREDITS_SLOT:
+        if credits_payload is None:
+            src = "null"
+        elif mode == "inline":
+            src = json.dumps(credits_payload, separators=(",", ":"))
+        else:
+            src = json.dumps("credits.json")
+        h = h.replace("__CREDITS_SRC__", src)
+    return h
 
 def document(mode, head_extra=""):
     h = body(mode)
@@ -225,11 +288,11 @@ def document(mode, head_extra=""):
 # Both output dirs are gitignored, so neither exists in a fresh checkout — which is
 # exactly what CI does. Create them rather than assuming a working tree that has
 # been built in before.
-(ROOT/"out").mkdir(parents=True, exist_ok=True)
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-out = ROOT/"out"/"timeline.html"
+out = OUT_DIR/"timeline.html"
 out.write_text(body("inline"))
-alone = ROOT/"out"/"standalone.html"
+alone = OUT_DIR/"standalone.html"
 alone.write_text(document("inline"))
 
 social = f'''<meta name="description" content="{DESC}">
@@ -253,7 +316,7 @@ social = f'''<meta name="description" content="{DESC}">
 '''
 # docs/ is generated, never committed — the Pages workflow builds it on every push,
 # so the published page cannot drift from the source it claims to come from.
-docs = ROOT/"docs"
+docs = DOCS_DIR
 docs.mkdir(parents=True, exist_ok=True)
 (docs/"index.html").write_text(document("link", social))
 (docs/".nojekyll").write_text("")          # stop Pages running Jekyll over it
@@ -265,8 +328,22 @@ if card.exists():
 else:
     print("note: assets/preview.png missing — the social card will be blank.")
 
+# credits.json is only ever written alongside the served (docs/) build, in the
+# lazily-fetched shape — out/*.html get the same data inlined into the page instead.
+credits_out_size = None
+if HAS_CREDITS_SLOT and credits_payload is not None:
+    credits_text = json.dumps(credits_payload, ensure_ascii=False, separators=(",", ":"))
+    (docs/"credits.json").write_text(credits_text)
+    credits_out_size = len(credits_text)
+
 def kb(t): return f"{len(t)/1024:.0f} KB"
 print("wrote", out, kb(body("inline")))
 print("wrote", alone, kb(document("inline")), " (open this one directly)")
 print("wrote", docs/"index.html", kb(document("link", social)),
       f" + {len(FACES)} font files ({font_bytes/1024:.0f} KB)   (what GitHub Pages serves)")
+if HAS_CREDITS_SLOT:
+    if credits_out_size is not None:
+        print(f"wrote {docs/'credits.json'}  ({credits_out_size/1024:.0f} KB)")
+    else:
+        print("note: no data/credits.json yet — Advanced filters will not render "
+              "(run src/tmdb_credits.py then src/build_credits.py to enable it)")

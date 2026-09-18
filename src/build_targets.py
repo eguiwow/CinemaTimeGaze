@@ -48,7 +48,12 @@ for lab in labels:
                   "votes":f.get("vote_count") or 0,
                   "gaze":lab["gaze"],
                   "earthbound":lab["earthbound"], "confidence":lab["confidence"],
-                  "basis":lab["basis"], "n_targets":len(lab["targets"])})
+                  "basis":lab["basis"], "n_targets":len(lab["targets"]),
+                  # contract C3: sample.json rows may carry source="wishlist"; carried onto
+                  # targets.json verbatim so build_viz.py can flag them and the page can
+                  # exclude them from aggregates. Omitted (not written as null) when absent,
+                  # so a sample.json with no wishlist rows produces byte-identical output.
+                  **({"source": f["source"]} if f.get("source") else {})})
     tot = sum(RAW_W[t["prominence"]] for t in lab["targets"]) or 1.0
     for i, t in enumerate(lab["targets"]):
         mid = (t["year_start"] + t["year_end"]) // 2
