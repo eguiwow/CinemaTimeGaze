@@ -29,3 +29,15 @@ __pycache__/
 .DS_Store
 .venv/
 venv/
+
+# --- v4 ---
+# TMDB responses and Wikipedia text: fetched, never redistributed (same rule as above).
+# data/credits.json, data/studio_atlas.json and data/wishlist.json ARE committed.
+data/tmdb_credits_raw/
+data/wishlist_films.jsonl
+data/plots_raw/
+data/plots*.jsonl
+data/handlabel/
+# build-side database and regenerable id lists
+data/corpus.db
+data/*_ids.txt

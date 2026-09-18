@@ -71,6 +71,19 @@ src/classify_api.py      classify with the Anthropic API           -> data/label
 src/validate.py          score one labelset against another         (stdout)
 src/build_viz.py         inject data into the template             -> out/*.html
 src/viz_template.html    the page: styles, markup, chart code
+src/tmdb_credits.py      v4: per-film credits + companies (cached) -> data/tmdb_credits_raw/
+src/build_credits.py     v4: slim credits + studio atlas            -> data/credits.json
+src/corpus_db.py         v4: build-side SQLite over every flat file -> data/corpus.db
+src/wishlist.py          v4: GitHub-issue wishlist -> sample rows   -> data/wishlist.json
+src/sample_report.py     v4: compare a candidate sample with the published one
+src/weak_rows.py         v4: low-confidence / boundary label picker -> data/weak_ids.txt
+src/fetch_plots.py       v4: longer Wikipedia plots for weak rows   -> data/plots.jsonl
+src/merge_labelsets.py   v4: merge passes by a recorded precedence  -> data/labels_merged.jsonl
+src/handlabel_queue.py   v4: export/import a hand-labelling CSV     -> data/labels_hand2.jsonl
+data/studio_atlas.json   v4: hand-curated TMDB company -> studio map (review me)
+data/labelsets.json      v4: which labelsets exist and which one wins
+data/validation_history.json  v4: every validation run, append-only
+tests/                   stdlib unittest suite - `make test`
 data/sample.json         6,188 sampled films (50/year, 1900-2026) - gitignored, regenerable
 data/labels*.jsonl       classifications, one JSON object per line (672 hand, 3,750 model)
 data/targets.json        films + weighted targets, what the page reads
@@ -120,6 +133,61 @@ sandboxed shells, so run every step from a normal Terminal. (An unauthenticated 
 the Anthropic API gets through; the moment an `x-api-key` header is attached, the egress proxy
 answers a plain-text 401 - identical for a valid key and for garbage, which is how you can
 tell it is the proxy and not a bad key.)
+
+### v4 steps (all from a normal Terminal)
+
+```bash
+make test                                  # 98+ unit tests, no network
+
+# Advanced filters (director / actor / company) - items 1-4
+make credits-plan                          # calls left + ETA (~6,200 calls, minutes at 3 rps)
+make credits-fetch                         # resumable, cached in data/tmdb_credits_raw/
+make credits-report                        # who clears 25 films; top unmapped companies
+make credits                               # -> data/credits.json (commit it)
+make viz                                   # the page grows an "Advanced filters" disclosure
+make corpus-db corpus-stats                # optional: SQLite view for ad-hoc queries
+
+# Wishlist - item 6
+make wishlist-sync wishlist-resolve wishlist-apply    # issues -> sample rows (source=wishlist)
+make classify-cli                          # labels them; never cut by the per-year cap
+make wishlist-comment                      # prints the gh commands to close the loop
+
+# Bigger international corpus - item 7   (validate before AND after)
+make validate-history NAME="before resample"
+python3 src/sample_tmdb.py 50 --rank in-country --min-per-region 5 --out /tmp/cand.json
+make sample-report CANDIDATE=/tmp/cand.json
+make tmdb-sample-intl RANK=in-country PER_REGION=5   # when happy; ~2,900 films to classify
+
+# Low-confidence years - item 8   (prompt first, it is free)
+make boundary-rows                         # -> data/boundary_hand_ids.txt (91 hand-labelled)
+make pass2 PASS2_IDS=data/boundary_hand_ids.txt PROMPT=v2 PASS2_OUT=data/labels_v2_probe.jsonl
+python3 src/validate.py data/labels_tmdb.jsonl --compare data/labels_api.jsonl data/labels_v2_probe.jsonl
+make weak-rows plots                       # 1,966 weak rows; Wikipedia plot sections
+make pass2 PROMPT=v2                       # stronger model, longer text, weak rows only
+make merge-labelsets
+make validate-history NAME="pass2 (plots + v2)"
+```
+
+**Advanced filters.** The page's director / actor / company filters read `data/credits.json`,
+built from a per-film `/movie/{id}?append_to_response=credits` pass (directors, the top eight
+billed cast, production companies, all with TMDB ids). Companies go through
+`data/studio_atlas.json`, a hand-curated map collapsing Warner Bros. / New Line / WB Animation
+and friends into one label; everything unmapped keeps its raw TMDB name. The atlas pins only
+the TMDB ids we are sure of and matches the rest by anchored name patterns — extend it from
+the unmapped list `make credits-report` prints. Anything with 25+ films in the sample drives
+the charts like a country does; below that it is highlighted against the overall pattern with
+its count printed, never summarised as a median. On the published site the credits are a
+second file fetched only when the disclosure is opened, so the first load does not grow.
+
+**Wishlist.** Visitors who miss a film open a prefilled GitHub issue. Resolved films join the
+sample tagged `source: wishlist`, outside the sampling rule: searchable and pinnable, left out
+of every figure unless the page's "Include wishlisted films" switch is on.
+
+**Label passes.** No labelset is ever overwritten. Pass 2 is its own file; `merge_labelsets.py`
+applies the rule recorded in `data/labelsets.json` (hand wins; pass 2 replaces pass 1 only if
+it read real text or is more confident) and logs every disagreement. `labels_model.jsonl` is
+the hand-free merge — validate that one, not `labels_merged.jsonl`, which contains the
+reference set itself. To put pass 2 on the page: `make targets LABELS=labels_merged.jsonl viz`.
 
 ### Leaving it running
 
@@ -286,6 +354,8 @@ than described:
 `y` release year or decade · `mode=year` for single years · `genre` (suffix `!` to exclude
 it instead) · `place` as `c:<ISO>` or `r:<region>` · `film` pins one film on the arc chart ·
 `look` the era theme · `q` the search box. Everything is optional.
+v4 adds `dir=<tmdb person id>`, `act=<tmdb person id>`, `co=<company key>` (`s:a24`, or
+`c:<tmdb company id>` for anything outside the atlas) and `wl=1` to include wishlisted films.
 
 ## Fonts
 

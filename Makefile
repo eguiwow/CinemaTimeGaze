@@ -101,3 +101,72 @@ ci-check:
 	   || { echo "FAIL: external font request"; exit 1; }; \
 	 echo "OK  $$(du -h docs/index.html | cut -f1) raw, $$(gzip -9 -c docs/index.html | wc -c | awk '{printf "%d KB", $$1/1024}') gzipped"; \
 	 rm -rf $$d
+
+# ============================================================================
+# v4
+# ============================================================================
+.PHONY: test credits-check credits-plan credits-fetch credits credits-report corpus-db corpus-stats
+.PHONY: wishlist-sync wishlist-resolve wishlist-apply wishlist-status wishlist-comment tmdb-sample-intl sample-report
+.PHONY: weak-rows boundary-rows plots pass2 merge-labelsets validate-history handlabel-export handlabel-import
+
+test: ; python3 -m unittest discover -s tests
+
+# --- items 1-3: credits for the Advanced filters (run from a normal Terminal) ---
+credits-check:  ; python3 src/tmdb_credits.py --check
+credits-plan:   ; python3 src/tmdb_credits.py --dry-run
+credits-fetch:  ; python3 src/tmdb_credits.py
+credits:        ; python3 src/build_credits.py            # -> data/credits.json (committed)
+credits-report: ; python3 src/build_credits.py --report   # who clears 25; unmapped companies
+
+# --- item 4: build-side database. Flat files are still what gets served. ---
+corpus-db:    ; python3 src/corpus_db.py build
+corpus-stats: ; python3 src/corpus_db.py stats
+
+# --- item 6: the wishlist loop. GitHub issues in, sample rows (source=wishlist) out. ---
+wishlist-sync:    ; python3 src/wishlist.py sync
+wishlist-resolve: ; python3 src/wishlist.py resolve
+wishlist-apply:   ; python3 src/wishlist.py apply
+wishlist-status:  ; python3 src/wishlist.py status
+wishlist-comment: ; python3 src/wishlist.py comment
+
+# --- item 7: international sampler. RANK=votes keeps v3's behaviour exactly. ---
+# Recommended after the grid: RANK=in-country PER_REGION=5 (keep PER_REGION <= 50/regions).
+RANK ?= votes
+tmdb-sample-intl: tmdb-flatten
+	python3 src/sample_tmdb.py 50 --rank $(RANK) --min-per-region $(PER_REGION)
+	$(MAKE) labels
+
+# CANDIDATE is a sample.json-shaped file to compare against data/sample.json
+sample-report: ; python3 src/sample_report.py $(CANDIDATE)
+
+# --- item 8: chase the low-confidence years. Never overwrites a labelset. ---
+weak-rows:     ; python3 src/weak_rows.py
+boundary-rows: ; python3 src/weak_rows.py --mode boundary
+plots:         ; python3 src/fetch_plots.py --ids data/weak_ids.txt
+
+# second pass on the weak rows only, on the personal account like classify-cli.
+# PASS2_IDS=data/boundary_hand_ids.txt PROMPT=v2 is the cheap prompt experiment.
+PASS2_IDS   ?= data/weak_ids.txt
+PASS2_OUT   ?= data/labels_pass2.jsonl
+PASS2_MODEL ?= sonnet
+PROMPT      ?= v1
+pass2:
+	python3 src/classify_api.py --ids $(PASS2_IDS) --prompt $(PROMPT) \
+	  $(if $(wildcard data/plots.jsonl),--plots data/plots.jsonl --words 250,) \
+	  --model $(PASS2_MODEL) --out $(PASS2_OUT) --labelset pass2 \
+	  --backend cli --cli-cmd "$$(command -v $(CLAUDE_BIN))" --claude-config-dir "$(ACCOUNT_DIR)"
+
+# labels_merged.jsonl (hand wins) is what a build can use; labels_model.jsonl leaves the hand
+# set out and is the one to validate — scoring hand labels against themselves proves nothing.
+merge-labelsets:
+	python3 src/merge_labelsets.py --report
+	python3 src/merge_labelsets.py --no-hand --out data/labels_model.jsonl
+
+# NAME is required: it is the permanent label of this entry in data/validation_history.json
+validate-history:
+	@test -n "$(NAME)" || { echo 'usage: make validate-history NAME="pass2 (plots + v2)"'; exit 1; }
+	python3 src/validate.py data/labels_tmdb.jsonl data/labels_model.jsonl --by-basis --json \
+	  --history "$(NAME)"
+
+handlabel-export: ; python3 src/handlabel_queue.py export --n $${N:-100}
+handlabel-import: ; python3 src/handlabel_queue.py import $(CSV)
