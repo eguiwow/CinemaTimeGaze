@@ -98,6 +98,8 @@ class TestBuildTargetsRealCommittedOutput(unittest.TestCase):
         committed = ROOT / "data" / "targets.json"
         if not committed.exists():
             self.skipTest("data/targets.json not present in this checkout")
+        if not (ROOT / "data" / "sample.json").exists():
+            self.skipTest("data/sample.json is gitignored (TMDB content); not in a clean clone")
         with tempfile.TemporaryDirectory() as tmp:
             out_path = Path(tmp) / "targets.json"
             r = run([str(ROOT / "src" / "build_targets.py"),
