@@ -1,0 +1,45 @@
+name: "\U0001F3AC Wishlist a film"
+description: Missing a film from the CinemaTimeGaze sample? Ask for it here.
+title: "Wishlist: "
+labels: ["wishlist"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Films added here get looked up on TMDB, join the corpus **outside** the normal
+        sampling rule, and are excluded from every aggregate chart until enough of them
+        exist to be their own thing. See the "Known biases" section of the README.
+  - type: input
+    id: title
+    attributes:
+      label: Film title
+      description: As precisely as you can — the release title TMDB would recognise.
+      placeholder: "e.g. Spirited Away"
+    validations:
+      required: true
+  - type: input
+    id: year
+    attributes:
+      label: Release year
+      description: Helps disambiguate remakes and films that share a title.
+      placeholder: "e.g. 2001"
+    validations:
+      required: false
+  - type: input
+    id: tmdb
+    attributes:
+      label: TMDB link or id
+      description: If you have it — skips the lookup guesswork entirely.
+      placeholder: "https://www.themoviedb.org/movie/129-spirited-away  (or just 129)"
+    validations:
+      required: false
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it belongs
+      description: >-
+        Optional — what's interesting about when this film is set, relative to when it
+        was released?
+      placeholder: "e.g. it's set decades before its release, but reads as pure nostalgia"
+    validations:
+      required: false
