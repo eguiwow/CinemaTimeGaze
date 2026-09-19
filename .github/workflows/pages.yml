@@ -56,18 +56,17 @@ jobs:
           # pass (src/tmdb_credits.py + src/build_credits.py) has run at least once. When
           # it IS there, it has to actually be usable: valid JSON, one "f" entry per film.
           if [ -f docs/credits.json ]; then
-            python3 -c "
-import json, re
-c = json.load(open('docs/credits.json'))
-html = open('docs/index.html').read()
-m = re.search(r'const DATA = (\{.*?\});\n', html, re.S)
-assert m, 'no DATA payload found in docs/index.html'
-data = json.loads(m.group(1))
-n_films = len(data['films'])
-n_f = len(c.get('f') or [])
-assert n_f == n_films, f'credits.json has {n_f} film entries, docs/index.html has {n_films}'
-print(f'credits.json OK: {n_f} entries, matches {n_films} films')
-"
+            python3 - <<'PY'
+          import json, re
+          c = json.load(open('docs/credits.json'))
+          html = open('docs/index.html').read()
+          m = re.search(r'const DATA = (\{.*?\});\n', html, re.S)
+          assert m, 'no DATA payload found in docs/index.html'
+          n_films = len(json.loads(m.group(1))['films'])
+          n_f = len(c.get('f') or [])
+          assert n_f == n_films, f'credits.json has {n_f} film entries, docs/index.html has {n_films}'
+          print(f'credits.json OK: {n_f} entries, matches {n_films} films')
+          PY
           else
             echo "note: no docs/credits.json in this build (Advanced filters will not render)"
           fi
