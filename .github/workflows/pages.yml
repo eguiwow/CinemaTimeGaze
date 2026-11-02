@@ -71,6 +71,14 @@ jobs:
             echo "note: no docs/credits.json in this build (Advanced filters will not render)"
           fi
 
+      # Not part of the film page: the KnowMan Capture launcher (a PWA shell, no data) shares
+      # this Pages site until it has a repository of its own. See capture/README.md.
+      - name: Add the KnowMan Capture launcher
+        run: |
+          test -f capture/index.html || { echo "::error::capture/ is missing"; exit 1; }
+          cp -R capture docs/capture
+          rm -f docs/capture/README.md
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs

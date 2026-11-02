@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- KnowMan Capture: the orbital index emblem of the capture page, with an arrow dropping into its centre.
+       Full-bleed square so it also works as a maskable icon (everything inside the 80% safe zone). -->
+  <rect width="512" height="512" fill="#0b1029"/>
+  <g fill="none" stroke-linecap="round">
+    <circle cx="256" cy="256" r="176" stroke="#2f3b72" stroke-width="6"/>
+    <circle cx="256" cy="256" r="112" stroke="#2f3b72" stroke-width="6"/>
+    <g stroke="#e0b75e">
+      <path stroke-width="14" d="M256 80v36M432 256h-36M256 432v-36M80 256h36"/>
+      <path stroke-width="7" d="M344 103.6l-10 17.3M408.4 168l-17.3 10M408.4 344l-17.3-10M344 408.4l-10-17.3M168 408.4l10-17.3M103.6 344l17.3-10M103.6 168l17.3 10M168 103.6l10 17.3"/>
+    </g>
+    <g stroke="#e0b75e" stroke-width="18" stroke-linejoin="round">
+      <path d="M256 168v104"/>
+      <path d="M214 232l42 42 42-42"/>
+      <path d="M200 300h112"/>
+    </g>
+  </g>
+  <circle cx="335" cy="177" r="13" fill="#74d6ea"/>
+</svg>
